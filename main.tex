@@ -83,21 +83,6 @@
 
 %%%%% Your commands.
 
-% Print verbatim LaTeX commands
-\newcommand{\verbcommand}[1]{\texttt{\textbackslash #1}}
-
-% Basic theorems in Finnish and in English.
-% Remove [chapter] if you wish a simply
-% running enumeration.
-\newtheorem{lause}{Lause}[chapter]
-\newtheorem{theorem}[lause]{Theorem}
-
-% Use the commented version for individually
-% enumerated lemmas
-\newtheorem{apulause}[lause]{Apulause}
-\newtheorem{lemma}[lause]{Lemma}
-% \newtheorem{apulause}{Apulause}[chapter]
-% \newtheorem{lemma}{Lemma}[chapter]
 
 % Definition style
 \theoremstyle{definition}
@@ -146,7 +131,7 @@
 \thesistype{Kandidaatintyö}
 
 \facultyname{Informaatioteknologian ja viestinnän tiedekunta}
-\programmename{Tekniikan kandidaatin tutkinto - Sähkötekniikka}
+\programmename{Tieto- ja sähkötekniikan TkK-tutkinto-ohjelma - Sähkötekniikka}
 
 \keywords%
     {avainsana}
@@ -175,10 +160,12 @@
 %%%%% MAIN MATTER %%%%%
 
 \mainmatter
+\chapter{Suunnitelma}
+\input{tex/suunnitelma.tex}
 
-\chapter{Johdanto}
-\label{ch:johdanto}
-\input{tex/johdanto.tex}
+%\chapter{Johdanto}
+%\label{ch:johdanto}
+%\input{tex/johdanto.tex}
 
 % Add chapters
 

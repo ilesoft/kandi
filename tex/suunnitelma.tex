@@ -1,0 +1,46 @@
+\section{Aiheen valinnan yhteydessä esitetty sisältöhahmotelma}
+  Työssä voisin käsitellä esimerkiksi seuraavia aiheita.
+  \begin{itemize}
+    \item  Mikäli suuri määrä lämpöpumppuja olisi ohjattavissa keskitetysti, voidaan niitä käyttää virtuaalivoimalana tehonkulutushuippujen tasaamiseen. Monipuoliset rajapinnat voisivat mahdollistaa älykkään tehontarpeen priorisoinnin.
+    \item Rajapintojen turvallisuus. Suojaamattomia yhteyksiä voidaan käyttää hyvän lisäksi myös pahaan.
+    \item Listata ja vertailla olemassa olevien lämpöpumppujen sovelluskehittäjille tarjoamia rajapintoja.
+    \item  Toimivatko lämmitysjärjestelmät nykyään luetettavasti myös ilman internet-yhteyttä? Entä tulevaisuudessa?
+    \item Voisin esimerkiksi toteuttaa demotarkoitutksissa pienen käyttöliittymän johonkin valmiiseen lämpöpumppuun, mikäli sopiva ehdokas löytyy
+  \end{itemize}
+\section{Aiheanalyysi}
+
+  Läpöpumppujen määrä kotitalouksissa on noussut runsaasti viimeisten vuosien aikana. Lämpöpumput nähdään ekologisena vaihtoehtona lämpöenergian tuottamiseen. Samaan aikaan sähköntuotanto on tietynlaisessa murroksessa, jossa keskitetystä tuotannosta siirrytään kohti hajautettua ja täten hankalammin ennustettavaa (ja säästä riippuvaa) sähöntuotantoa. Kun tuotannon vaihtelu lisääntyy, myös kulutuksen pitää olla joustavampaa.
+
+  Selvitän työssäni mahdollisuuksia ja tapoja, joilla lämpöpumput voidaan ottaa mukaan tehontarpeen tasaukseen ja älykkään verkon toimintaan. Sitä ennen kuitenkin käydään läpi pumppujen sähkötekniikkaa ja sitä, miten pumput vaikuttavat sähköverkkoon. Teen myös katsauksen tapoihin ja teknologioihin, joilla pumppuja voidaan ohjata etänä. Olisi hienoa, jos saisin tehtyä jonkinlaisen pienen käytännön toteutuksen aiheesta, mutta en ole vielä löytänyt sopiavaa 
+
+\section{sisältösuunnitelma}
+
+\begin{enumerate}
+  \item Johdanto
+  \item Lämpöpumput sähkön käyttäjinä
+    \begin{enumerate}
+      \item Oikosulkumoottorit
+      \item Taajuusmuuttajakäytöt
+      \item Resistiivinen kuorma -- vastukset
+    \end{enumerate}
+  \item Rajapinnat -- eri abstraktiotasot
+  \begin{enumerate}
+    \item Smart Grid
+    \item matalan tason kommunikointi
+  \end{enumerate}
+  \item lämpöpumppujen ohjauksella saavutettavat hyödyt
+  \item käytännön toteutus tai simulointi
+  \item yhteenveto
+\end{enumerate}
+
+
+
+\section{Aineistoja ja lähteitä}
+  \begin{itemize}
+    \item Perustietoa lämpöpumpuista. Luentokalvot kurssilta DEE-53100. \parencite{kummu}
+    \item Yleiskästyksen luontia niistä ongelmista, mihin rajapintojen hyödyntämisellä voidaan vaikuttaa. \parencite[Luku 3]{rautiainen}
+    \item Mielenkiintoista tietoa aiheesta. Johdattaa tutkimaan, mitä tarkoitetaan termillä \emph{SG-ready}. \parencite{ModelBasedFlexibilityAssessment}
+    \item Käsitteleen myös muita kuorman tasaukseen liittyviä asioita \parencite{ShenJiangLi}
+    \item Lisää aiheesta SG-ready \parencite{fischerTriebelSelinger}
+    \item Modbus \parencite{sousaPortugal}
+  \end{itemize}
