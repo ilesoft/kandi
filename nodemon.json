@@ -1,0 +1,5 @@
+{
+    "ignore": [],
+    "watch": ["./tex/liite.tex", "main.tex"],
+    "exec": "pdflatex main.tex"
+}

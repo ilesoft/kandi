@@ -257,59 +257,28 @@
 
 %%%%% COMMAND DEFINITIONS %%%%%
 
-% Functional language selection
-\newcommand{\xselectlanguage}[1]{%
-  \begingroup\edef\x{\endgroup
-    \noexpand\selectlanguage{#1}}\x
-}
-
 % \title command
-\renewcommand{\title}[2]{%
-    \gdef\@title{#1}
-    \gdef\@othertitle{#2}
-}
-\renewcommand{\@title}[1]{
-    \@latex@warning@no@line{No \noexpand\title given.}
-}
-\newcommand{\@othertitle}[1]{
-    \@latex@warning@no@line{No \noexpand\othertitle given.}
+\renewcommand{\title}{%
+    \gdef\@title
 }
 
 % \subtitle command
-\newcommand{\subtitle}[2]{%
-    \gdef\@subtitle{#1}
-    \gdef\@othersubtitle{#2}
+\newcommand{\subtitle}{%
+    \gdef\@subtitle
 }
-\newcommand{\@subtitle}[1]{
-    \@latex@warning@no@line{No \noexpand\subtitle given.}
-}
-\newcommand{\@othersubtitle}[1]{
-    \@latex@warning@no@line{No \noexpand\othersubtitle given.}
-}
+
 
 % \thesistype command
-\newcommand{\thesistype}[2]{
-    \gdef\@thesistype{#1}
-    \gdef\@otherthesistype{#2}
-}
-\newcommand{\@thesistype}[1]{%
-    \@latex@warning@no@line{No \noexpand\thesistype given.}
-}
-\newcommand{\@otherthesistype}[1]{%
-    \@latex@warning@no@line{No \noexpand\otherthesistype given.}
+\newcommand{\thesistype}{
+    \gdef\@thesistype
 }
 
+
 % \facultyname command
-\newcommand{\facultyname}[2]{
-    \gdef\@facultyname{#1}
-    \gdef\@otherfacultyname{#2}
+\newcommand{\facultyname}{
+    \gdef\@facultyname
 }
-\newcommand{\@facultyname}[1]{
-    \@latex@warning@no@line{No \noexpand\facultyname given.}
-}
-\newcommand{\@otherfacultyname}[1]{
-    \@latex@warning@no@line{No \noexpand\otherfacultyname given.}
-}
+
 
 % \examiner command
 
