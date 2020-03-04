@@ -70,8 +70,10 @@
 % compilation time.
 
 % Graphs
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.15}
+
+\usepackage{graphicx}
 
 % Subfigures and wrapping text
 \usepackage{subcaption}
@@ -144,7 +146,7 @@
 
 %%%%% Lists of figures, tables, listings and terms.
 
-%\listoffigures
+\listoffigures
 %\listoftables
 %\lstlistoflistings
 
@@ -161,7 +163,9 @@
 %\label{ch:johdanto}
 %\input{tex/johdanto.tex}
 
-% Add chapters
+\chapter{Lämpöpumput sähkön käyttäjinä}
+\label{ch:pumput_sahkon_kayttajina}
+\input{tex/pumput_sahkon_kayttajina.tex}
 
 %\chapter{Yhteenveto}
 %\label{ch:yhteenveto}
