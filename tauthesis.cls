@@ -365,7 +365,7 @@ The originality of this thesis has been checked using the Turnitin OriginalityCh
 \newcommand{\@prefacename}{Alkusanat}
 \newcommand{\@originalitytext}{\@finoriginalitytext}
 \newcommand{\@otheroriginalitytext}{\@engoriginalitytext}
-\newcommand{\@logofile}{tau-logo-fin.eps}
+\newcommand{\@logofile}{tau-logo-hand.eps}
 
 
 % Make the title
