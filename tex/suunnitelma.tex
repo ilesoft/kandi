@@ -4,27 +4,25 @@
     \item  Mikäli suuri määrä lämpöpumppuja olisi ohjattavissa keskitetysti, voidaan niitä käyttää virtuaalivoimalana tehonkulutushuippujen tasaamiseen. Monipuoliset rajapinnat voisivat mahdollistaa älykkään tehontarpeen priorisoinnin.
     \item Rajapintojen turvallisuus. Suojaamattomia yhteyksiä voidaan käyttää hyvän lisäksi myös pahaan.
     \item Listata ja vertailla olemassa olevien lämpöpumppujen sovelluskehittäjille tarjoamia rajapintoja.
-    \item  Toimivatko lämmitysjärjestelmät nykyään luetettavasti myös ilman internet-yhteyttä? Entä tulevaisuudessa?
-    \item Voisin esimerkiksi toteuttaa demotarkoitutksissa pienen käyttöliittymän johonkin valmiiseen lämpöpumppuun, mikäli sopiva ehdokas löytyy
+    \item Käytännön osuudesta olen luopunut. Sopivaa kohdetta ei ole tullut vastaan, eivätkä aikataulutkaan ole suotuisia.
   \end{itemize}
 \section{Aiheanalyysi}
 
   Läpöpumppujen määrä kotitalouksissa on noussut runsaasti viimeisten vuosien aikana. Lämpöpumput nähdään ekologisena vaihtoehtona lämpöenergian tuottamiseen. Samaan aikaan sähköntuotanto on tietynlaisessa murroksessa, jossa keskitetystä tuotannosta siirrytään kohti hajautettua ja täten hankalammin ennustettavaa (ja säästä riippuvaa) sähöntuotantoa. Kun tuotannon vaihtelu lisääntyy, myös kulutuksen pitää olla joustavampaa.
 
-  Selvitän työssäni mahdollisuuksia ja tapoja, joilla lämpöpumput voidaan ottaa mukaan tehontarpeen tasaukseen ja älykkään verkon toimintaan. Sitä ennen kuitenkin käydään läpi pumppujen sähkötekniikkaa ja sitä, miten pumput vaikuttavat sähköverkkoon. Teen myös katsauksen tapoihin ja teknologioihin, joilla pumppuja voidaan ohjata etänä. Olisi hienoa, jos saisin tehtyä jonkinlaisen pienen käytännön toteutuksen aiheesta, mutta en ole vielä löytänyt sopivaa kohdetta. Mikäli käyttöliittymän tekeminen ei onistu, olen ajatellut tehdä esimerkiksi simuloinnin tai laskelman ulkoisen ohjauksen mahdollisista vaikutuksista sehköverkon tehopiikkeihin.
+  Selvitän työssäni mahdollisuuksia ja tapoja, joilla lämpöpumput voidaan ottaa mukaan tehontarpeen tasaukseen ja älykkään verkon toimintaan. Sitä ennen kuitenkin käydään läpi pumppujen sähkötekniikkaa ja sitä, miten pumput vaikuttavat sähköverkkoon. Teen myös katsauksen tapoihin ja teknologioihin, joilla pumppuja voidaan ohjata etänä.
 
   Rajapintojen hyödyntämisellä on myös huonot puolensa. Yhtenä näkökulmana voisin käsitellä turvallisuutta. Toisena näköulman voisin käsitellä pumppujen ohjaamista esimerkiksi sähkön hinnan perusteella. Tämä saatta aiheuttaa kuormituspiikkejä verkkoon.
 
 \section{aikataulu}
+
   \begin{itemize}
-    \item[viikko 7] Lähteiden kahlaaminen lävitse ja uusien etsiminen. Eka tapaaminen ohjaajan kanssa
-    \item[viiko 8] Käytännön osuuden lyöminen lukkoon.
-    \item[viikko 9] kappale 2
-    \item[viiko 10] kappale 3
-    \item[viiko 11] kappale 4
-    \item[viiko 12] Johdanto
-    \item[viiko 13] kauhea kiire
-    \item[2020-03-29] eka palautus
+    \item[alkuvuosi] Lähteiden kahlaaminen lävitse ja uusien etsiminen. Eka tapaaminen ohjaajan kanssa.
+    \item[maalis-huhti] Ensimmäisen osuuden kirjoittaminen ja lähetys tarkastettavaksi.
+    \item[nykyhetki] Suunnitelman tarkastus. Jatkan muiden aiheiden parissa.
+    \item[viikko 25] Englannin kurssi päättyy, jatkan siitä mihin jäin huhtikuussa. \item[viikot 25 -- 31] Kirjoitan kappaleita eteenpäin. Käyn samalla kuitenkin täysipäiväisesti töissä, joten yksityiskohtaisen aikataulun laatiminen tuntuu turhalta ja tapahtuisi ainoastaan henkilökuntaa varten. Voin kuitenkin laskea vauhdiksi noin $ \frac{4 \mathrm{ kappaletta}}{ 7 \mathrm{ viikkoa}} \approx  0.57 \frac{\mathrm{kappaletta}}{\mathrm{viikossa}}$
+    \item[viiko 31] kauhea kiire
+    \item[< 2020-08-02] (toinen) eka palautus
   \end{itemize}
 
 
@@ -47,14 +45,20 @@
   \begin{enumerate}
     \item mahdolliset haitat.
   \end{enumerate}
-  \item käytännön toteutus, laskelma tai simulointi
+  \item sovellukset
   \item yhteenveto
 \end{enumerate}
 
 
 
 \section{Aineistoja ja lähteitä}
+
+  Aineistoa on työn edetessä kertynyt alla olevien lisäksi runsaasti. Olen myös työparini Nikon kanssa jakanut lähteitä. En kuitenkaan kopio tähän koko bib-tiedostoani, vaan tyydyn luetteloimaan jo työn alkuvaiheessa löytämäni lähteet.
+
+  Töyhön tulevat kuvat ja kaaviot pyrin piirtämään itse, tämä johtuu pääosin aihetta kohtaan heränneestä mielenkiinnosta.
+
   \begin{itemize}
+
     \item Perustietoa lämpöpumpuista. Luentokalvot kurssilta DEE-53100. \parencite{kummu}
     \item Yleiskästyksen luontia niistä ongelmista, mihin rajapintojen hyödyntämisellä voidaan vaikuttaa. \parencite[Luku 3]{rautiainen}
     \item Mielenkiintoista tietoa aiheesta. Johdattaa tutkimaan, mitä tarkoitetaan termillä \emph{SG-ready}. \parencite{ModelBasedFlexibilityAssessment}
