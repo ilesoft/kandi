@@ -1,5 +1,8 @@
 {
     "ignore": [],
-    "watch": ["./tex/suunnitelma.tex", "main.tex", "./tex/pumput_sahkon_kayttajina.tex"],
+    "watch": ["./tex/suunnitelma.tex",
+              "main.tex",
+              "./tex/pumput_sahkon_kayttajina.tex",
+              "./tex/johdanto.tex"],
     "exec": "pdflatex main.tex"
 }

@@ -93,7 +93,7 @@
 %%%%% Citation information.
 
 \addbibresource{tex/ilmari_references.bib}
-\addbibresource{tex/niko_references.bib}
+% \addbibresource{tex/niko_references.bib}
 
 \hypersetup{hidelinks}
 
@@ -106,7 +106,7 @@
 %%%%% Thesis information and title page.
 
 \title{Lämpöpumppujen ja aurinkoinventtereiden kommunikaatiorajapinnat ja niiden hyödyntämismahdollisuudet}
-\subtitle{Luonnos: versio 1}
+\subtitle{Luonnos: versio 3}
 
 % The author name.
 \author{Ilmari Marttila ja Niko Kangasniemi}
@@ -121,7 +121,7 @@
 \examiner{Prof. Sami Repo}
 
 % The finishing date of the thesis (YYYY-MM-DD).
-\finishdate{2020}{01}{29}
+\finishdate{2020}{03}{29}
 
 
 \thesistype{Kandidaatintyö}
@@ -156,20 +156,33 @@
 %%%%% MAIN MATTER %%%%%
 
 \mainmatter
-% \chapter{Suunnitelma}
+\chapter*{Huomioita}
+\label{alkusanat}
+\input{tex/alkusanat.tex}
+
+% \chapter*{Suunnitelma}
+% \label{Suunnitelma}
 % \input{tex/suunnitelma.tex}
 
-%\chapter{Johdanto}
-%\label{ch:johdanto}
-%\input{tex/johdanto.tex}
+\chapter{Johdanto}
+\label{ch:johdanto}
+\input{tex/johdanto.tex}
 
 \chapter{Lämpöpumput sähkön käyttäjinä}
 \label{ch:pumput_sahkon_kayttajina}
 \input{tex/pumput_sahkon_kayttajina.tex}
 
-%\chapter{Yhteenveto}
-%\label{ch:yhteenveto}
-%\input{tex/yhteenveto.tex}
+\chapter{Rajapinnat -- eri abstractiotasot}
+\label{ch:rajapinat}
+\input{tex/rajapinnat.tex}
+
+\chapter{Sovellukset}
+\label{ch:sovellukset}
+\input{tex/sovellukset.tex}
+
+\chapter{Yhteenveto}
+\label{ch:yhteenveto}
+\input{tex/yhteenveto.tex}
 
 \printbibliography[heading=bibintoc]
 
