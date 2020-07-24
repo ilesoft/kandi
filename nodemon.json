@@ -3,6 +3,6 @@
     "watch": ["./tex/suunnitelma.tex",
               "main.tex",
               "./tex/pumput_sahkon_kayttajina.tex",
-              "./tex/johdanto.tex"],
+              "./tex/sovellukset.tex"],
     "exec": "pdflatex main.tex"
 }

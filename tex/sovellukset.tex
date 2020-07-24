@@ -1,7 +1,34 @@
+Lämpöpumppujen kommunikaatiorajapintoja voidaan hyödyntää useaan eri tarkoitukseen. Yksittäisten lämpöpumppujen monitorointiin ja ohjaukseen on ollut pitkään olemassa erilaisia ratkaisuja. \marginpar{Selvitä historiaa.} Suurempia hyötyjä saadaan kuitenkin useiden useiden yksiköiden muodostamien lämpöpumppupoolien ohjaamisesta.
+
+
+\section{Etämonitorointi ja -ohjaus}
+
+  Ilmeisin tapa hyödyntää lämpöpumppujen kommunikointirajapintoja on etämonitorointi ja -ohjaus.
+
+  Etämonitoroinnilla tarkoitetaan lämpöpumpun toiminnan seuraamista etänä. Seurattavia asioita voivat olla esimerkiksi:
+  \begin{itemize}
+    \item järjestelmässä kiertävien aineiden ja mahdollisten varaajien lämpötilat,
+    \item kompressorin tai sähkövastuksen käyttö,
+    \item ulko- ja sisälämpötila,
+    \item ja erilaiset hälytykset.
+  \end{itemize} \parencite{Latomaki}
+  Esimerkiksi lämpöpumpun käyttäjän ollessa poissa kotoa, pystyy hän siitä huolimatta varmistamaan kotinsa lämpötilan ja järjestelmien toimivuuden. Myöskin virhetilanteissa pystytään reagoimaan nopeammin.
+
+  Kun lämpöpumppua pystytään monitoroinnin lisäksi myös ohjaamaan etänä, puhutaan etäohjauksesta. Toisin kuin pelkästä monitoroinnista, lämpöpumpun etäohjauksesta saattaa olla enemmän käytännön hyötyä ,yös omakotitaloasujalle. Etäohjauksella voidaan saavuttaa energian säästöä eri tavoilla. Etäohjaus mahdollistaa muunmuassa matalamman sisälämpötilan ylläpitämisen asukkaiden ollessa poissa, minkä jälkeen voidaan etäohjauksella nostaa asunnon lämpötilaa juuri ennen asukkaiden paluuta kotiin. Kesällä sama periaate pätee jäähdytykseen, mikäli käytettävä lämpöpumppu toimii myös jäähdyttävänä järjestelmänä. Etäohjaussovelluksesta on myöskin helpompaa tehdä intuitiivinen käyttää, koska käyttöliittymä voidaan tuoda kiinteästi lämpöpumpun yhteyteen asennetuista käyttöliittymistä käyttäjän omalle laitteelle.
+
+  kommunikointi lämpöpumpun ja asiakkaan päätelaitteen, joka voi olla esimerkiksi puhelin tai tietokone, voi tapahtua monella erilaisella tavalla. Monet lämpöpumppuvalmistajat \marginpar{etsi joku} tarjoavat lämpöpumppuihinsa lisäpalveluna etäohjaustoiminnallisuutta, joka näyttäytyy käyttäjälle esimerkiksi mobiilisovelluksena tai selaimessa käytettävänä verkkosovelluksena. \marginpar{taloautomaatiokappale} Lämpöpumpputoimittajan tarjoamissa ratkaisuissa ei vaadita käyttäjältä yleensä sen suurempaa perehtymistä tai asiantuntemusta.
+
+  Lämpöpumpun etäohjaus voidaan toteuttaa myös itse, mikä vaatii käyttäjältä enemmän asiantuntemusta. Tällöin pitää ohjattavan lämpöpumpun tarjota jokin ohjausrajapinta, esimerkiksi modBUS-väylä tai vastaava, \marginpar{mikä helvetti} tai vähintäänkin lämpöpumpun pitää tukea tämän mahdollistavaa laajennusta. Käyttäjän pitää itse toteuttaa ainakin ohjauslogiikka, käyttöliittymä ja päättää minkälaista palvelinta haluaa ylläpitää näiden mahdollistamiseksi.
+
+  Yksittäisen lämpöpunpun ohjauksella saavutettavat hyödyt ovat lähinnä yksittäissen omakotitalokäyttäjän saavuttamia säästöjä tai vastaavasti teollisuudessa tapahtuvaa järjestelmien hallinnasta saavutettavia etuja. Merkittävämmät lämpöpumppujen rajapintoja hyödyntävät sovellukset koskevat hyödyt saavutetaan, kun ohjattavia lämpöpumppuja on useampia.
+
 \section{kysyntäjousto}
 
+  Normaalissa keskitetyssä sähköenergiajärjestelmässä sähkötehon kulutus vaihtelee muunmuassa vuodenajan, vuorokaudenajan ja sään mukaan. Myös valmistavan teollisuuden prosessien tila saattaa vaikuttaa merkittävästi järjestelmän tehonkulutukseen.
 
-\section{Virtuaalivoimalat}
 
 
-\section{Mahdolliset haittavaikutukset}
+\subsection{Virtuaalivoimalat}
+
+
+\subsection{Mahdolliset haittavaikutukset}
