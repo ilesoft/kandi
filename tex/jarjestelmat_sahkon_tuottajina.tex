@@ -1,5 +1,7 @@
 Aurinkosähköjärjestelmät koostuvat aurinkopaneeleista, aurinkoinverttereistä sekä mahdollisista energiavarastoista. Riippuen järjestelmästä, aurinkopaneeliketjuun tai yk-sittäisiin paneeleihin voidaan kytkeä myös DC/DC-muunnin. Tästä saadaan lisähyötyjä varjostustilanteissa tai epätasaisessa auringonpaisteessa.  Kuvassa 1 näkyy aurin-kosähköjärjestelmän lohkokaavio, joka esittää verkkokytketyn järjestelmän komponentteja. 
 
+Järjestelmä tuottaa energiaa vain tiettyyn aikaan päivästä, ja sen tuottoteho voi vaihdella hyvin nopeasti säätilasta riippuen. Kotitaloudessa ylimitoitetut järjestelmät, joissa ei ole hyödynnetty kommunikaatiorajapintoja, syöttävät huipputehoaikana sähköä verkkoon päin. Kommunikaatiorajapintoja hyödyntämällä kotitaloudet voisivat hyödyntää tämän energian itse, liittämällä aurinkosähköjärjestelmän esimerkiksi kodin automaatioon.
+
 Järjestelmän koko, mahdolliset staattiset varjostuskohdat sekä tulevaisuuden laajenta-mistarpeet vaikuttavat järjestelmän suunnitteluun. Invertterin valinta vaikuttaa laite- ja asennuskustannuksiin sekä järjestelmän päivittäiseen energiantuotantoon, mutta myös järjestelmän turvallisuuteen ja suojalaitteiden tarpeeseen. Inverttereiden eri vaihtoehtoja käsitellään myöhemmin omassa kappaleessaan.
 
 Osa kaupallisista järjestelmistä ylittää 1MW tehon. Tällaisille järjestelmille Fingrid asettaa rajoituksia kommunikaation reaaliaikaisuuden osalta; verkonhaltijan on lähetettävä jär-jestelmien mittaustietoja enintään 60 sekunnin päivityssyklillä. Tällöin verkonhaltijan vas-tuulla on toimittaa järjestelmään mittarit täyttääkseen Fingridin vaatimukset reaaliaikaisuudesta.  
@@ -60,3 +62,7 @@ Osa kaupallisista järjestelmistä ylittää 1MW tehon. Tällaisille järjestelm
 
   Modbusin hyödyntäminen mahdollistaa muiden valmistajien tuotteiden kommunikaation inverttereiden kanssa. Yhteinen standardi helpottaa suurissa järjestelmissä eri valmista-jien tuotteiden yhteensopivuuden kanssa, mutta ylipäätään Modbusin käyttö antaa mahdollisuuden kolmannen osapuolen tuotteiden liittämiseen. 
 
+\section{Järjestelmien tuotto-ominaisuudet}
+  Aurinkosähköjärjestelmät ovat sähköntuottajina teholtaan nopeasti muuttuvia. Niiden tuoton ennustaminen on jokseenkin mahdollista päivätasolla, mutta tunti- ja minuuttitason ennustaminen on haastavaa, jopa mahdotonta. Nykyisellä keskitettyyn sähköntuotantoon rakennetulla verkolla tämä aiheuttaa kuormitusta ja lisää säätövoiman tarvetta huomattavasti. 
+  
+  Säätövoiman tarvetta voidaan helpottaa energiavarastojen avulla, jolloin energiantuotantoa voidaan "jatkaa" muutama tunti myöhemmäksi, jolloin myös hitaammin reagoivia voimalaitoksia voidaan hyödyntää paremmin säätövoimana. Energiavarastot tasaavat myös aurinkosähkön tuotannon ailahtelevuutta ja lisäävät ennustettavuutta. 
