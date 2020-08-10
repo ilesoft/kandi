@@ -71,7 +71,7 @@
     \end{itemize}
     Edellisistä Modbus Plus on Schneider Electricin hallinnoima, eikä se ole avoimesti saatavilla. Modbus Plus on oma Modbusista eroava standardinsa, jota ei tässä käsitellä enempää.\parencite{seCom}
 
-    Taulukossa \ref{rakenne} on Modbus-protokollaperhettä verrattu \gls{OSI}-malliin. Modbus-protokollan ylempi kerros, eli viestintäkerros sijoittuu \gls{OSI}-mallissa kerroseen 7, eli sovelluskerrokseen. Sovelluskerroksen toimintaa on esitelty edellisessä kappaleissa. Sarjaväyläversiossa alempi kerros taas sijoittuu \gls{OSI}-mallissa kerrokseen 2 ja Modbus TCP/IP:n tapauksessa kerrokseen 5\footnote{\gls{OSI}-mallin teoreettisesta luonteesta johtuen tästä voinee esittää eroavia mielipiteitä.}.
+    Taulukossa \ref{rakenne} on Modbus-protokollaperhettä verrattu \gls{OSI}-malliin. Modbus-protokollan ylempi kerros, eli \gls{MBAP} sijoittuu \gls{OSI}-mallissa kerroseen 7, eli sovelluskerrokseen. \gls{MBAP}:n toimintaa on esitelty edellisessä kappaleissa. Sarjaväyläversiossa alempi kerros sijoittuu \gls{OSI}-mallissa kerrokseen 2 ja Modbus TCP/IP:n tapauksessa kerrokseen 5\footnote{\gls{OSI}-mallin teoreettisesta luonteesta johtuen tästä voinee esittää eroavia mielipiteitä.}.
     \begin{table}
       \centering
       \caption[Modbus-protokollan rakenne ja \gls{OSI}-malli]{Modbus-protokollan rakenne ja sen sovitus \gls{OSI}-malliin.\parencite{osi, modbusSerialSpec, modbusTCPIPSpec}}
@@ -89,10 +89,14 @@
       \label{rakenne}
     \end{table}
 
-    Protokollan ylempi kerros eli \gls{MBAP} on kaikille Modbus-versioille yhteinen ja se mahdollistaa viestinnän laitteiden kesken erilaisten verkkojen ylitse. Välittettävät funktiokoodit ja data pakataa sovelluskerroksen toimesta PDU:ksi. Alemmassa keroksessa muodostetaan \gls{ADU}(application data unit), joka sisältää PDU:n lisäksi kohdelaitteen osoitteen ja tarkistussumman tai jos kyseessä on Modbus-TCP, \gls{MBAP}-otsikon. Erilaiset ADU:t on esitelty kuvassa \ref{fig:adu}.
+    \gls{MBAP} on kaikille Modbus-versioille yhteinen ja se mahdollistaa viestinnän laitteiden kesken erilaisten verkkojen ylitse. Välittettävät funktiokoodit ja data pakataa \gls{MBAP}:n toimesta PDU:ksi. Alemmassa keroksessa muodostetaan \gls{ADU}(application data unit), joka sisältää PDU:n lisäksi kohdelaitteen osoitteen ja tarkistussumman tai jos kyseessä on Modbus-TCP, \gls{MBAP}-otsikon. Erilaiset ADU:t on esitelty kuvassa \ref{fig:adu}.
     \begin{figure}[h]
       \centering
       \includegraphics[width=1\textwidth]{figures/adu}
       \caption[ADU-tyypit]{Erilaiset ADU-tyypit.  Perustuen lähteisiin \parencite{modbusTCPIPSpec, modbusSerialSpec}}
       \label{fig:adu}
     \end{figure}
+
+    Sarjaväylän yli toimivassa Modbusissa ADU:t siirretään käyttäen RS-485-standardia noudattavaa väylää tai RS-232-väylää pitkin. Oletuksena Modbus-standardi kehoittaa laitevalmistajia toteuttamaan ainakin RS-485-rajapinnan, RS-232-rajapinnan ollessa vapaaehtoinen.
+
+    Modbus TCP/IP:tä käytettäessä Modbus-liikenne voi kulkea normaalin Internet-liikenteen mukana, mikä tekee siitä huomattavan joustavan ratkaisun. TCP-portti 502 on varattu Modbus-sovelluksille.\parencite{modbusTCPIPSpec} Koska ADU:t lähetetään TCP-kehyksessä, niihin ei tarvitse laskea eikä lisätä tarkistussummaa. TCP-protokolla huolehtii paketin (kehys + ADU) perille pääsystä ja mahdollisista uudelleenlähetyksistä. Tietosuojasta voidaan huolehtia käyttämällä kommunikointiin \gls{VPN}-yhteyttä. Toinen turvallisuutta parantava keino on käyttää komminikointiin MODBUS/TCP Security -standardin mukaista TLS-salausta, jolloin liikenne kohdistetaan TCP-porttiin 802\parencite{modbusTCPIPTLSSpec}.

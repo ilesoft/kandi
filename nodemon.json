@@ -3,6 +3,7 @@
     "watch": ["./tex/suunnitelma.tex",
               "main.tex",
               "./tex/pumput_sahkon_kayttajina.tex",
-              "./tex/sovellukset.tex"],
+              "./tex/sovellukset.tex",
+              "./tex/rajapinnat.tex"],
     "exec": "pdflatex main.tex"
 }
