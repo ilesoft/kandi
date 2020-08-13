@@ -136,7 +136,7 @@
 \RequirePackage{csquotes}
 
 % Powerful color package
-\RequirePackage{xcolor}
+\RequirePackage[table]{xcolor}
 \definecolor{taupurple}{RGB}{78,0,148}
 
 % Date and time handling
