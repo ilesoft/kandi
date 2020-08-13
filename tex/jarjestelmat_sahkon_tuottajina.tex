@@ -4,20 +4,20 @@ Järjestelmä tuottaa energiaa vain tiettyyn aikaan päivästä, ja sen tuottote
 
 Järjestelmän koko, mahdolliset staattiset varjostuskohdat sekä tulevaisuuden laajenta-mistarpeet vaikuttavat järjestelmän suunnitteluun. Invertterin valinta vaikuttaa laite- ja asennuskustannuksiin sekä järjestelmän päivittäiseen energiantuotantoon, mutta myös järjestelmän turvallisuuteen ja suojalaitteiden tarpeeseen. Inverttereiden eri vaihtoehtoja käsitellään myöhemmin omassa kappaleessaan.
 
-Osa kaupallisista järjestelmistä ylittää 1MW tehon. Tällaisille järjestelmille Fingrid asettaa rajoituksia kommunikaation reaaliaikaisuuden osalta; verkonhaltijan on lähetettävä jär-jestelmien mittaustietoja enintään 60 sekunnin päivityssyklillä. Tällöin verkonhaltijan vas-tuulla on toimittaa järjestelmään mittarit täyttääkseen Fingridin vaatimukset reaaliaikaisuudesta.
+Osa kaupallisista järjestelmistä ylittää 1MW tehon. Tällaisille järjestelmille Fingrid asettaa rajoituksia kommunikaation reaaliaikaisuuden osalta; verkonhaltijan on lähetettävä järjestelmien mittaustietoja enintään 60 sekunnin päivityssyklillä. Tällöin verkonhaltijan vas-tuulla on toimittaa järjestelmään mittarit täyttääkseen Fingridin vaatimukset reaaliaikaisuudesta. \parencite{VJV2018} 
 
 \section{Aurinkopaneelit}
-  Aurinkopaneeleiden toiminta perustuu valosähköiseen ilmiöön. Ne koostuvat suuresta määrästä sarjaan kytkettyjä aurinkokennoja, joista jokainen tuottaa tyypillisesti täydessä auringonpaisteessa hieman alle 5 W tehon noin 0,5 V jännitteellä.
+  Aurinkopaneeleiden toiminta perustuu valosähköiseen ilmiöön. Ne koostuvat suuresta määrästä sarjaan kytkettyjä aurinkokennoja, joista jokainen tuottaa tyypillisesti täydessä auringonpaisteessa hieman alle 5 W tehon noin 0,5 V jännitteellä. \parencite{Messenger}
 
-  Aluksi, kun aurinkosähköjärjestelmät olivat pääosin verkosta irti kytkettyjä järjestelmiä, paneelit koostuivat 36 kennosta, koska tuon ajan akut olivat pääosin 12 V lyijyakkuja, joiden latausjännite vaihtelee 14–16 V välillä. Nykyään, kun aurinkosähköjärjestelmät ovat suurimmalta osin verkkoon kytkettyjä, aurinkopaneelien kennojen lukumäärä voi olla huomattavasti suurempi kuin ennen, riippuen järjestelmässä käytettävien invertte-reiden sisääntulojännitteestä.
+  Aluksi, kun aurinkosähköjärjestelmät olivat pääosin verkosta irti kytkettyjä järjestelmiä, paneelit koostuivat 36 kennosta, koska tuon ajan akut olivat pääosin 12 V lyijyakkuja, joiden latausjännite vaihtelee 14–16 V välillä. Nykyään, kun aurinkosähköjärjestelmät ovat suurimmalta osin verkkoon kytkettyjä, aurinkopaneelien kennojen lukumäärä voi olla huomattavasti suurempi kuin ennen, riippuen järjestelmässä käytettävien inverttereiden sisääntulojännitteestä. \parencite{Messenger}
 
-  Kennot ryhmitellään usein moduuleiksi, joiden kanssa rinnan kytketään ohitusdiodit. Jos kennot varjostuvat, ohitusdiodi ohittaa kyseisen moduulin, jossa varjostuneet kennot si-jaitsevat, jolloin se ei aiheuta häviöitä muualla rajoittamalla muiden moduulien tai panee-leiden virtaa. Usein aurinkopaneelit ketjutetaan tarvittavan jännitteen saamiseksi, jolloin ohitusdiodien apu varjostustilanteissa on erittäin tärkeää, sillä muuten varjostuskohta ra-joittaisi koko paneeliketjun virtaa.
+  Kennot ryhmitellään usein moduuleiksi, joiden kanssa rinnan kytketään ohitusdiodit. Jos kennot varjostuvat, ohitusdiodi ohittaa kyseisen moduulin, jossa varjostuneet kennot sijaitsevat, jolloin se ei aiheuta häviöitä muualla rajoittamalla muiden moduulien tai paneeleiden virtaa. Usein aurinkopaneelit ketjutetaan tarvittavan jännitteen saamiseksi, jolloin ohitusdiodien apu varjostustilanteissa on erittäin tärkeää, sillä muuten varjostuskohta rajoittaisi koko paneeliketjun virtaa. \parencite{Willeke&Weber}
 
   Aurinkokennojen ja -paneelien toimintakäyrinä käytetään usein virta-jännite -käyrää ja siitä johdettua teho-jännite (engl. P-V) -käyrää. Kuten kuvasta 2 nähdään, P-V-käyrän huippukohdan sijainti vaihtelee valaisutehon mukaan. Tätä käyrän huippukohtaa kutsutaan huipputehopisteeksi (engl. maximum power point, MPP). Se näyttää jännitteen, jolla saavutetaan kennon tai paneelin huipputeho kullakin valaisuteholla.
   \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/pvcurve}
-    \caption{JA Solarin erään aurinkopaneelin P-V-käyrä eri valaisutehoilla}
+    \caption{JA Solarin erään aurinkopaneelin P-V-käyrä eri valaisutehoilla \parencite{JASolar}}
   \end{figure}
   Piirillä, jossa on sarjaan kytkettyjä aurinkopaneeleita, on jokaisella paneelilla oma paikal-linen huipputehopisteensä (engl. MPP - Maximum Power Point), mutta myös koko piiril-lä on yhteinen globaali huipputehopiste. Globaali huipputehopiste muuttuu varjostusten ja pilvisyyden mukaan koko järjestelmän tasolla ja sitä tarkkailemalla saadaan selville, millä jännitteellä koko järjestelmästä saadaan suurin teho.
 
@@ -30,14 +30,14 @@ Osa kaupallisista järjestelmistä ylittää 1MW tehon. Tällaisille järjestelm
   \end{equation}
   mukaan virran suhteen neliöllisenä.
 
-  Invertteri, jolla on valmiudet huipputehopisteen seurantaan (engl. MPP Tracking, MPPT), etsii siihen kytketyn aurinkopaneeliryhmän huipputehopistettä aktiivisesti. Pis-teen etsimiseen käytetään monia eri tekniikoita, mutta tämän työn kannalta niiden läpi-käynti ei ole relevanttia. Jos käytetty tekniikka on liian herkkä löytämään huipputehopis-teitä, se voi valita paikallisen pisteen globaalin sijaan ja aiheuttaa huomattavia tehohäviöitä väärän pisteen valinnalla.
+  Invertteri, jolla on valmiudet huipputehopisteen seurantaan (engl. MPP Tracking, MPPT), etsii siihen kytketyn aurinkopaneeliryhmän huipputehopistettä aktiivisesti. Pis-teen etsimiseen käytetään monia eri tekniikoita, mutta tämän työn kannalta niiden läpi-käynti ei ole relevanttia. Jos käytetty tekniikka on liian herkkä löytämään huipputehopis-teitä, se voi valita paikallisen pisteen globaalin sijaan ja aiheuttaa huomattavia tehohäviöitä väärän pisteen valinnalla. \parencite{Joshi&Arora}
 
   Aurinkopaneeliryhmän tehoa voidaan muuttaa kuormavastusta säätämällä. Huipputehopisteelle löytyy aina sitä vastaava ominaisvastus kaavan 2
   \begin{equation}
     R_{CH} = \frac{V_{MPP}}{I_{MPP}}
   \end{equation}
 
-  mukaisesti, ja invertteri säätää kuormavastuksen ominaisvastuksen mukaiseen arvoon, löydettyään järjestelmän huipputehopisteen mukaiset arvot kaavaan.
+  mukaisesti \parencite{Joshi&Arora}, ja invertteri säätää kuormavastuksen ominaisvastuksen mukaiseen arvoon, löydettyään järjestelmän huipputehopisteen mukaiset arvot kaavaan.
 
   Invertterit voidaan jakaa pääosin kolmeen eri tyyppiin järjestelmien topologioiden mu-kaan: keskusinverttereihin, mikroinverttereihin sekä ketjuinverttereihin. Keskusinvertterit ovat kaupallisissa kohteissa käytettäviä, suuritehoisia inverttereitä, kun taas mikroinvert-terit ovat pääosin kuluttajakäyttöön suunnattuja laitteita. Ketjuinvertterit sijoittuvat näiden väliin ja laajan tehoskaalan vuoksi niitä voidaan käyttää molempien tyyppisissä kohteissa.
 
@@ -63,6 +63,6 @@ Osa kaupallisista järjestelmistä ylittää 1MW tehon. Tällaisille järjestelm
   Modbusin hyödyntäminen mahdollistaa muiden valmistajien tuotteiden kommunikaation inverttereiden kanssa. Yhteinen standardi helpottaa suurissa järjestelmissä eri valmista-jien tuotteiden yhteensopivuuden kanssa, mutta ylipäätään Modbusin käyttö antaa mahdollisuuden kolmannen osapuolen tuotteiden liittämiseen.
 
 \section{Järjestelmien tuotto-ominaisuudet}
-  Aurinkosähköjärjestelmät ovat sähköntuottajina teholtaan nopeasti muuttuvia. Niiden tuoton ennustaminen on jokseenkin mahdollista päivätasolla, mutta tunti- ja minuuttitason ennustaminen on haastavaa, jopa mahdotonta. Nykyisellä keskitettyyn sähköntuotantoon rakennetulla verkolla tämä aiheuttaa kuormitusta ja lisää säätövoiman tarvetta huomattavasti.
-
-  Säätövoiman tarvetta voidaan helpottaa energiavarastojen avulla, jolloin energiantuotantoa voidaan "jatkaa" muutama tunti myöhemmäksi, jolloin myös hitaammin reagoivia voimalaitoksia voidaan hyödyntää paremmin säätövoimana. Energiavarastot tasaavat myös aurinkosähkön tuotannon ailahtelevuutta ja lisäävät ennustettavuutta.
+  Aurinkosähköjärjestelmät ovat sähköntuottajina teholtaan nopeasti muuttuvia. Niiden tuoton ennustaminen on jokseenkin mahdollista päivätasolla, mutta tunti- ja minuuttitason ennustaminen on haastavaa, jopa mahdotonta. Nykyisellä keskitettyyn sähköntuotantoon rakennetulla verkolla tämä aiheuttaa kuormitusta ja lisää säätövoiman tarvetta huomattavasti, mikäli aurinkosähkön tuotannon osuus kokonaistuotannosta kasvaa suureksi. 
+  
+  Säätövoiman tarvetta voidaan helpottaa energiavarastojen avulla, jolloin energiantuotantoa voidaan "jatkaa" muutama tunti myöhemmäksi, jolloin myös hitaammin reagoivia voimalaitoksia voidaan hyödyntää paremmin säätövoimana. Energiavarastot tasaavat myös aurinkosähkön tuotannon ailahtelevuutta ja lisäävät ennustettavuutta. 
