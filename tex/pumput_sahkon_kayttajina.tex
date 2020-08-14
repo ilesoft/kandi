@@ -1,6 +1,6 @@
 Tässä kappaleessa perehdytään lämpöpumpun toimintaperiaatteeseen ja siihen miten se käyttäytyy sähkön käyttäjänä. Lämpöpumpun vaikutukset sähköverkkoon riippuvat lämpöpumpun teknisistä ratkaisuista kuten tehon mitoituksesta ja moottorin syöttötavasta. Myös verkon ominaisuudet vaikuttavat pumpun käyttöön.
 
-Lämpöpumppuja käytetään pääasiassa kiinteistöjen lämmitykseen. Toinen kohde on teollisuus, jossa lämpöpumppujen avulla voidaan hyödyntää hukkalämpöä\parencite{Setala}. Lämpöpumppu saattaa olla kiinteistön ainoa lämmitysmuoto, tai se saattaa toimia toisten lämmitysjärjestelmien rinnalla. Lämpöpumpuilla voidaan korvata vanha järjestelmä, millä on vaikutusta kiinteistön lämmityksen aiheuttamaan sähkönkulutuksen luonteeseen. Esimerkiksi korvattaessa vanha öljy- tai puulämmitys lämpöpumpulla, sähkönkulutus kasvaa. Korvatessa suora sähkölämmitys lämpöpumpulla, muuttuu taas sähkön kulutuksen luonne.
+Lämpöpumppuja käytetään pääasiassa kiinteistöjen lämmitykseen ja viilennykseen. Toinen kohde on teollisuus, jossa lämpöpumppujen avulla voidaan tuottaa prosessien tarpesiin lämpöä hyödyntämällä hukkalämpöä\parencite{Setala}. Lämpöpumppu saattaa olla kiinteistön ainoa lämmitysmuoto, tai se saattaa toimia toisten lämmitysjärjestelmien rinnalla. Lämpöpumpuilla voidaan korvata vanha järjestelmä, millä on vaikutusta kiinteistön lämmityksen aiheuttamaan sähkönkulutuksen luonteeseen. Esimerkiksi korvattaessa vanha öljy- tai puulämmitys lämpöpumpulla, sähkönkulutus kasvaa. Korvatessa suora sähkölämmitys lämpöpumpulla, muuttuu taas sähkön kulutuksen luonne. Lämpöpumppu käyttää saman lämmön tuottamiseen vähemmän sähköenergiaa, mutta huipputehot saattavat olla suurempia.
 
 \section{Lämpöpumpun toimintaperiaate}
   Lämpöpumpun eli jäähdytyskoneen toimintaperiaate on käänteinen lämpövoimakoneelle. Lämpöpumppu siirtää lämpöenergiaa viileämmästä ympäristöstä lämpimämpään.\parencite{DincerRosen}
@@ -15,7 +15,7 @@ Lämpöpumppuja käytetään pääasiassa kiinteistöjen lämmitykseen. Toinen k
   \begin{equation}
       \textrm{COP} = \frac{\dot{Q}}{\dot{P}}
   \end{equation}
-  Normaali lämpöpumppujen lämpökerroin vaihtelee välillä 2--5. Lämpökerroin ja sen vaihtelu riippuvat paljolti lämmön lähteestä: maalämpöpumpuilla on yleensä korkeampi lämpökerroin kuin ilmalämpöpumpuilla.\parencite{DincerRosen}
+  Normaali lämpöpumppujen lämpökerroin vaihtelee välillä 2--5. Lämpökerroin ja sen vaihtelu riippuvat paljolti lämmön lähteestä: maalämpöpumpuilla on yleensä korkeampi lämpökerroin kuin ilmalämpöpumpuilla.\parencite{DincerRosen} Myös haluttu lauhduttimen lämpötila vaikkuttaa lämpökertoimeen. Mitä korkeampi lämpötila lauhduttimelle halutaan sen matalampi pumpun lämpökerroin on. \parencite[kuva 7.6]{DincerRosen}
 
   \begin{figure}
     \centering
@@ -24,7 +24,7 @@ Lämpöpumppuja käytetään pääasiassa kiinteistöjen lämmitykseen. Toinen k
     \label{fig:hptp}
   \end{figure}
 
-  Lämpöpumput käyttävät sähköenergiaa lämmön siirtämiseen viileämmästä lämpövarastosta lämpimämpään. Käytetystä sähköenergiasta valtaosa kuluu paineen tuottamiseen kompressorilla, mikä ylläpitää energiaa tuottavaa työkiertoa. Kompressorin lisäksi sähköä kuluu pienempiä määriä vaikkapa lämpöpumpun ohjaukseen, lämmitysjärjestelmän kiertovesipumpun käyttämiseen tai puhaltimen käyttämiseen. Mikäli lämpöpumpun teho on mitoitettu pienemmäksi kuin suurin vaadittu lämmitysteho\footnote{osatehomitoitus}, voidaan tehojen erotus tuottaa tarvittaessa lämpöpumpun yhteyteen asennettavilla sähkövastuksilla. Tällainen ratkaisu lisää huomattavasti järjestelmän sähkönkulutusta suurimman energiantarpeen aikana, jolloin sähköä käytetään muutenkin enemmän.
+  Lämpöpumput käyttävät sähköenergiaa lämmön siirtämiseen viileämmästä lämpövarastosta lämpimämpään. Käytetystä sähköenergiasta valtaosa kuluu paineen tuottamiseen kompressorilla, mikä ylläpitää energiaa tuottavaa työkiertoa. Kompressorin lisäksi sähköä kuluu pienempiä määriä vaikkapa lämpöpumpun ohjaukseen, lämmitysjärjestelmän kiertovesipumpun käyttämiseen tai puhaltimen käyttämiseen. Mikäli lämpöpumpun teho on mitoitettu pienemmäksi kuin suurin vaadittu lämmitysteho\footnote{osatehomitoitus}, voidaan tehojen erotus tuottaa tarvittaessa lämpöpumpun yhteyteen asennettavilla sähkövastuksilla. Tällainen ratkaisu lisää huomattavasti järjestelmän sähkönkulutusta suurimman lämmitystarpeen aikana, jolloin sähköä käytetään muutenkin enemmän. Järjestelmän käyttäminen viilentämiseen taas lisää energian kulutusta, silloin kun sähkön käyttö on muuten todennäköisesti vähäisempää. 
 
   Lämpöpumpuissa kompressorin pyörittämiseen käytetään sähkömoottoria. Vanhemmissa lämpöpumpuissa moottori on useimmiten verkkojännitteeseen kytketty oikosulkumoottori, joka voidaan tarvittaessa varustaa käynnistyksen ohjauksella eli pehmokäynnistimellä. Nykyaikaisemmassa ratkaisuissa oikosulkumoottoria käytetään taajuusmuuttajan avulla.
 
