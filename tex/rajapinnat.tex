@@ -2,7 +2,7 @@
 
   Bundesverband Wärmepumpe e.V. (jäljenpänä BWP) on saksalainen lämpöpuppuyhdistys. BWP ylläpitää lämpöpumppujen ohjaukseen käytettävää rajapintaa määrittävää \gls{SG}-Ready-standardia. \marginpar{vai sääntöä, labelia, tai jotain} \gls{SG}-Ready määrittelee pumpulle neljä eri toimintatilaa, joiden perusteella ulkoinen toimija kykenee ohjaamaan lämpöpumpun toimintaa. Toimintatilat yksi ja kaksi ovat yhteensopivia Saksassa käytetyn muunmuassa lämpöpumppuihin kohdistetutun energiantoimittajien suorittaman ohjauksen (EVU-Sperre\footnote{Energieversorgungsunternehmen}) kanssa. Ohjattava lämpöpumppu voidaan kytkeä energiatoimittajan toimesta pois päältä enimmillään kahdeksi tunniksi kerrallaan. Yhteen vuorokauteen taas voi sijoittua enintään kolme keskeytystä, jotka on pyritään sijoittamaan suurimman kulutuksen hetkiin. Kun kuluttajan tekee sähkönsiirtosopimuksen, johon ohjaus kuuluu, saa hän vastavuoroisesti alennusta sähkönsiirtomaksusta \marginpar{Etsi oikea lähde EVU jutulle ja selvitä energian siirto vs. myynti Saksassa}.\parencite{SGReadyReg}
 
-  SG-Readyn  kolmas ja neljäs toimintatilat ovat sopivia ylituotannon kompensointiin niiden lisätessä lämpöpumppujen sähkönkulutusta. Eri toimintatilat on eritelty taulukossa \ref{sgready}.
+  SG-Readyn  kolmas ja neljäs toimintatila ovat sopivia ylituotannon kompensointiin niiden lisätessä lämpöpumppujen sähkönkulutusta. Eri toimintatilat on eritelty taulukossa \ref{sgready}.
   \begin{table}[h]
     \centering
     \caption[\gls{SG}-Ready toimintatilat]{\gls{SG}-Ready toimintatilat. Perustuu lähteeseen \parencite{SGReadyReg}.}
@@ -79,9 +79,9 @@
 
     Modbus-protokollasta on totetutettu muutamia eri versioita:
     \begin{itemize}
-      \item sarjaväyläversio, joka muodostuu kahdesta muunnelmasta:
+      \item sarjaväyläversio eli Modbus Serial, joka muodostuu kahdesta muunnelmasta:
       \begin{itemize}
-        \item Modbus RTU ja
+        \item Modbus \gls{RTU} ja
         \item Modbus ASCII,
       \end{itemize}
       \item Modbus TCP/IP ja
@@ -93,17 +93,18 @@
     Taulukossa \ref{rakenne} on Modbus-protokollaperhettä verrattu \gls{OSI}-malliin. Modbus-protokollan ylempi kerros, eli \gls{MBAP} sijoittuu \gls{OSI}-mallissa kerroseen 7, eli sovelluskerrokseen. \gls{MBAP}:n toimintaa on esitelty edellisessä kappaleissa. Sarjaväyläversiossa alempi kerros sijoittuu \gls{OSI}-mallissa kerrokseen 2 ja Modbus TCP/IP:n tapauksessa kerrokseen 5\footnote{\gls{OSI}-mallin teoreettisesta luonteesta johtuen tästä voinee esittää eroavia mielipiteitä.}.
     \begin{table}
       \centering
-      \caption[Modbus-protokollan rakenne ja \gls{OSI}-malli]{Modbus-protokollan rakenne ja sen sovitus \gls{OSI}-malliin.\parencite{osi, modbusSerialSpec, modbusTCPIPSpec}}
-      \begin{tabular}{|c|c|ccc|}
-        \hline
-        \multicolumn{2}{|c|}{\gls{OSI}-mali} & \multicolumn{3}{c|}{Modbus protokollaperhe}                                         \\ \hline
-        7       & sovelluskerros       & \multicolumn{3}{c|}{\gls{MBAP} (Modbus-viestintäprotokolla)}                                \\ \hline
-        6       & esityskerros         &                                 &                                   &                 \\ \cline{1-2} \cline{5-5}
-        5       & istuntokerros        &                                 & \multicolumn{1}{c|}{}             & Modbus-\gls{TCP}\\ \cline{1-2} \cline{5-5}
-        4       & kuljetuskerros       &                                 & \multicolumn{1}{c|}{}             & \gls{TCP}       \\ \cline{1-2} \cline{5-5}
-        3       & verkkokerros         &                                 & \multicolumn{1}{c|}{}             & IP              \\ \hline
-        2       & siirtokerros         & \multicolumn{1}{c|}{Modbus-\gls{RTU}} & \multicolumn{1}{c|}{Modbus-\gls{ASCII}} & Ethernet, \dots \\ \hline
-        1       & fyysinen kerros      & \multicolumn{2}{c|}{\gls{RS}-232 / \gls{RS}-485}                                & Ethernet, \dots \\ \hline
+      \caption[Modbus-protokollan rakenne ja \gls{OSI}-malli]{Modbus-protokollan rakenne ja sen sovitus \gls{OSI}-malliin. Modbus-protokollaperhe sinisellä. Perustuu lähteisiin \parencite{osi, modbusSerialSpec, modbusTCPIPSpec}.}
+      \begin{tabular}{|c|c|ccc}
+        \cline{1-2}
+        \multicolumn{2}{|c|}{OSI-mali}                                               & \multicolumn{3}{c}{}                                                                                                                                                                           \\ \hline
+        \multicolumn{1}{|l|}{}                    &                                  & \multicolumn{3}{c|}{\cellcolor{yellow}SunSpec}                                                                                                                                                 \\ \cline{3-5}
+        \multicolumn{1}{|l|}{7}                   & sovelluskerros                   & \multicolumn{3}{c|}{\cellcolor{blue}MBAP (Modbus-viestintäprotokolla)}                                                                                                                         \\ \hline
+        6                                         & esityskerros                     &                                                         &                                                           & \multicolumn{1}{c|}{}                                                    \\ \cline{1-2} \cline{5-5}
+        5                                         & istuntokerros                    &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{\cellcolor{blue}Modbus-\gls{TCP}}                    \\ \cline{1-2} \cline{5-5}
+        4                                         & kuljetuskerros                   &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{\gls{TCP}}                                           \\ \cline{1-2} \cline{5-5}
+        3                                         & verkkokerros                     &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{IP}                                                  \\ \hline
+        2                                         & siirtokerros                     & \multicolumn{1}{c|}{\cellcolor{blue}Modbus-RTU}         & \multicolumn{1}{c|}{\cellcolor{blue}Modbus-ASCII}         & \multicolumn{1}{c|}{Ethernet, \dots}                                     \\ \hline
+        1                                         & fyysinen kerros                  & \multicolumn{2}{c|}{RS-232 / RS-485}                                                                                & \multicolumn{1}{c|}{Ethernet, \dots}                                     \\ \hline
       \end{tabular}
       \label{rakenne}
     \end{table}
@@ -116,7 +117,7 @@
       \label{fig:adu}
     \end{figure}
 
-    Sarjaväylän yli toimivassa Modbusissa ADU:t siirretään käyttäen RS-485-standardia noudattavaa väylää tai RS-232-väylää pitkin. Oletuksena Modbus-standardi kehoittaa laitevalmistajia toteuttamaan ainakin RS-485-rajapinnan, RS-232-rajapinnan ollessa vapaaehtoinen.
+    Sarjaväylän yli toimivassa Modbusissa ADU siirretään käyttäen RS-485-standardia noudattavaa väylää tai RS-232-väylää pitkin. Oletuksena Modbus-standardi kehoittaa laitevalmistajia toteuttamaan ainakin RS-485-rajapinnan, RS-232-rajapinnan ollessa vapaaehtoinen. Modbus \gls{RTU} siirtää datan suoraan bitteinä. Modbus \gls{ASCII}:ssa taas jokainen tavu koodataan kahdeksi heksadesimaalimerkiksi ennen lähetystä, mikä heikentää sen tiedonsiirtokykyä. Modbus-standardi edellyttää, että kaikki laitteet tukevat ainakin Modbus RTU:ta Modbus ASCII:n ollessa suositeltu.\parencite{modbusSerialSpec} 
 
     Modbus TCP/IP:tä käytettäessä Modbus-liikenne voi kulkea normaalin Internet-liikenteen mukana, mikä tekee siitä huomattavan joustavan ratkaisun. TCP-portti 502 on varattu Modbus-sovelluksille.\parencite{modbusTCPIPSpec} Koska ADU:t lähetetään TCP-kehyksessä, niihin ei tarvitse laskea eikä lisätä tarkistussummaa. TCP-protokolla huolehtii paketin (kehys + ADU) perille pääsystä ja mahdollisista uudelleenlähetyksistä. Tietosuojasta voidaan huolehtia käyttämällä kommunikointiin \gls{VPN}-yhteyttä. Toinen turvallisuutta parantava keino on käyttää komminikointiin MODBUS/TCP Security -standardin mukaista TLS-salausta, jolloin liikenne kohdistetaan TCP-porttiin 802\parencite{modbusTCPIPTLSSpec}.
 
