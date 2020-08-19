@@ -120,3 +120,25 @@
     Sarjaväylän yli toimivassa Modbusissa ADU siirretään käyttäen RS-485-standardia noudattavaa väylää tai RS-232-väylää pitkin. Oletuksena Modbus-standardi kehoittaa laitevalmistajia toteuttamaan ainakin RS-485-rajapinnan, RS-232-rajapinnan ollessa vapaaehtoinen. Modbus \gls{RTU} siirtää datan suoraan bitteinä. Modbus \gls{ASCII}:ssa taas jokainen tavu koodataan kahdeksi heksadesimaalimerkiksi ennen lähetystä, mikä heikentää sen tiedonsiirtokykyä. Modbus-standardi edellyttää, että kaikki laitteet tukevat ainakin Modbus RTU:ta Modbus ASCII:n ollessa suositeltu.\parencite{modbusSerialSpec}
 
     Modbus TCP/IP:tä käytettäessä Modbus-liikenne voi kulkea normaalin Internet-liikenteen mukana, mikä tekee siitä huomattavan joustavan ratkaisun. TCP-portti 502 on varattu Modbus-sovelluksille.\parencite{modbusTCPIPSpec} Koska ADU:t lähetetään TCP-kehyksessä, niihin ei tarvitse laskea eikä lisätä tarkistussummaa. TCP-protokolla huolehtii paketin (kehys + ADU) perille pääsystä ja mahdollisista uudelleenlähetyksistä. Tietosuojasta voidaan huolehtia käyttämällä kommunikointiin \gls{VPN}-yhteyttä. Toinen turvallisuutta parantava keino on käyttää komminikointiin MODBUS/TCP Security -standardin mukaista TLS-salausta, jolloin liikenne kohdistetaan TCP-porttiin 802\parencite{modbusTCPIPTLSSpec}.
+
+\section{SunSpec Modbus}
+  SunSpec Modbus on SunSpec Alliancen määrittelemä sovellustason toteutus, joka hyödyntää yleisesti käytössä olevaa Modbus-protokollaa.  Fyysinen Modbus-rajapinta on sisäänrakennettu noin 80\%:iin asennetuista hajautetun energiantuotannon laitteista, joten tämän toteutuksen tuominen suurelle määrälle laitteita on melko yksinkertaista \parencite{SSFactSheet}. 
+  
+  SunSpecin standardi on tehty huomioiden IEC 61850-standardi, mukaan lukien sen 90-7 ja 7-420 -laajennukset, jotka käsittelevät hajautetun energiantuotannon inverttereiden ja konverttereiden toiminnallisuuksia ja kommunikaatiorakennetta hajautetussa energiantuotannossa. Tämän tarkoituksena on helpottaa integraatiota IEC 61850 -standardia hyödyntävien järjestelmien kanssa \parencite{SSTech}. Kuitenkaan SunSpec ei ole nimennyt tietomallin muuttujia täsmälleen samoilla nimillä, kuin 61850-standardi, joten ne eivät ole suoraan yhteensopivia keskenään.
+
+  SunSpecin toteutuksessa on määritelty CIM (yleinen tietomalli), jonka avulla eri valmistajien laitteita voidaan yhdistää samaan järjestelmään. CIM mahdollistaa laiteriippumattomuuden, sillä siinä on määritelty funktioiden toiminta ja niiden käyttö. Tällöin eri valmistajien laitteita voidaan lukea ja ohjata samoilla käskyillä järjestelmän sisällä.
+
+  SunSpec Modbusin määrittelemä CIM on käytössä myös muilla protokollilla, kuten HTTP/XML:lla ja OPC:lla. Koska lähes kaikki tieto SunSpecin standardista perustuu Modbus-protokollaan, muiden tiedonsiirtoprotokollien tarkastelu jätettiin pois. Tiedon puute johtuu mitä luultavimmin Modbusin suuresta suosiosta.
+
+\section{IEC 61850}
+  IEC 61850 on sähköaseman älykkäiden sähkölaitteiden kommunikaatioprotokollia määrittävä standardi. Se on laajasti käytössä sähköasemien tiedonvaihdossa ja sähkönjakelun automaatiossa. Sen laajennukset tähtäävät kuitenkin myös laajempaan käyttöön, sillä standardissa on määritelty myös esimerkiksi hajautetun energiantuotannon ja sähköisen liikkumisen tietomalleja. Edellä mainitun SunSpecin CIM on tehty 61850-90-7 -dokumentin pohjalta, ja se toteuttaakin suuren osan IEC standardin määrittelemistä inverttereiden toiminnallisuuksista. Näitä toiminnallisuuksia ovat esimerkiksi:
+  \begin{itemize}
+    \item Välittömät ohjaustoiminnot, esimerkiksi alasajo- ja käynnistyskomennot
+    \item Loistehonsäädön (Volt/VAR-säätö) tilan muuttaminen 
+    \item Teho taajuuden funktiona -tilan muuttaminen (frequency-watt)
+    \item Toiminnan jatkaminen epätavallisista jännitevaihteluista huolimatta
+    \item Normaalin toiminta-alueen määrittäminen ja irtikytkeytyminen sen ulkopuolella määritellyllä funktiolla
+    \item Käyttäytymistilojen muuttaminen tehon funktiona
+    \item Tehon muuttaminen jännitteen perusteella
+    \item Ajastetut komennot
+  \end{itemize}
