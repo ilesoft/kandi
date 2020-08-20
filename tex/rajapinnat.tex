@@ -142,3 +142,14 @@
     \item Tehon muuttaminen jännitteen perusteella
     \item Ajastetut komennot
   \end{itemize}
+
+  Vaikka IEC 61850 ei ole vielä laajasti käytössä inverttereissä, esimerkiksi SMA tarjoaa Italiassa toimiville inverttereille rajapinnan standardille. Tällä voidaan irrottaa tai kytkeä invertteri verkkoon, tai muuttaa invertterin taajuusrajoja. Italian CEI 0-21 -standardissa vaaditaan inverttereille rajapinta verkonhaltijalle, jonka takia luultavasti tämä ominaisuus on SMA:n ohjekirjassa merkattu vain Italia -ominaisuudeksi. Tämän vaatimuksen lähde tosin ei kertonut omaa lähdettään, joten tätä vaatimusta ei voitu vahvistaa varmaksi, tosin SMA:n erillinen ohjeistus Italialle viittaa siihen. (http://blog.nettedautomation.com/2012/07/iec-61850-in-italy-sma-offers-iec-61850.html)
+
+\section{IEEE 1815 / Distributed Network Protocol 3}
+  DNP3 on teollisuusautomaation kommunikaatioprotokolla, joka määriteltiin alunperin 1993 ja sen kehitys jatkuu edelleen. Vuonna 2008 yhdysvaltalainen valtionvirasto NIST ja voittoa tavoittelematon energia-alan järjestö EPRI näkivät tarpeen rajapinnalle IEC 61850:n ja DNP3:n välille. Koska DNP3 oli vain vakiintunut käytäntö, DNP3:n standardisointi oli tarpeen, jotta yhteistyö ja koordinointi IEC:n kanssa olisi sujuvaa. DNP3 standardoitiinkin IEEE 1815 -standardiksi vuonna 2010, jonka jälkeen siitä on käytetty tuota nimitystä. 
+  
+  DNP3 on yleisesti käytössä sähkö- ja vesiteollisuudessa, mutta muilla teollisuudenaloilla tämän käyttö ei ole yleistä, vaikkakin täysin mahdollista. Pohjois-Amerikassa DNP3 on käytössä sähköverkon SCADA-järjestelmissä, ja se onkin osittain kilpaileva tekniikka IEC 61850:n kanssa. 
+
+  IEEE 1815.1 -dokumentti määrittelee standardisoidun tavan linkittää yhteen data tämän ja IEC-standardin välillä. Tämä mahdollistaa IEC 61850-standardia käyttävien laitteiden lisäyksen IEEE 1815-protokollaiseen järjestelmään. Tämän on Pohjois-Amerikassa tärkeää, sillä siellä on laajasti käytössä IEEE 1815 standardi, mutta koska IEC 61850 on uudempi, sen osuus tulee lisääntymään laitteissa.
+
+  Vuonna 2013 DNP3 julkaisi dokumentin, joka auttaa verkonhaltijoita kommunikoimaan hajautetun energiantuotannon kanssa. Tämä dokumentti kuvaa standardoidun rajapinnan datalle ja joukon protokollapalveluita ja profiileja. Dokumentin kuvaamien profiilien tarkoitus on helpottaa hajautetun energiantuotannon liittämistä DNP3 järjestelmiin. Vuonna 2018 dokumenttia päivitettiin siten, että se lisäksi sisältää toiminnallisten ominaisuuden määrittelyt protokollalle, sekä linkityksen IEC-61850-7-420 tietomallin kanssa. Näiden uudistusten myötä DNP3 protokollaa voidaan käyttää älyinverttereiden ohjaukseen samalla tavalla kuin SunSpeciä tai IEC 61850-standardia, mutta myös käyttää näitä kolmea protokollaa rinnakkain toistensa kanssa.
