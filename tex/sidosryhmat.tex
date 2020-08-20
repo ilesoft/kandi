@@ -12,7 +12,7 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
   Yksi lämpöpumppujen rajapintoihin liittyvistä sidosryhmistä on sähköverkonhaltija eli Suomessa käytännössä sähköverkkoyhtiö. Vuodesta 2009 on Suomessa laki velvoittanut sähköverkkoyhtiöitä asentamaan sähkönkäyttöpaikoille eli sähköä ostavan asiakkaan verkkoliityntään tuntimittauslaitteiston. Asetus myös asettaa vaatimuksia käytetyllä tuntimittauslaittestolle muunmuassa etäluettavuudesta ja -ohjattavuudesta.\parencite{mittariAsetus} Tuntimittauslaitteistosta käytetään usein termiä älymittari tai AMR-mittari. Termi AMR:n viitatessa lähinnä mittarin automaattiseen luentaan, saattaisi parempi nimitys olla AMI-mittari. Lyhenne AMR tarkoittaa mittareiden muodostamaa järjestelmää, jossa tieto liikkuu myös kohti mittareita ja niiden takana olevia kotitalouksia.\parencite{dictOfEnergy}
 
-  Lämpöpumput ovat todennäköisesti verkkoliityntänsä suurimpia kuormia, jonka takia niiden käyttämän sähkön hintaan kohdistuu paineita. Saksalaisessa EVU-Sparre-järjestelmässä lämpöpumppu on sähköntoimittajan ohjattavissa. Kuluttajan saama poiskytkennästä johtuva energiahinnanalennus koskee ainoastaan lämpöpumpun käyttämää sähköä. Tämä tarkoittaa, että älykäs energiamittari, jonka kautta myös lämpöpumpun ohjaaminen tapahtuu, mittaa erikseen lämpöpumpun käyttämän energian.\parencite{enwg, VDEARN4100}
+  Lämpöpumput ovat todennäköisesti verkkoliityntänsä suurimpia kuormia, jonka takia niiden käyttämän sähkön hintaan kohdistuu paineita. Saksalaisessa EVU-Sparre-järjestelmässä lämpöpumppu on sähköntoimittajan ohjattavissa. Kuluttajan saama poiskytkennästä johtuva energiahinnanalennus koskee ainoastaan lämpöpumpun käyttämää sähköä. Tämä tarkoittaa, että energiamittari, jonka kautta myös lämpöpumpun ohjaaminen tapahtuu, mittaa erikseen lämpöpumpun käyttämän energian.\parencite{enwg, VDEARN4100}
 
 \section{Järjestelmän omistaja}
   \begin{itemize}
@@ -22,7 +22,7 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
   Järjestelmän omistajan eli usein käyttäjän suorittama lämpöpumpun monitorointi voidaan toteuttaa eri tavoilla. Hieman edistyneempi käyttäjä saattaa rakentaa lämpöpumppunsa tarjoamiin rajapintoihin liittyvää kotiautomaatioa ja monitorointia. Usein kuitenkin monitorointi ja ohjaus tapahtuu laitevalmistajan tarjoaman mobiili- tai verkkosovelluksen avulla. Sovellukset toteutetaan todennäköisesti pilvipalveluna.
 
-  Integroimalla lämpöpumppu ja aurinkosähköinvertteri taloautomaatioon saavutetaan hyötyjä. Automaation avulla lämpöpumpun käyntijaksojen aiheuttamia tehopiikkejä voidaan kompensoida aurinkosähköinvertterin avulla ja näin vähentää sähkö siirron kustannuksia ja parantaa jännitteen laatua heikoissa sähköerkoissa.
+  Integroimalla lämpöpumppu ja aurinkosähköinvertteri taloautomaatioon saavutetaan hyötyjä. Automaation avulla lämpöpumpun käyntijaksojen aiheuttamia tehopiikkejä voidaan kompensoida aurinkosähköinvertterin avulla ja näin vähentää sähkö siirron kustannuksia ja parantaa jännitteen laatua heikoissa sähköverkoissa.
 
 \section{Järjestelmätoimittaja}
   \begin{itemize}
@@ -32,8 +32,8 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
     \item huoltopalveluiden tarjoaminen monitorointia hyödyntämällä
   \end{itemize}
 
-  Lämpöpumpujärjestelmän toimittaja voi hyödyntää lämpöpumpun rajapintoja huoltopalveluiden tarjontaan ja dianostiikkaan. Seuraamalla pumpun toimintaa toimittaja voi ennustaa ja tilata tarvittavia huoltoja tai korjauksia, jolloin järjestelmän käyttövarmuus paranee. Toimintatapa tuo lisäarvoa ja säästöjä. Esimerkiksi kuluttajan ei tarvitse käyttää aikaa vikojen selvittämiseen tai huoltojen tilaamiseen. Vastaavasti toimittajan/huoltoyrityksen turhat vierailut vähenevät, kun järjestelmän virhetulanteita voidaan selvittää ja nollata etänä. Toimittajan suorittamaa diagnostiikkaa voidaan käyttää myös tuotekehityksen apuna tai luotaessa parempia ennustemalleja sähkön kulutuksesta.
+  Lämpöpumpujärjestelmän toimittaja voi hyödyntää lämpöpumpun rajapintoja huoltopalveluiden tarjontaan ja dianostiikkaan. Seuraamalla pumpun toimintaa toimittaja voi ennustaa ja tilata tarvittavia huoltoja tai korjauksia, jolloin järjestelmän käyttövarmuus paranee. Toimintatapa tuo lisäarvoa ja säästöjä. Esimerkiksi kuluttajan ei tarvitse käyttää aikaa vikojen selvittämiseen tai huoltojen tilaamiseen. Vastaavasti toimittajan/huoltoyrityksen turhat vierailut vähenevät, kun järjestelmän virhetulanteita voidaan selvittää ja nollata etähallintaa hyödyntäen. Toimittajan suorittamaa diagnostiikkaa voidaan käyttää myös tuotekehityksen apuna tai luotaessa parempia ennustemalleja sähkön kulutuksesta.
 
-  \section{Aggregaattori}
+\section{Aggregaattori}
 
-    Vanhastaan sähkömarkkoinoilla on ollut käytännössä kolme toimijaa: Energian myyjä, siirtäjä ja ostaja. Aggregaattori näistä kaikista (mahdollisesti) erillinen toimja, jonka tehtävänä on myydä/toimittaa markkinoille joustoa. Aggregaattori voi ohjata esimerkiksi lämpöpumppupoolia ja käydä kauppaa sen mahdollistamalla kysyntäjoustolla. Avoimia kysymyksiä: Kuka omistaa energian? Mikä laki tämän mahdollistaa ja milloin? Voiko myös verkonhaltija toimia aggregaattorina?
+  Vanhastaan sähkömarkkinoilla on ollut käytännössä kolme toimijaa: Energian myyjä, siirtäjä ja ostaja. Aggregaattori näistä kaikista (mahdollisesti) erillinen toimja, jonka tehtävänä on myydä sähkömarkkinoille joustoa. Aggregaattori voi ohjata esimerkiksi lämpöpumppupoolia ja käydä kauppaa sen mahdollistamalla kysyntäjoustolla.
