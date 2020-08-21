@@ -1,4 +1,8 @@
 main.pdf
+
+esitys/*
+!esitys/index.html
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
