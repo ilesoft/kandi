@@ -42,7 +42,7 @@ Lämpöpumppujen kommunikaatiorajapintoja voidaan hyödyntää useaan eri tarkoi
 
   Energiaa saadaan varastoitua lämmitysjärjestelmiin. Virtuaalivoimalan toimiessa osana lämmitysjärjestelmää, käytetään esimerkiksi lämminvesivaraajaa, sisäilmaa tai kiinteistöä itseään energiavarastona. Kun Virtuaalivoimalaa käytetään kompensoimaan alituotantoa, kytketään lämpöpumppu, lämmitysvastus tai muu vastaava sähköä kuluttava toiminta pois päältä. Lämmityslaitteiden poiskytkemisaika on yleensä maksimissaa muutamia tunteja, minkä ansiosta lämmitettävä kiinteistö tai kohde ei ehdi jäähtymään merkittävästi, eikä esimerkiksi asumismukavuudesta tarvitse tinkiä. Kun taas kompensoidaan ylituotantoa, voidaan esimerkiksi lämpöpumppuja käyttää maksimitehollaan, kunnes lämminvesivaraaja, kiertovesi tai sisäilma saavuttaa asetetun maksimilämpötilansa. Lämpöpuppujen kompressoreiden lisäksi myös lisälämmitysvastuksia voidaan käyttää, jolloin käytetty sähköteho saatta olla jopa kaksinkertainen.
 
-\subsection{huipputehon rajoittaminen}
+\subsection{Huipputehon rajoittaminen}
 
   Osa sähköenergiajärjestelmän kuluista ja päästöistä aiheutuu siirtoverkon rakentamisesta ja ylläpidosta. Rakennettaessa uutta yhteyttä, mitoitetaan sen kuormitettavuus eli sähkönsiirtokyky arvioidun mahdollisen huipputehon mukaan. Suurimman osan ajasta siirtojohdot ovat siis kuormitettuina huomattavasti mitoitustaan pienemmällä kuormalla.\marginpar{sähköverkot-kirja lähteeksi}
 
@@ -54,7 +54,15 @@ Lämpöpumppujen kommunikaatiorajapintoja voidaan hyödyntää useaan eri tarkoi
 
   Voidaan myös ajatella, etteivät lämpöpumput ole kaikkein kriittisimpiä syötettviä kohteita. Mikäli sähköpulan takia on tarpeen rajoittaa kulutusta, on hyvä, jos kuitenkin pystytään takaamaan kriittiset toiminnot, kuten valaistus, kunnallistekniikan toiminta tai kylmälaitteiden käynti. Suomessa useimmissa omakotitaloissa on kuitenkin edelleen tulisija, jolloin lämpöpumppujen jatkuva päälläolo ei ole välttämätöntä lyhyillä, muutaman vuorokauden aikaväleillä. Mikäli sähköpulan aikana voidaan keskitetysti rajoittaa lämpöpuppujen käyttöä, saateetaan vähentää tarvetta alueiden kokonaan jännitteettömiksi kytkemiseen.
 
-\section{Mahdolliset haittavaikutukset}
+\section{Aurinkosähkön kustannustehokas hyödyntäminen}
+
+  Tällä hetkellä aurinkosähkön myynti ei ole kotitalouksissa kannattavaa. Tämän vuoksi tärkeää olisikin käyttää kaikki tuotettu energia itse, jolloin siitä saatu rahallinen hyöty olisi mahdollisimman suuri ja siten takaisinmaksuaika lyhyempi, kuin ylijäämäsähköä myymällä. Tähän voidaan hyödyntää aurinkoinvertterin ja lämpöpumpun kommunikaatiorajapintoja. 
+
+  Monissa inverttereissä on mahdollista ohjata erilaisia kuormanohjausreleitä ohjaussignaaleilla. Tällaisia ohjausmahdollisuuksia ei kuitenkaan usein ole suoraan invertterissä, vaan ne on toteutettu modulaarisena komponenttina, joka voidaan ostaa ja asentaa invertteriin erikseen. Ohjaussignaaleita voidaan antaa eri kriteereillä, esimerkiksi aktivoida signaali määrätyn tuottotehon ylittyessä ja deaktivoida se, kun tietty tehotaso alittuu. Tällä tavalla voidaan ohjata esimerkiksi lämpöpumppua tai lämminvesivaraajan vastusta, jotta sähkö saadaan varastoitua lämpöenergiana. 
+  
+  Aurinkoinvertterissä ei itsessään kuitenkaan ole reaaliaikaista energiamittausta, eikä nykyisissä verkonhaltijan energiamittareissa ole reaaliaikasta mittausta, jota invertteri tai kodin automaatiojärjestelmä voisi hyödyntää. Reaaliaikanen mittaus saadaan erillisellä energiamittarilla, tai tulevaisuudessa seuraavan sukupolven AMI-mittareilla. Reaaliaikainen mittaus mahdollistaa sähkön nettomittauksen, jolloin esimerkiksi varaajasta voidaan aktivoida vain sen vaiheen lämmitysvastus, joka meinaa siirtää sähköä verkkoon päin.
+
+  \section{Mahdolliset haittavaikutukset}
 
   Rajapinnat ja niitä hyödyntävät sovellukset tuovat haasteita ja mahdollisia haittavaikutuksia. Kuten monesti uuden tekniikan käyttöönottoon liittyy, turvallisuusnäkökulma saattaa jäädä aluksi huomioimatta. Osa haittavaikutuksista saattaa taas ilmetä vasta testattaessa tekniikoita käytännössä tai kun niiden käyttö alkaa olemaan laajalle levinnyttä.
 
