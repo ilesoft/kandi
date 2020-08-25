@@ -1,49 +1,86 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>rajapintasemma</title>
+    <title>Kandiseminaari</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Tehtäiskö tästä vähän komeempi esitys samontien</section>
-				<section>Tää olis  tulevaisuudessa kannsa aika paljon "ammattimaisempi" työkalu kuin power-vitun-point</section>
-				<section>
-					<p>Pittää olla node (v10 tai uuempi) ja npm</p>
-					<p>Asennus:</p>
-					<pre data-id="code-animation"><code data-line-numbers>
-						$ git clone https://github.com/hakimel/reveal.js.git esitys
-						$ cd esitys && npm install
-						$ npm start
-					</code></pre>
-				</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+        <section>
+          <h3>LÄMPÖPUMPPUJEN JA AURINKOSÄHKÖJÄRJESTELMIEN KOMMUNIKAATIORAJAPINNAT JA NIIDEN HYÖDYNTÄMISMAHDOLLISUUDET</h3>
+          <p>Ilmari Marttila ja Niko Kangasniemi</p>
+        </section>
+
+        <section>
+          <h6>Kandidaattiseminaarityön sisältö</h6>
+            <ul>
+              <li>Aurinkosähköinvertterin toiminta</li>
+              <li>Lämpöpumpun toiminta</li>
+              <li>Rapinnat eri abstractiotasoilla</li>
+              <li>Sidosryhmät</li>
+              <li>Sovellukset</li>
+            </ul>
+        </section>
+
+        <section>
+          <section>
+            <h6>Lämpöpumpun toiminta</h6>
+          </section>
+
+          <section>
+            <p>Lämpöpumpun toimintaperiaate</p>
+            <img src="images/hp.svg" alt="Lämpöpumpun toimintaperiaate" style="height: 30rem; background: white;">
+          </section>
+
+          <section style="font-size: 2.2rem">
+            <p>Eri moottorityyppejä käytetään kompressorin pyörittämiseen</p>
+            <table>
+              <tr>
+                <td>Suoraan verkkojännitteeseen kytketty oikosulkumoottori</td>
+                <td>Tehopiikki käynnistyessä</td>
+              </tr>
+              <tr>
+                <td>Oikosulkumoottori pehmokäynistimellä</td>
+                <td>Ei niin suurta tehopiikkiä</td>
+              </tr>
+              <tr>
+                <td>Oikosulkumoottori taajuusmuuttajakäyttöllä</td>
+                <td>kompressorin nopeutta ja täten sen ottamaa tehoa kyetään säätämään. Ei tehopiiikejä</td>
+              </tr>
+            </table>
+            <p>Myös muun tyyppiset voimanlähteet ovat mahdollisia</p>
+          </section>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+  </body>
 </html>
