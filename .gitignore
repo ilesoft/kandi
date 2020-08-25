@@ -2,6 +2,8 @@ main.pdf
 
 esitys/*
 !esitys/index.html
+esitys/images*
+!esitys/images/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
