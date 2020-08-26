@@ -1,24 +1,4 @@
-\section{Smart Grid -ready}
-
-  Bundesverband Wärmepumpe e.V. (jäljenpänä BWP) on saksalainen lämpöpuppuyhdistys. BWP ylläpitää lämpöpumppujen ohjaukseen käytettävää rajapintaa määrittävää \gls{SG}-Ready-merkintää(\gls{SG} Ready label). \gls{SG}-Ready määrittelee pumpulle neljä eri toimintatilaa, joiden perusteella ulkoinen toimija kykenee ohjaamaan lämpöpumpun toimintaa. Toimintatilat yksi ja kaksi ovat yhteensopivia Saksassa käytetyn muunmuassa lämpöpumppuihin kohdistetutun energiantoimittajien suorittaman ohjauksen (EVU-Sperre\footnote{Energieversorgungsunternehmen Sperre}) kanssa.\parencite{SGReadyReg} Ohjattava lämpöpumppu voidaan kytkeä energiatoimittajan toimesta pois päältä enimmillään kahdeksi tunniksi kerrallaan. Yhteen vuorokauteen taas voi sijoittua enintään kolme keskeytystä, jotka on pyritään sijoittamaan suurimman kulutuksen hetkiin. Kun kuluttajan tekee sähkösopimuksen, johon ohjaus kuuluu, saa hän vastavuoroisesti alennusta energian hinnasta.\parencite{enwg, VDEARN4100}
-
-  SG-Readyn  kolmas ja neljäs toimintatila ovat sopivia ylituotannon kompensointiin niiden lisätessä lämpöpumppujen sähkönkulutusta. Eri toimintatilat on eritelty taulukossa \ref{sgready}.
-  \begin{table}[h]
-    \centering
-    \caption[\gls{SG}-Ready toimintatilat]{\gls{SG}-Ready toimintatilat. Perustuu lähteeseen \parencite{SGReadyReg}.}
-    \begin{tabular}{|c|c|p{3in}|}
-      \hline
-      \rowcolor{lightgray} toimintatila & looginen kytkentä & kuvaus \\\hline
-      1 & 1 0 & Lämpöpumppu on kytkettynä pois päältä. Enintään kaksi tuntia kerrallaan enintään kolme kertaa vuorokaudessa \\\hline
-      2 & 0 0 & Normaali toimintatila. Varaudutaan mahdolliseen kahden tunnin pysäytykseen. \\\hline
-      3 & 0 1 & Suositeltu päälläolo. \\ \hline
-      4 & 1 1 & Pakotettu päälläolo. Mahdollisesti myös lisävastuksen pakotettu päälläolo. \\\hline
-    \end{tabular}
-    \label{sgready}
-  \end{table}
-  Jokaiselle toimintatilalle on määritelty binäärinen arvo (0b00 -- 0b11), joka voidaan toteuttaa kahdella loogisella tilalla. SG-Ready ei ota kantaa siihen, miten nämä tilat tuodaan ohjattavalle laitteelle\marginpar{varmista}.\parencite{SGReadyReg}
-
-  SG-Ready on korkean abstraktiotason rajapinta, joka tarjoaa keinoja ohjausrajapintojen yhtenäistämiseen. Alemman tason kommunikointi, johon siis SG-Ready ei ota kantaa, pitää määritellä ja toteuttaa toisella tasolla. Yksi alemman tason kommunikoinnissa yleisesti käytettävä standardi on Modbus-viestintäprotokolla.
+Järjestelmien kanssa kommunikointi tapahtuu erilaisten standardien määrittelemien rajapintojen lävitse. Rajapintoja on määritelty eri abstraktiotasoille, ja osaltaan ne rakentuvat toistensa päälle. Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai sarjaliikenneprotokollia ei tässä työssä käsitellä tarkemmin. Tässä kappaleessa on kuvattu eri standardeissa määriteltyjen rajapintojen toimintaa ja käyttötarkoituksia.
 
 \section{Modbus}
 
@@ -148,8 +128,31 @@
 \section{IEEE 1815 / Distributed Network Protocol 3}
   DNP3 on teollisuusautomaation kommunikaatioprotokolla, joka määriteltiin alunperin 1993 ja sen kehitys jatkuu edelleen. Vuonna 2008 yhdysvaltalainen valtionvirasto NIST ja voittoa tavoittelematon energia-alan järjestö \gls{EPRI} näkivät tarpeen rajapinnalle \gls{IEC} 61850:n ja DNP3:n välille. Koska DNP3 oli vain vakiintunut käytäntö, DNP3:n standardisointi oli tarpeen, jotta yhteistyö ja koordinointi \gls{IEC}:n kanssa olisi sujuvaa. DNP3 standardoitiinkin \gls{IEEE} 1815 -standardiksi vuonna 2010, jonka jälkeen siitä on käytetty tuota nimitystä \parencite{DNP3&61850}.
 
-  DNP3 on suunnattu sähköteollisuuden käyttöön, mutta se on myös käytössä esimerkiksi energia- ja vesiteollisuudessa. Pohjois-Amerikassa DNP3 on käytössä sähköverkon \gls{SCADA}-järjestelmissä, ja se onkin osittain kilpaileva sähköasemastandardi IEC 61850:n kanssa. 
+  DNP3 on suunnattu sähköteollisuuden käyttöön, mutta se on myös käytössä esimerkiksi energia- ja vesiteollisuudessa. Pohjois-Amerikassa DNP3 on käytössä sähköverkon \gls{SCADA}-järjestelmissä, ja se onkin osittain kilpaileva sähköasemastandardi IEC 61850:n kanssa.
 
   IEEE 1815.1 -dokumentti määrittelee standardisoidun tavan linkittää yhteen data tämän ja IEC-standardin välillä \parencite{IEEE1815.1}. Tämä mahdollistaa IEC 61850-standardia käyttävien laitteiden lisäyksen IEEE 1815-protokollaiseen järjestelmään. Tämän on Pohjois-Amerikassa tärkeää, sillä siellä on laajasti käytössä IEEE 1815 standardi, mutta koska IEC 61850 on ominaisuuksiltaan laajempi, sen osuus tulee kasvamaan. Molempien standardien kanssa työskentelevä Bruce Muschlitz arveli vuonna 2009 DNP3:n häviävän keskinäisen kilpailun, sillä IEC 61850 täyttää kaikkien sidosryhmien tarpeet ominaisuuksien puolesta \parencite{DNPvsIEC}. Tosin näiden kahden standardin yhteensovittaminen on muuttanut tilannetta, eikä DNP3 tule välttämättä häviämään markkinoilta vielä pitkään aikaan. 2019 tehdyn kyselyn mukaan DNP3:a käytti 94\% kyselyyn vastanneista sähköntuotanto ja -jakeluyrityksistä, mutta IEC 61850:n osuus on kasvamassa \parencite{DNP3Study}.
 
   Vuonna 2013 DNP3 julkaisi dokumentin, joka auttaa verkonhaltijoita kommunikoimaan hajautetun energiantuotannon kanssa. Tämä dokumentti kuvaa standardoidun rajapinnan datalle ja joukon protokollapalveluita ja profiileja. Dokumentin kuvaamien profiilien tarkoitus on helpottaa hajautetun energiantuotannon liittämistä DNP3 järjestelmiin. Vuonna 2018 dokumenttia päivitettiin siten, että se lisäksi sisältää toiminnallisten ominaisuuden määrittelyt protokollalle, sekä linkityksen IEC-61850-7-420 tietomallin kanssa. Näiden uudistusten myötä DNP3 protokollaa voidaan käyttää älyinverttereiden ohjaukseen samalla tavalla kuin SunSpeciä tai IEC 61850-standardia, mutta myös käyttää näitä kolmea protokollaa rinnakkain toistensa kanssa. \parencite{DNP3Inv, DNP3AppNote}
+
+
+\section{Smart Grid -ready}
+
+  Bundesverband Wärmepumpe e.V. (jäljenpänä BWP) on saksalainen lämpöpuppuyhdistys. BWP ylläpitää lämpöpumppujen ohjaukseen käytettävää rajapintaa määrittävää \gls{SG}-Ready-merkintää(\gls{SG} Ready label). \gls{SG}-Ready määrittelee pumpulle neljä eri toimintatilaa, joiden perusteella ulkoinen toimija kykenee ohjaamaan lämpöpumpun toimintaa. Toimintatilat yksi ja kaksi ovat yhteensopivia Saksassa käytetyn muunmuassa lämpöpumppuihin kohdistetutun energiantoimittajien suorittaman ohjauksen (EVU-Sperre\footnote{Energieversorgungsunternehmen Sperre}) kanssa.\parencite{SGReadyReg} Ohjattava lämpöpumppu voidaan kytkeä energiatoimittajan toimesta pois päältä enimmillään kahdeksi tunniksi kerrallaan. Yhteen vuorokauteen taas voi sijoittua enintään kolme keskeytystä, jotka on pyritään sijoittamaan suurimman kulutuksen hetkiin. Kun kuluttajan tekee sähkösopimuksen, johon ohjaus kuuluu, saa hän vastavuoroisesti alennusta energian hinnasta.\parencite{enwg, VDEARN4100}
+
+  SG-Readyn  kolmas ja neljäs toimintatila ovat sopivia ylituotannon kompensointiin niiden lisätessä lämpöpumppujen sähkönkulutusta. Eri toimintatilat on eritelty taulukossa \ref{sgready}.
+  \begin{table}[h]
+    \centering
+    \caption[\gls{SG}-Ready toimintatilat]{\gls{SG}-Ready toimintatilat. Perustuu lähteeseen \parencite{SGReadyReg}.}
+    \begin{tabular}{|c|c|p{3in}|}
+      \hline
+      \rowcolor{lightgray} toimintatila & looginen kytkentä & kuvaus \\\hline
+      1 & 1 0 & Lämpöpumppu on kytkettynä pois päältä. Enintään kaksi tuntia kerrallaan enintään kolme kertaa vuorokaudessa \\\hline
+      2 & 0 0 & Normaali toimintatila. Varaudutaan mahdolliseen kahden tunnin pysäytykseen. \\\hline
+      3 & 0 1 & Suositeltu päälläolo. \\ \hline
+      4 & 1 1 & Pakotettu päälläolo. Mahdollisesti myös lisävastuksen pakotettu päälläolo. \\\hline
+    \end{tabular}
+    \label{sgready}
+  \end{table}
+  Jokaiselle toimintatilalle on määritelty binäärinen arvo (0b00 -- 0b11), joka voidaan toteuttaa kahdella loogisella tilalla. SG-Ready ei ota kantaa siihen, miten nämä tilat tuodaan ohjattavalle laitteelle\marginpar{varmista}.\parencite{SGReadyReg}
+
+  SG-Ready on korkean abstraktiotason rajapinta, joka tarjoaa keinoja ohjausrajapintojen yhtenäistämiseen. Alemman tason kommunikointi, johon siis SG-Ready ei ota kantaa, pitää määritellä ja toteuttaa toisella tasolla. Yksi alemman tason kommunikoinnissa yleisesti käytettävä standardi on Modbus-viestintäprotokolla.
