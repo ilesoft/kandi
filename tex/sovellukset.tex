@@ -73,10 +73,13 @@ Tässä kappaleessa käydään läpi erilaisia rajapintoja hyödyntäviä tai ni
   Aurinkoinvertterissä ei itsessään kuitenkaan ole reaaliaikaista energiamittausta, eikä nykyisissä verkonhaltijan energiamittareissa ole reaaliaikasta mittausta, jota invertteri tai kodin automaatiojärjestelmä voisi hyödyntää. Reaaliaikanen mittaus saadaan erillisellä energiamittarilla, tai tulevaisuudessa seuraavan sukupolven AMI-mittareilla. Reaaliaikainen mittaus mahdollistaa sähkön nettomittauksen, jolloin esimerkiksi varaajasta voidaan aktivoida vain sen vaiheen lämmitysvastus, josta sähköä on siirtymässä verkon suuntaan.
 
 \section{Loistehon kompensointi}
-  Aurinkoinverttereitä voidaan käyttää loistehon kompensoinnissa, sillä uusimmat invertterit pystyvät tuottamaan jopa 100\%:a nimellistehostaan loistehona myös tuottoajan ulkopuolella. 
+
+Aurinkoinverttereissä, joissa on verkkoa tukevia ominaisuuksia, on usein myös automaattinen loistehon kompensaatio. Tällöin tuotantoaikana loisteho säätyy jännitteen funktiona automaattisesti, ja siten tukee verkkoa ali- tai ylijännitetilanteissa. 
+
+Osa inverttereistä pystyy tuottamaan jopa 100\%:a nimellistehostaan loistehona myös tuottoajan ulkopuolella. Tämä voidaan tehdä joko erillisellä asetusarvolla, tai monitoroimalla liityntäpisteen tehokerrointa automaattisesti ja siten säätämällä liityntäpisteen tehokerroin lähelle optimaalista 1.00:aa. Tämä mahdollistaa sen, että loistehon kompensoinnin tarve voidaan tyydyttää esimerkiksi tuotantolaitoksissa kokonaan aurinkosähköjärjestelmän avulla, eikä erillisiä kompensaatiolaitteistoja tarvita. Tämä lisää huomattavasti investoinnin kannattavuutta, mikäli tuotantolaitoksessa jouduttaisiin tuotantolaitteiden takia muutenkin kompensoimaan loistehoa loistehotariffin välttämiseksi.
 
 \section{Haasteet sovelluksissa}
-
+  
   Rajapinnat ja niitä hyödyntävät sovellukset tuovat haasteita ja mahdollisia haittavaikutuksia. Kuten monesti uuden tekniikan käyttöönottoon liittyy, turvallisuusnäkökulma saattaa jäädä aluksi huomioimatta. Osa haasteista saattaa taas ilmetä vasta testattaessa tekniikoita käytännössä tai kun niiden käyttö alkaa olemaan laajalle levinnyttä.
 
   Lämpöpumppuja kytketään verkkoon, jotta käyttäjät voivat etäohjata sitä tai jotta sitä voidaan ohjata agregaattorin toimesta osana lämpöpumppupoolia. Erään riskityypin muodostavat vahingossa tai huolimattomuuttaan avoimeksi jätetyt ohjausrajapinnat. TCP-portteja voi olla avoinna niin, että kolmas osapuoli voi koittaa avata telnet- tai ssh-yhteyksiä laitteeseen. Mikäli yhteyden saa avattua käyttäen vakiokäyttäjätunnuksia ja -salasanoja, tai mahdollisesti täysin ilman tunnistautumista, ovat laitteet käytännössä kenen tahansa käytettävissä. 
