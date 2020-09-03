@@ -1,4 +1,8 @@
-Kommunikaatio eri järjestelmien kanssa tapahtuu erilaisten standardien määrittelemien rajapintojen kautta. Rajapintoja on määritelty eri abstraktiotasoille ja ne rakentuvat osittain toistensa päälle. Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai sarjaliikenneprotokollia ei tässä työssä käsitellä tarkemmin. Tässä kappaleessa on kuvattu eri standardeissa määriteltyjen rajapintojen toimintaa ja käyttötarkoituksia.
+Rajapinnat mahdollistavat tiedonvaihdon eri järjestelmien ja toimijoiden välillä. Ne voivat olla standardissa määriteltyjä, eri abstraktiotasoille ja osittain toistensa päälle rakentuvia, tai hyvin suljettuja laitteen valmistajan kehittämiä. Lisäksi yhtenä rajapintana lämpöpumpuille ja aurinkoinverttereille voidaan ajatella AMI-mittareita.
+
+Valmistajan tarjoamat pilvipalvelut toimivat rajapintana järjestelmän etähallintaan ja -monitorointiin omistajalle. Myös valmistaja itse voi hyödyntää tätä rajapintaa esimerkiksi selvittämällä etänä laitteistovikaa tai keräämällä tilastoja järjestelmän toimivuudesta. Teknisesti ajatellen pilvipalvelu on kuitenkin standardoimaton, valmistajan itse kehittämä, joten tekninen toteutus on piilotettu. Tämän vuoksi tässä kappaleessa ei perehdytä tarkemmin pilvipalveluun, vaan se esitellään vain yleisesti.
+
+Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai sarjaliikenneprotokollia ei tässä työssä käsitellä tarkemmin. Tässä kappaleessa on kuvattu eri standardeissa määriteltyjen rajapintojen toimintaa ja käyttötarkoituksia. Lisäksi tarkastellaan myös \gls{AMI}-mittareita rajapintana.
 
 \section{Modbus}
 
@@ -8,7 +12,7 @@ Kommunikaatio eri järjestelmien kanssa tapahtuu erilaisten standardien määrit
 
   \subsection{viestintä ja tietomalli}
 
-  Modbus-protokollan toiminta perustuu palvelinlaitteella sijaitsevien muistialueiden lukemiseen ja kirjoittamiseen kuvassa \ref{fig:c_s} kuvatun asiakas--palvelin-mallin (client--server model, ennen tunnettu termillä master-slave model) mukaan.  Lukemalla tietoja asiakaslaite kykenee seuraamaan palvelinlaitteen tilaa ja kirjoittamalla ohjaamaan sen toimintaa. Tietojen lukeminen ja kirjoittaminen tapahtuu protokollan määrittämien kysely, vastaus- ja virheviestien perusteella.\parencite{modbusAppSpec}
+  Modbus-protokollan toiminta perustuu palvelinlaitteella sijaitsevien muistialueiden lukemiseen ja kirjoittamiseen kuvassa \ref{fig:c_s} kuvatun asiakas--palvelin-mallin (client--server model, ennen tunnettu termillä master--slave model) mukaan.  Lukemalla tietoja asiakaslaite kykenee seuraamaan palvelinlaitteen tilaa ja kirjoittamalla ohjaamaan sen toimintaa. Tietojen lukeminen ja kirjoittaminen tapahtuu protokollan määrittämien kysely, vastaus- ja virheviestien perusteella.\parencite{modbusAppSpec}
 
   \begin{figure}[h]
     \centering
@@ -156,3 +160,6 @@ Kommunikaatio eri järjestelmien kanssa tapahtuu erilaisten standardien määrit
   Jokaiselle toimintatilalle on määritelty binäärinen arvo (0b00 -- 0b11), joka voidaan toteuttaa kahdella loogisella tilalla. SG-Ready ei ota kantaa siihen, miten nämä tilat tuodaan ohjattavalle laitteelle\marginpar{varmista}.\parencite{SGReadyReg}
 
   SG-Ready on korkean abstraktiotason rajapinta, joka tarjoaa keinoja ohjausrajapintojen yhtenäistämiseen. Alemman tason kommunikointi, johon siis SG-Ready ei ota kantaa, pitää määritellä ja toteuttaa erikseen. Yksi alemman tason kommunikoinnissa yleisesti käytettävä standardi on Modbus-viestintäprotokolla.
+
+\section{AMI-mittari}
+  
