@@ -162,4 +162,11 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
   SG-Ready on korkean abstraktiotason rajapinta, joka tarjoaa keinoja ohjausrajapintojen yhtenäistämiseen. Alemman tason kommunikointi, johon siis SG-Ready ei ota kantaa, pitää määritellä ja toteuttaa erikseen. Yksi alemman tason kommunikoinnissa yleisesti käytettävä standardi on Modbus-viestintäprotokolla.
 
 \section{AMI-mittari}
-  
+  Verkonhaltijan omistamat sähkönkäyttöpaikkojen AMI-mittarit voivat toimia rajapintana lämpöpumpuille, ja tulevaisuudessa ehkä myös aurinkosähköjärjestelmille. Nykyään mittarin mallista riippuen mittareissa voi olla kuormanohjausrele esimerkiksi 2-tariffiohjausta varten, jolloin lämmitys voidaan aktivoida yötariffin alkaessa ja lämmitys tapahtuu halvemmalla hinnalla. Lisäksi Suomessa noin 60\%:ssa sähkönkäyttöpaikoista on etäkatkaisu- ja kytkentäominaisuus, jolla voidaan katkaista sähköt koko sähkönkäyttöpaikasta. \parencite{AMRNykytila}
+
+  Jo asennetuissa mittareissa voi olla luentarajapinta hetkelliselle kulutukselle, mutta se rajoittuu usein vain pulssilähdöksi \parencite{Aidon5510}. Esimerkiksi suomalaisen mittarivalmistaja Aidonin uudemmissa mittareissa on mahdollista lukea dataa \gls{HAN}-rajapinnasta, joka toimii RJ-45 -kaapelin välityksellä. Käytännössä tuo rajapinta käyttää M-bus standardia, ja siitä pystyy lukemaan esimerkiksi virta- ja jännitetietoja sekä tehotietoja verkosta mittarin suuntaan ja mittarista verkon suuntaan. Tätä voidaan hyödyntää kiinteistöautomaatiossa mittaritietona, jolloin asiakas voi kuluttaa kaiken tuottamansa energian sen verkkoon syöttämisen sijaan. \parencite{HAN}
+
+  AMI-mittaria voidaan tulevaisuudessa hyödyntää akullisissa aurinkosähköjärjestelmissä kuormanohjaukseen. Seuraavan sukupolven mittareihin voitaisiin lähettää tieto sähkön hinnasta, jolloin sähkönsyöttöä voidaan vaihtaa verkon ja energianvaraston välillä korkean hinnan aikaan. Älykäs mittarinluentajärjestelmä voi myös hyödyntää historiatietoja ja sääennustusta optimoidessa sähkövaraston käyttöä. Tällöin energiavarastoa voitaisiin ladata yöllä halvemman sähkönhinnan aikaan, mutta energiavarastoa täytettäisiin kuitenkin pääsääntöisesti aurinkovoimalalla. \parencite{AMRNykytila} 
+
+
+

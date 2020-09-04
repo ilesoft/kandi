@@ -1,4 +1,4 @@
-Aurinkosähköjärjestelmät koostuvat aurinkopaneeleista, aurinkoinverttereistä sekä mahdollisista energiavarastoista. Riippuen järjestelmästä, aurinkopaneeliketjuun tai yksittäisiin paneeleihin voidaan kytkeä myös DC/DC-muunnin. Tästä saadaan lisähyötyjä varjostustilanteissa tai epätasaisessa auringonpaisteessa.  Kuvassa 1 näkyy aurinkosähköjärjestelmän lohkokaavio, joka esittää verkkokytketyn järjestelmän komponentteja.
+Aurinkosähköjärjestelmät koostuvat aurinkopaneeleista, aurinkoinverttereistä sekä mahdollisista energiavarastoista. Riippuen järjestelmästä, aurinkopaneeliketjuun tai yksittäisiin paneeleihin voidaan kytkeä myös DC/DC-muunnin. Tästä saadaan lisähyötyjä varjostustilanteissa tai epätasaisessa auringonpaisteessa.  Kuvassa 2.1 näkyy aurinkosähköjärjestelmän lohkokaavio, joka esittää verkkokytketyn järjestelmän komponentteja.
 \begin{figure}
   \centering
   \includegraphics[width=0.75\textwidth]{figures/PV_system_components}
@@ -9,7 +9,7 @@ Järjestelmä tuottaa energiaa vain tiettyyn aikaan päivästä, ja sen tuottote
 
 Järjestelmän koko, mahdolliset staattiset varjostuskohdat sekä tulevaisuuden laajentamistarpeet vaikuttavat järjestelmän suunnitteluun. Invertterin valinta vaikuttaa laite- ja asennuskustannuksiin sekä järjestelmän päivittäiseen energiantuotantoon, mutta myös järjestelmän turvallisuuteen ja suojalaitteiden tarpeeseen. Inverttereiden eri vaihtoehtoja käsitellään myöhemmin omassa kappaleessaan.
 
-Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. Mikäli alle 100kVA:n tehoinen tuotantolaitos sijaitsee sähkönkäyttöpaikalla, jossa on kaksisuuntainen tuntimittauslaite, ei tuotantolaitokselle tarvitse asentaa erillistä mittaria. Muussa tapauksessa tuotantolaitos vaatii erillisen sähkömittarin. Yli 1MW:n järjestelmille Fingrid asettaa rajoituksia kommunikaation reaaliaikaisuuden osalta; verkonhaltijan on lähetettävä järjestelmien mittaustietoja enintään 60 sekunnin päivityssyklillä. \parencite{VJV2018}
+Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. Mikäli alle 100kVA:n tehoinen tuotantolaitos sijaitsee sähkönkäyttöpaikalla, jossa on kaksisuuntainen tuntimittauslaite, ei tuotantolaitokselle tarvitse asentaa erillistä mittaria. Muussa tapauksessa tuotantolaitos vaatii erillisen sähkömittarin. Yli 1MW:n järjestelmillä ei riitä tuntimittaus, vaan Fingrid vaatii tietojen lähetystiheydeksi enintään 60 sekuntia. \parencite{VJV2018}
 
 \section{Aurinkopaneelit}
   Aurinkopaneeleiden toiminta perustuu valosähköiseen ilmiöön. Ne koostuvat suuresta määrästä sarjaan kytkettyjä aurinkokennoja, joista jokainen tuottaa tyypillisesti täydessä auringonpaisteessa hieman alle 5 W tehon noin 0,5 V jännitteellä. \parencite{Messenger}
@@ -18,12 +18,11 @@ Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. 
 
   Kennot ryhmitellään usein moduuleiksi, joiden kanssa rinnan kytketään ohitusdiodit. Jos kennot varjostuvat, ohitusdiodi ohittaa kyseisen moduulin, jossa varjostuneet kennot sijaitsevat, jolloin se ei aiheuta häviöitä muualla rajoittamalla muiden moduulien tai paneeleiden virtaa. Usein aurinkopaneelit ketjutetaan tarvittavan jännitteen saamiseksi, jolloin ohitusdiodien apu varjostustilanteissa on erittäin tärkeää, sillä muuten varjostuskohta rajoittaisi koko paneeliketjun virtaa. \parencite{Willeke&Weber}
 
-  Aurinkokennojen ja -paneelien toimintakäyrinä käytetään usein virta--jännite-käyrää ja siitä johdettua teho-jännite (engl. P-V) -käyrää. Kuten kuvasta 2 nähdään, P--V-käyrän huippukohdan sijainti vaihtelee valaisutehon mukaan. Tätä käyrän huippukohtaa kutsutaan huipputehopisteeksi (engl. maximum power point, MPP). Se näyttää jännitteen, jolla saavutetaan kennon tai paneelin huipputeho kullakin valaisuteholla.
-  \begin{figure}
+  Aurinkokennojen ja -paneelien toimintakäyrinä käytetään usein virta--jännite-käyrää ja siitä johdettua teho-jännite (engl. P-V) -käyrää. \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/pvcurve}
     \caption{Esimerkki P--V-käyrästä}
-  \end{figure}
+  \end{figure} Kuten kuvasta 2.2 nähdään, P--V-käyrän huippukohdan sijainti vaihtelee valaisutehon mukaan. Tätä käyrän huippukohtaa kutsutaan huipputehopisteeksi (engl. maximum power point, MPP). Se näyttää jännitteen, jolla saavutetaan kennon tai paneelin huipputeho kullakin valaisuteholla.
 
   Piirillä, jossa on sarjaan kytkettyjä aurinkopaneeleita, on jokaisella paneelilla oma paikallinen huipputehopisteensä (engl. MPP - Maximum Power Point), mutta myös koko piirillä on yhteinen globaali huipputehopiste. Globaali huipputehopiste muuttuu varjostusten ja pilvisyyden mukaan koko järjestelmän tasolla ja sitä tarkkailemalla saadaan selville, millä jännitteellä koko järjestelmästä saadaan suurin teho.
 
