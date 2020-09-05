@@ -15,22 +15,14 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
   Yli 10MW:n järjestelmien kohdalla Fingridin Kantaverkkokeskus voi tarvittaessa pyytää järjestelmän käytöstä vastaavaa toimijaa muuttamaan pätö- tai loistehosäädön asettelu-arvoja voimalaitosteknologian asettamissa rajoissa \parencite{VJV2018}. Fingrid ei täten ota kantaa siihen, miten tämä säätäminen tapahtuu. Fingridin tarpeet järjestelmien rajapinnoista rajoittuvat siten erityistilanteissa järjestelmän alasajoon tai sen tehonsäätöön käytöstä vastaavan toimijan kautta.
 
 \section{Verkonhaltija}
-  \begin{itemize}
-    \item kysyntäjouston toteuttaminen
-    \item häiriötilanteissa järjestelmän hallinta
-  \end{itemize}
 
   Yksi järjestelmien rajapintoihin liittyvistä sidosryhmistä on sähköverkonhaltija eli Suomessa sähköverkkoyhtiö. Vuodesta 2009 on Suomessa laki velvoittanut sähköverkkoyhtiöitä asentamaan sähkönkäyttöpaikoille eli pisteisiin, missä sähköä ostavat asiakkaat liittyvät verkkoon, tuntimittauslaitteiston. Asetus myös asettaa vaatimuksia käytetyllä tuntimittauslaittestolle muun muassa etäluettavuudesta ja -ohjattavuudesta.\parencite{mittariAsetus} Älykkäästä tuntimittauslaitteistosta käytetään usein termiä älymittari, \gls{AMR}-mittari tai \gls{AMI}-mittari. Termin \gls{AMR} viitatessa lähinnä mittarin automaattiseen luentaan, saattaisi \gls{AMI}-mittari olla oikeampi termi. Lyhenne \gls{AMI} tarkoittaa mittareiden muodostamaa järjestelmää, jossa tieto liikkuu myös kohti mittareita ja niiden takana olevia kiinteistöjä.\parencite{dictOfEnergy}
 
-  \gls{AMI}-mittaria voidaan hyödyntää kysyntäjoustossa, kun verkonhaltija pystyy ohjaamaan lämpöpumpun toimintaa mittarin tarjoaman kuormanohjausreleen kautta. Aurinkosähköinvertterin ohjaukseen tämä ei kuitenkaan suoraan sovellu, sillä inverttereiden ohjaus tapahtuu usein monimutkaisemmalla kommunikaatiolla, kuin mihin mittarit tällä hetkellä kykenevät. Keskeinen syy mittarien yksinkertaiseen ohjaustekniikkaan on standardien ja määrittelyiden puute, mikä ei nopeasti muutu, sillä keskitettyjen ratkaisujen kehitys vaatii aikaa.
+  Verkonhaltija ei itsessään ole energian ostaja tai myyjä, vaan se siirtää sähkön verkossa ja on vastuussa verkon toimivuudesta. Tästä syystä verkonhaltija ei itse saa mittareiden etäohjauksesta paljoakaan hyötyä. Yksi hyöty verkonhaltijalle on kuitenkin sähkönkäyttöpaikan irrottaminen verkosta etänä, esimerkiksi laajemman huoltotyön ajaksi. Tällöin verkonhaltijan ei tarvitse käyttää resursseja käydäkseen jokaisessa sähkönkäyttöpaikassa irrottamassa sitä sähköverkosta ennen huoltotöitä.
 
   Lämpöpumput ovat todennäköisesti käyttöpaikkansa suurimpia sähkönkäyttäjiä. Käyttäjän kannalta olisi edullista, mikäli lämpöpumpun käyttämä sähkö hinnoiteltaisiin muusta käytetystä sähköstä erillään. Saksalaisessa EVU-Sparre-järjestelmässä lämpöpumppu on sähköntoimittajan ohjattavissa. Korvauksena kuormanohjauksesta kuluttaja saa hinnanalennusta lämpöpumpun käytetystä energiasta. Tämä tarkoittaa, että energiamittari, jonka kautta myös lämpöpumpun ohjaaminen tapahtuu, mittaa erikseen lämpöpumpun käyttämän energian.\parencite{enwg, VDEARN4100}
 
 \section{Järjestelmän omistaja}
-  \begin{itemize}
-    \item monitorointi
-    \item muiden järjestelmien integraatio
-  \end{itemize}
 
   Järjestelmän omistajan eli usein käyttäjän suorittama järjestelmän monitorointi voidaan toteuttaa muutamilla eri tavoilla. Monitorointi ja ohjaus toteutetaan usein fyysisen käyttöliittymän avulla ja mikäli nämä toiminnallisuudet halutaan myös etänä, on käyttöliittymä helposti tuotavissa laitevalmistajan tarjoamaan pilvipalveluun tai mobiilisovellukseen. Mikäli valmistaja ei kuitenkaan tarjoa etämonitorointiin sovelluksia, on sellainen usein mahdollista tehdä itse, mikäli osaaminen riittää aiheeseen.
 
@@ -43,15 +35,14 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
 
 \section{Järjestelmätoimittaja}
-  \begin{itemize}
-    \item Luotettavuuden tarkastelu
-    \item monitorointi
-    \item uusien ratkaisujen kehittäminen
-    \item huoltopalveluiden tarjoaminen monitorointia hyödyntämällä
-  \end{itemize}
 
   Lämpöpumppujärjestelmän tai aurinkosähköjärjestelmän toimittaja voi hyödyntää lämpöpumpun rajapintoja huoltopalveluiden tarjontaan ja dianostiikkaan. Seuraamalla järjestelmän toimintaa toimittaja voi ennustaa ja tilata tarvittavia huoltoja tai korjauksia, jolloin järjestelmän käyttövarmuus paranee. Tämä tuo käyttäjälle lisäarvoa ja säästöjä sekä huolettomuutta, toimittaja taas voi myydä tämän lisäpalveluna asiakkaalle. Esimerkiksi kuluttajan ei tarvitse käyttää aikaa vikojen selvittämiseen tai huoltojen tilaamiseen. Vastaavasti toimittajan/huoltoyrityksen turhat vierailut vähenevät, kun järjestelmän virhetilanteita voidaan selvittää ja nollata etähallintaa hyödyntäen. Toimittajan suorittamaa diagnostiikkaa voidaan käyttää myös tuotekehityksen apuna tai luotaessa parempia ennustemalleja sähkön kulutuksesta.
 
 \section{Aggregaattori}
 
   Ennestään sähkömarkkinoilla on ollut käytännössä kolme toimijaa: Energian myyjä, siirtäjä ja ostaja. Aggregaattori näistä kaikista (mahdollisesti) erillinen toimja, jonka tehtävänä on myydä sähkömarkkinoille joustoa. Aggregaattori voi ohjata esimerkiksi lämpöpumppupoolia ja käydä kauppaa sen mahdollistamalla kysyntäjoustolla.
+
+  \gls{AMI}-mittaria voidaan hyödyntää kysyntäjoustossa, kun aggregaattori pystyy ohjaamaan lämpöpumpun toimintaa mittarin tarjoaman kuormanohjausreleen kautta. TODO: ERI TAVAT OHJATA KUORMANOHJAUSRELETTÄ
+  
+  Aurinkosähköinvertterin ohjaukseen releohjaus ei suoraan sovellu, sillä inverttereiden ohjaus tapahtuu usein monimutkaisemmalla kommunikaatiolla, kuin yksinkertaisella releellä. Sinällään tämä ei haittaa, sillä aurinkosähköjärjestelmän hyödyt etäohjauksen osalta ovat vähäiset; tavoitteena on kuitenkin saada tuotettua mahdollisimman paljon energiaa, ja tämän invertteri hoitaa automaattisesti. Mikäli invertterit pystyvät kuitenkin tuottamaan loistehoa pätötehon tuotannosta riippumatta, tästä voi aggregaattori olla kiinnostunut, mikäli niitä voitaisiin ohjata virtuaalivoimalan tavoin isommissa ryhmissä. Tämä vaatii kuitenkin uuden ratkaisun, sillä nykyisillä tällainen ei ole mahdollista. Esimerkiksi standardoitu rajapinta pilvipalveluintegraatioihin eri valmistajien välillä voisi mahdollistaa tämän.
+  
