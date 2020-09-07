@@ -56,12 +56,13 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       \end{tabular}
       \label{pdu}
     \end{table}
-    \gls{PDU}:n alun muodotaa funktiokoodi, joka on joko Modbus-protokollan tai käyttäjän määrittämä funktio. ADU:n loppuosa koostuu mahdollisesta datasta, jota palvelin tarvitsee suorittaakseen halutun toiminnon. Vastaus-PDU:un tulee sama funktiokoodi kuin kysely-PDU:un. Mikäli palvelin päätyy virhetilanteesee, joko virheellisen kysely-PDU:n tai sisäisen virheen takia, vastaa se asiakkaalle poikkeus-PDU:lla, joka muodostuu funktiokoodista, johon on liitetty heksakoodi 0x80, ja poikkeuskoodista.\parencite{modbusAppSpec} Funktiokoodeista käytetyimmät liittyvät yksittäisten muistipaikkojen lukemiseen ja kirjoittamiseen\parencite{DincerRosen}. Lista yleisistä funktio- ja poikkeuskoodeista löytyy liitteestä \ref{app:modbus_funktio_koodit}.
+
+    \gls{PDU}:n alun muodostaa funktiokoodi, joka on joko Modbus-protokollan tai käyttäjän määrittämä funktio. ADU:n loppuosa koostuu mahdollisesta datasta, jota palvelin tarvitsee suorittaakseen halutun toiminnon. Vastaus-PDU:hun tulee sama funktiokoodi kuin kysely-PDU:hun. Mikäli palvelin päätyy virhetilanteeseen, joko virheellisen kysely-PDU:n tai sisäisen virheen takia, vastaa se asiakkaalle poikkeus-PDU:lla, joka muodostuu funktiokoodista, johon on liitetty heksakoodi 0x80, ja poikkeuskoodista.\parencite{modbusAppSpec} Funktiokoodeista käytetyimmät liittyvät yksittäisten muistipaikkojen lukemiseen ja kirjoittamiseen\parencite{DincerRosen}. Lista yleisistä funktio- ja poikkeuskoodeista löytyy liitteestä \ref{app:modbus_funktio_koodit}.
 
 
   \subsection{protokollan rakenne}
 
-    Modbus-protokollasta on totetutettu muutamia eri versioita:
+    Modbus-protokollasta on toteutettu muutamia eri versioita:
     \begin{itemize}
       \item sarjaväyläversio eli Modbus Serial, joka muodostuu kahdesta muunnelmasta:
       \begin{itemize}
@@ -101,9 +102,9 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       \label{fig:adu}
     \end{figure}
 
-    Sarjaväylän yli toimivassa Modbusissa ADU siirretään käyttäen RS-485-standardia noudattavaa väylää tai RS-232-väylää pitkin. Oletuksena Modbus-standardi kehoittaa laitevalmistajia toteuttamaan ainakin RS-485-rajapinnan, RS-232-rajapinnan ollessa vapaaehtoinen. Modbus \gls{RTU} siirtää datan suoraan bitteinä. Modbus \gls{ASCII}:ssa taas jokainen tavu koodataan kahdeksi heksadesimaalimerkiksi ennen lähetystä, mikä heikentää sen tiedonsiirtokykyä. Modbus-standardi edellyttää, että kaikki laitteet tukevat ainakin Modbus RTU:ta Modbus ASCII:n ollessa suositeltu.\parencite{modbusSerialSpec}
+    Sarjaväylän yli toimivassa Modbusissa ADU siirretään käyttäen RS-485-standardia noudattavaa väylää tai RS-232-väylää pitkin. Oletuksena Modbus-standardi kehottaa laitevalmistajia toteuttamaan ainakin RS-485-rajapinnan, RS-232-rajapinnan ollessa vapaaehtoinen. Modbus \gls{RTU} siirtää datan suoraan bitteinä. Modbus \gls{ASCII}:ssa taas jokainen tavu koodataan kahdeksi heksadesimaalimerkiksi ennen lähetystä, mikä heikentää sen tiedonsiirtokykyä. Modbus-standardi edellyttää, että kaikki laitteet tukevat ainakin Modbus RTU:ta Modbus ASCII:n ollessa suositeltu.\parencite{modbusSerialSpec}
 
-    Modbus TCP/IP:tä käytettäessä Modbus-liikenne voi kulkea normaalin Internet-liikenteen mukana, mikä tekee siitä hyvin joustavan ratkaisun. TCP-portti 502 on varattu Modbus-sovelluksille.\parencite{modbusTCPIPSpec} Koska ADU:t lähetetään TCP-kehyksessä, niihin ei tarvitse laskea eikä lisätä tarkistussummaa. TCP-protokolla huolehtii paketin (kehys + ADU) perille pääsystä ja mahdollisista uudelleenlähetyksistä. Tietosuojasta voidaan huolehtia käyttämällä kommunikointiin \gls{VPN}-yhteyttä. Toinen turvallisuutta parantava keino on käyttää komminikointiin MODBUS/TCP Security -standardin mukaista TLS-salausta, jolloin liikenne kohdistetaan TCP-porttiin 802\parencite{modbusTCPIPTLSSpec}.
+    Modbus TCP/IP:tä käytettäessä Modbus-liikenne voi kulkea normaalin Internet-liikenteen mukana, mikä tekee siitä hyvin joustavan ratkaisun. TCP-portti 502 on varattu Modbus-sovelluksille.\parencite{modbusTCPIPSpec} Koska ADU:t lähetetään TCP-kehyksessä, niihin ei tarvitse laskea eikä lisätä tarkistussummaa. TCP-protokolla huolehtii paketin (kehys + ADU) perille pääsystä ja mahdollisista uudelleenlähetyksistä. Tietosuojasta voidaan huolehtia käyttämällä kommunikointiin \gls{VPN}-yhteyttä. Toinen turvallisuutta parantava keino on käyttää kommunikointiin MODBUS/TCP Security -standardin mukaista TLS-salausta, jolloin liikenne kohdistetaan TCP-porttiin 802\parencite{modbusTCPIPTLSSpec}.
 
 \section{IEC 61850}
   \gls{IEC} 61850 on sähköaseman älykkäiden sähkölaitteiden kommunikaatioprotokollia määrittävä standardi. Se on laajasti käytössä sähköasemien tiedonvaihdossa ja sähkönjakelun automaatiossa. Sen laajennukset tähtäävät kuitenkin myös laajempaan käyttöön, sillä standardissa on määritelty myös esimerkiksi hajautetun energiantuotannon tietomalleja. Standardi määrittelee myös inverttereiden erilaisia toiminnallisuuksia, esimerkiksi:
@@ -117,9 +118,9 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       \item tehon muuttaminen jännitteen perusteella ja
       \item ajastetut komennot \parencite{61850funcs}.
     \end{itemize}
-  
+
   Vaikka IEC 61850 ei ole vielä laajasti käytössä inverttereissä, esimerkiksi SMA\footnote{SMA Solar Technology AG -- System-, Mess- und Anlagentechnik} tarjoaa Italiassa toimiville inverttereille standardia hyödyntävän rajapinnan \parencite{SMAManual}. Tällä voidaan irrottaa tai kytkeä invertteri verkkoon, tai muuttaa invertterin taajuusrajoja. Italian CEI 0-21 -standardissa vaaditaan inverttereille rajapinta verkonhaltijalle, jonka takia luultavasti tämä ominaisuus on SMA:n ohjekirjassa merkattu vain Italia -ominaisuudeksi. Tämän vaatimuksen\footnote{\url{http://blog.nettedautomation.com/2012/07/iec-61850-in-italy-sma-offers-iec-61850.html}} lähde ei ole alkuperäinen, joten tätä vaatimusta ei voitu vahvistaa varmaksi, tosin SMA:n erillinen ohjeistus Italian laitteille viittaa siihen.
-  
+
 
 \section{SunSpec Modbus}
   SunSpec Modbus on SunSpec Alliancen määrittelemä sovellustason toteutus, joka hyödyntää yleisesti käytössä olevaa Modbus-protokollaa. Sunspec Modbus sijoittuu rakenteellisesti Modbusin päälle, kuten taulukossa 4.3 kuvattiin. Fyysinen Modbus-rajapinta on sisäänrakennettu noin \SI{80}{\percent}:iin asennetuista hajautetun energiantuotannon laitteista, joten tämän toteutuksen tuominen suurelle määrälle laitteita on melko yksinkertaista \parencite{SSFactSheet}.
@@ -132,7 +133,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
 
 \section{IEEE 1815 / Distributed Network Protocol 3}
-  DNP3 on teollisuusautomaation kommunikaatioprotokolla, joka määriteltiin alunperin 1993 ja sen kehitys jatkuu edelleen. Vuonna 2008 yhdysvaltalainen valtionvirasto NIST ja voittoa tavoittelematon energia-alan järjestö \gls{EPRI} näkivät tarpeen rajapinnalle \gls{IEC} 61850:n ja DNP3:n välille. Koska DNP3 oli vain vakiintunut käytäntö, DNP3:n standardisointi oli tarpeen, jotta yhteistyö ja koordinointi \gls{IEC}:n kanssa olisi sujuvaa. DNP3 standardoitiinkin \gls{IEEE} 1815 -standardiksi vuonna 2010, jonka jälkeen siitä on käytetty tuota nimitystä \parencite{DNP3&61850}.
+  DNP3 on teollisuusautomaation kommunikaatioprotokolla, joka määriteltiin alun perin 1993 ja sen kehitys jatkuu edelleen. Vuonna 2008 yhdysvaltalainen valtionvirasto NIST ja voittoa tavoittelematon energia-alan järjestö \gls{EPRI} näkivät tarpeen rajapinnalle \gls{IEC} 61850:n ja DNP3:n välille. Koska DNP3 oli vain vakiintunut käytäntö, DNP3:n standardisointi oli tarpeen, jotta yhteistyö ja koordinointi \gls{IEC}:n kanssa olisi sujuvaa. DNP3 standardoitiinkin \gls{IEEE} 1815 -standardiksi vuonna 2010, jonka jälkeen siitä on käytetty tuota nimitystä \parencite{DNP3&61850}.
 
   DNP3 on suunnattu sähköteollisuuden käyttöön, mutta se on myös käytössä esimerkiksi energia- ja vesiteollisuudessa. Pohjois-Amerikassa DNP3 on käytössä sähköverkon \gls{SCADA}-järjestelmissä, ja se onkin osittain kilpaileva sähköasemastandardi IEC 61850:n kanssa.
 
@@ -168,10 +169,6 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
   Jo asennetuissa mittareissa voi olla luentarajapinta hetkelliselle kulutukselle, mutta se rajoittuu usein vain pulssilähdöksi \parencite{Aidon5510}. Esimerkiksi suomalaisen mittarivalmistaja Aidonin uudemmissa mittareissa on mahdollista lukea dataa \gls{HAN}-rajapinnasta, joka toimii RJ-45 -kaapelin välityksellä. Käytännössä tuo rajapinta käyttää M-bus standardia, ja siitä pystyy lukemaan esimerkiksi virta- ja jännitetietoja sekä tehotietoja verkosta mittarin suuntaan ja mittarista verkon suuntaan. Tätä voidaan hyödyntää kiinteistöautomaatiossa mittaritietona, jolloin asiakas voi kuluttaa kaiken tuottamansa energian sen verkkoon syöttämisen sijaan. \parencite{HAN}
 
-  AMI-mittaria voidaan tulevaisuudessa hyödyntää akullisissa aurinkosähköjärjestelmissä kuormanohjaukseen. Seuraavan sukupolven mittareihin voitaisiin lähettää tieto sähkön hinnasta, jolloin sähkönsyöttöä voidaan vaihtaa verkon ja energianvaraston välillä korkean hinnan aikaan. Älykäs mittarinluentajärjestelmä voi myös hyödyntää historiatietoja ja sääennustusta optimoidessa sähkövaraston käyttöä. Tällöin energiavarastoa voitaisiin varata yöllä halvemman sähkönhinnan aikaan, mutta varaaminen kuitenkin pääsääntöisesti tapahtuisi aurinkovoimalalla. \parencite{AMRNykytila} 
+  AMI-mittaria voidaan tulevaisuudessa hyödyntää akullisissa aurinkosähköjärjestelmissä kuormanohjaukseen. Seuraavan sukupolven mittareihin voitaisiin lähettää tieto sähkön hinnasta, jolloin sähkönsyöttöä voidaan vaihtaa verkon ja energianvaraston välillä korkean hinnan aikaan. Älykäs mittarinluentajärjestelmä voi myös hyödyntää historiatietoja ja sääennustusta optimoidessa sähkövaraston käyttöä. Tällöin energiavarastoa voitaisiin varata yöllä halvemman sähkönhinnan aikaan, mutta varaaminen kuitenkin pääsääntöisesti tapahtuisi aurinkovoimalalla. \parencite{AMRNykytila}
 
   Keskeinen syy mittarien yksinkertaisiin kuormanohjauksiin on mittarin luotettavuus, sillä monimutkaisemmassa mittarissa on useampi hajoava komponentti, ja mittareiden elinkaari on kuitenkin suhteellisen pitkä, 10--15 vuotta. Lisäksi verkonhaltijan saamat hyödyt ylimääräisistä rajapinnoista eivät ole suuret, ja uusien toiminnallisuuksien kehitys myöhäistäisi edelleen seuraavan sukupolven mittareiden asennusta. Lähtökohtaisesti tietoturvan ja kustannusten kannalta kannattavampaa onkin tarjota vain rajapinta mittarilta saatavalle tiedolle, kuten mittaukselle ja esimerkiksi energian hinnalle. Tällöin kiinteistöautomaatio voi hyödyntää näitä tietoja, ja siten hoitaa paikallisesti energiatasapainon optimointia.
-
-
-
-
