@@ -258,8 +258,9 @@
 %%%%% COMMAND DEFINITIONS %%%%%
 
 % \title command
-\renewcommand{\title}{%
-    \gdef\@title
+\renewcommand{\title}[2]{%
+    \gdef\@title{#1}
+    \gdef\@othertitle{#2}
 }
 
 % \subtitle command
@@ -403,6 +404,7 @@ The originality of this thesis has been checked using the Turnitin OriginalityCh
         \setlength{\parindent}{15pt}
         \setlength{\parskip}{0pt}
         \noindent\@author: \@title\par
+        \noindent Engl. \@othertitle\par
         \noindent\@thesistype\par
         \noindent\@university\par
         \noindent\@programmename\par
