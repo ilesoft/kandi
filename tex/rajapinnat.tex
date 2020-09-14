@@ -48,12 +48,13 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       \centering
       \caption[\gls{PDU}-tyypit.]{\gls{PDU}-tyypit. Perustuu lähteeseen \parencite{modbusAppSpec}.}
       \begin{tabular}{ccl}
-        \cellcolor{green}Funktiokoodi (F)              & \cellcolor{green}Kyselyn data    & Kysely-PDU   \\
-                                                       &                                  &              \\
-        \cellcolor{green}Funktiokoodi (F)              & \cellcolor{green}Vastauksen data & Vastaus-PDU  \\
-                                                       &                                  &              \\
-        \cellcolor{red}Poikkeusfunktiokoodi (F + 0x80) & \cellcolor{red}Poikkeuskoodi     & Poikkeus-PDU \\
-      \end{tabular}
+      \cline{1-2}
+      \multicolumn{1}{|c|}{\cellcolor[HTML]{5CB735}Funktiokoodi (F)}                & \multicolumn{1}{c|}{\cellcolor[HTML]{5CB735}Kyselyn data}    & Kysely-PDU   \\ \cline{1-2}
+                                                                                    &                                                              &              \\ \cline{1-2}
+      \multicolumn{1}{|c|}{\cellcolor[HTML]{5CB735}Funktiokoodi (F)}                & \multicolumn{1}{c|}{\cellcolor[HTML]{5CB735}Vastauksen data} & Vastaus-PDU  \\ \cline{1-2}
+                                                                                    &                                                              &              \\ \cline{1-2}
+      \multicolumn{1}{|c|}{\cellcolor[HTML]{D78989}Poikkeusfunktiokoodi (F + 0x80)} & \multicolumn{1}{c|}{\cellcolor[HTML]{D78989}Poikkeuskoodi}   & Poikkeus-PDU \\ \cline{1-2}
+    \end{tabular}
       \label{pdu}
     \end{table}
 
@@ -78,18 +79,18 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
     Taulukossa \ref{rakenne} on Modbus-protokollaperhettä verrattu \gls{OSI}-malliin. Modbus-protokollan ylempi kerros, eli \gls{MBAP} sijoittuu \gls{OSI}-mallissa kerroseen 7, eli sovelluskerrokseen. \gls{MBAP}:n toimintaa on esitelty edellisessä kappaleissa. Sarjaväyläversiossa alempi kerros sijoittuu \gls{OSI}-mallissa kerrokseen 2 ja Modbus TCP/IP:n tapauksessa kerrokseen 5\footnote{\gls{OSI}-mallin teoreettisesta luonteesta johtuen tästä voinee esittää eroavia mielipiteitä.}.
     \begin{table}
       \centering
-      \caption[Modbus-protokollan rakenne ja \gls{OSI}-malli]{Modbus-protokollan rakenne ja sen sovitus \gls{OSI}-malliin. Modbus-protokollaperhe sinisellä. Perustuu lähteisiin \parencite{osi, modbusSerialSpec, modbusTCPIPSpec}.}
+      \caption[Modbus-protokollan rakenne, \gls{OSI}-malli ja SunSpec]{Modbus-protokolla ja  SunSpec Modbus suhteutettuna \gls{OSI}-malliin. Modbus-protokollaperhe sinisellä ja Sunspec Modbus keltaisella. Perustuu lähteisiin \parencite{osi, modbusSerialSpec, modbusTCPIPSpec, SSTech}.}
       \begin{tabular}{|c|c|ccc}
-        \cline{1-2}
-        \multicolumn{2}{|c|}{OSI-mali}                                               & \multicolumn{3}{c}{}                                                                                                                                                                           \\ \hline
-        \multicolumn{1}{|l|}{}                    &                                  & \multicolumn{3}{c|}{\cellcolor{yellow}SunSpec}                                                                                                                                                 \\ \cline{3-5}
-        \multicolumn{1}{|l|}{7}                   & sovelluskerros                   & \multicolumn{3}{c|}{\cellcolor{blue}MBAP (Modbus-viestintäprotokolla)}                                                                                                                         \\ \hline
-        6                                         & esityskerros                     &                                                         &                                                           & \multicolumn{1}{c|}{}                                                    \\ \cline{1-2} \cline{5-5}
-        5                                         & istuntokerros                    &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{\cellcolor{blue}Modbus-\gls{TCP}}                    \\ \cline{1-2} \cline{5-5}
-        4                                         & kuljetuskerros                   &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{\gls{TCP}}                                           \\ \cline{1-2} \cline{5-5}
-        3                                         & verkkokerros                     &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{IP}                                                  \\ \hline
-        2                                         & siirtokerros                     & \multicolumn{1}{c|}{\cellcolor{blue}Modbus-RTU}         & \multicolumn{1}{c|}{\cellcolor{blue}Modbus-ASCII}         & \multicolumn{1}{c|}{Ethernet, \dots}                                     \\ \hline
-        1                                         & fyysinen kerros                  & \multicolumn{2}{c|}{RS-232 / RS-485}                                                                                & \multicolumn{1}{c|}{Ethernet, \dots}                                     \\ \hline
+      \cline{1-2}
+      \multicolumn{2}{|c|}{OSI-mali}                                               & \multicolumn{3}{c}{}                                                                                                                                                                \\ \hline
+      \multicolumn{1}{|l|}{}                    &                                  & \multicolumn{3}{c|}{\cellcolor[HTML]{FFFFC7}SunSpec}                                                                                                                                \\ \cline{3-5}
+      \multicolumn{1}{|l|}{\multirow{-2}{*}{7}} & \multirow{-2}{*}{sovelluskerros} & \multicolumn{3}{c|}{\cellcolor[HTML]{6F6FE6}MBAP (Modbus-viestintäprotokolla)}                                                                                                      \\ \hline
+      6                                         & esityskerros                     &                                                         &                                                           & \multicolumn{1}{c|}{}                                         \\ \cline{1-2} \cline{5-5}
+      5                                         & istuntokerros                    &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{\cellcolor[HTML]{6F6FE6}Modbus-\gls{TCP}} \\ \cline{1-2} \cline{5-5}
+      4                                         & kuljetuskerros                   &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{\gls{TCP}}                                \\ \cline{1-2} \cline{5-5}
+      3                                         & verkkokerros                     &                                                         & \multicolumn{1}{c|}{}                                     & \multicolumn{1}{c|}{IP}                                       \\ \hline
+      2                                         & siirtokerros                     & \multicolumn{1}{c|}{\cellcolor[HTML]{6F6FE6}Modbus-RTU} & \multicolumn{1}{c|}{\cellcolor[HTML]{6F6FE6}Modbus-ASCII} & \multicolumn{1}{c|}{Ethernet, ...}                            \\ \hline
+      1                                         & fyysinen kerros                  & \multicolumn{2}{c|}{RS-232 / RS-485}                                                                                & \multicolumn{1}{c|}{Ethernet, ...}                            \\ \hline
       \end{tabular}
       \label{rakenne}
     \end{table}
@@ -123,7 +124,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
 
 \section{SunSpec Modbus}
-  SunSpec Modbus on SunSpec Alliancen määrittelemä sovellustason toteutus, joka hyödyntää yleisesti käytössä olevaa Modbus-protokollaa. Sunspec Modbus sijoittuu rakenteellisesti Modbusin päälle, kuten taulukossa 4.3 kuvattiin. Fyysinen Modbus-rajapinta on sisäänrakennettu noin \SI{80}{\percent}:iin asennetuista hajautetun energiantuotannon laitteista, joten tämän toteutuksen tuominen suurelle määrälle laitteita on melko yksinkertaista \parencite{SSFactSheet}. 
+  SunSpec Modbus on SunSpec Alliancen määrittelemä sovellustason toteutus, joka hyödyntää yleisesti käytössä olevaa Modbus-protokollaa. Sunspec Modbus sijoittuu rakenteellisesti Modbusin päälle, kuten taulukossa 4.3 kuvattiin. Fyysinen Modbus-rajapinta on sisäänrakennettu noin \SI{80}{\percent}:iin asennetuista hajautetun energiantuotannon laitteista, joten tämän toteutuksen tuominen suurelle määrälle laitteita on melko yksinkertaista \parencite{SSFactSheet}.
 
   SunSpecin standardi on tehty huomioiden \gls{IEC} 61850 -standardi, mukaan lukien sen 90-7 ja 7-420 -laajennukset, jotka käsittelevät hajautetun energiantuotannon inverttereiden ja konverttereiden toiminnallisuuksia ja kommunikaatiorakennetta hajautetussa energiantuotannossa. SunSpec onkin toteuttanut edellä mainitut toiminnallisuudet myös omaan standardiinsa. Tämän tarkoituksena on helpottaa integraatiota \gls{IEC} 61850 -standardia hyödyntävien järjestelmien kanssa \parencite{SSTech}. Kuitenkaan SunSpec ei ole nimennyt tietomallin muuttujia täsmälleen samoilla nimillä, kuin 61850-standardi, joten ne eivät ole suoraan yhteensopivia keskenään.
 
