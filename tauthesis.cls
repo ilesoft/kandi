@@ -166,8 +166,8 @@
   in = {}
 }
 
-\DeclareNameAlias{sortname}{last-first}
-\DeclareNameAlias{author}{last-first}
+\DeclareNameAlias{sortname}{family-given}
+\DeclareNameAlias{author}{family-given}
 
 \DeclareFieldFormat[%
   article,inbook,incollection,inproceedings,
