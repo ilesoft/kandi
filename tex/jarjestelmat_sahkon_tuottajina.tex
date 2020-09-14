@@ -18,7 +18,7 @@ Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. 
 
   Kennot ryhmitellään usein moduuleiksi, joiden kanssa rinnan kytketään ohitusdiodit. Jos kennot varjostuvat, ohitusdiodi ohittaa kyseisen moduulin, jossa varjostuneet kennot sijaitsevat, jolloin se ei aiheuta häviöitä muualla rajoittamalla muiden moduulien tai paneeleiden virtaa. Usein aurinkopaneelit ketjutetaan tarvittavan jännitteen saamiseksi, jolloin ohitusdiodien apu varjostustilanteissa on erittäin tärkeää, sillä muuten varjostuskohta rajoittaisi koko paneeliketjun virtaa. \parencite{Willeke&Weber}
 
-  Aurinkokennojen ja -paneelien toimintakäyrinä käytetään usein virta--jännite-käyrää ja siitä johdettua teho-jännite (engl. P-V) -käyrää. \begin{figure}[h]
+  Aurinkokennojen ja -paneelien toimintakäyrinä käytetään usein virta--jännite-käyrää ja siitä johdettua teho--jännite (engl. P--V) -käyrää. \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/pvcurve}
     \caption{Esimerkki P--V-käyrästä}
@@ -27,7 +27,7 @@ Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. 
   Piirillä, jossa on sarjaan kytkettyjä aurinkopaneeleita, on jokaisella paneelilla oma paikallinen huipputehopisteensä (engl. MPP - Maximum Power Point), mutta myös koko piirillä on yhteinen globaali huipputehopiste. Globaali huipputehopiste muuttuu varjostusten ja pilvisyyden mukaan koko järjestelmän tasolla ja sitä tarkkailemalla saadaan selville, millä jännitteellä koko järjestelmästä saadaan suurin teho.
 
 \section{Invertterit}
-  Invertteri eli vaihtosuuntaaja on laite, joka muuttaa tasasähköä vaihtosähköksi. Invertterin sisääntulojännite vaihtelee käyttötarkoituksen mukaan: kaupalliseen käyttöön tai suurempiin järjestelmiin tarkoitetut laitteet toimivat korkealla, jopa 1500V jännitteellä, koska niissä on pidemmät johdotusmatkat ja suurempi määrä paneeleita kytkettynä sarjaan. Kuluttajakäytössä taas voidaan käyttää selvästi pienemmän tason jännitteitä johdotusten ollessa huomattavasti lyhyempiä ja paneeleiden määrän ollessa pienempi.
+  Invertteri eli vaihtosuuntaaja on laite, joka muuttaa tasasähköä vaihtosähköksi. Invertterin sisääntulojännite vaihtelee käyttötarkoituksen mukaan: kaupalliseen käyttöön tai suurempiin järjestelmiin tarkoitetut laitteet toimivat korkealla, jopa \SI{1500}{\volt} jännitteellä, koska niissä on pidemmät johdotusmatkat ja suurempi määrä paneeleita kytkettynä sarjaan. Kuluttajakäytössä taas voidaan käyttää selvästi pienemmän tason jännitteitä johdotusten ollessa huomattavasti lyhyempiä ja paneeleiden määrän ollessa pienempi.
 
   Korkeampi jännitetaso keventää huomattavasti tarvittavaa johdotusta, kun virta voidaan pitää pienenä ja siten johtojen läpimitta pienenä. Myös häviöt pienenevät huomattavasti, koska johdoissa syntyvät häviöt kasvavat Ohmin lain
   \begin{equation}
@@ -37,17 +37,16 @@ Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. 
 
   Invertteri, jolla on valmiudet huipputehopisteen seurantaan (engl. MPP Tracking, MPPT), etsii siihen kytketyn aurinkopaneeliryhmän huipputehopistettä aktiivisesti. Pisteen etsimiseen käytetään monia eri tekniikoita, mutta tämän työn kannalta niiden läpikäynti ei ole relevanttia. Jos käytetty tekniikka on liian herkkä löytämään huipputehopisteitä, se voi valita paikallisen pisteen globaalin sijaan ja aiheuttaa huomattavia tehohäviöitä väärän pisteen valinnalla. \parencite{Joshi&Arora}
 
-  Aurinkopaneeliryhmän tehoa voidaan muuttaa kuormavastusta säätämällä. Huipputehopisteelle löytyy aina sitä vastaava ominaisvastus kaavan 2.2
+  Aurinkopaneeliryhmän tehoa voidaan muuttaa kuormavastusta säätämällä. Huipputehopisteelle löytyy aina sitä vastaava ominaisvastus kaavan
   \begin{equation}
     R_{CH} = \frac{V_{MPP}}{I_{MPP}}
   \end{equation}
-
-  mukaisesti \parencite{Joshi&Arora}, ja invertteri säätää kuormavastuksen ominaisvastuksen mukaiseen arvoon, löydettyään järjestelmän huipputehopisteen mukaiset arvot kaavaan.
+  mukaisesti \parencite{Joshi&Arora}, ja invertteri säätää kuormavastuksen ominaisvastuksen mukaiseen arvoon löydettyään järjestelmän huipputehopisteen mukaiset arvot kaavaan.
 
   Invertterit voidaan jakaa pääosin kolmeen eri tyyppiin järjestelmien topologioiden mukaan: keskusinverttereihin, mikroinverttereihin sekä ketjuinverttereihin. Keskusinvertterit ovat kaupallisissa kohteissa käytettäviä, suuritehoisia inverttereitä, kun taas mikroinvertterit ovat pääosin kuluttajakäyttöön suunnattuja laitteita. Ketjuinvertterit sijoittuvat näiden väliin ja laajan tehoskaalan vuoksi niitä voidaan käyttää molempien tyyppisissä kohteissa.
 
 \subsection{Keskusinvertteri}
-  Keskusinvertterin teho on usein hyvin suuri, yli 50 kW:sta jopa muutamaan megawattiin. Niitä käytetään suurissa aurinkovoimaloissa, joissa ei usein tarvitse miettiä rakennelmien tai puiden aiheuttamia varjostuksia. Tällöin asennuskustannukset pienenevät, sillä suuriin järjestelmiin riittää yksi invertteri.
+  Keskusinvertterin teho on usein hyvin suuri, yli \SI{50}{\kilo\watt}:sta jopa muutamaan megawattiin. Niitä käytetään suurissa aurinkovoimaloissa, joissa ei usein tarvitse miettiä rakennelmien tai puiden aiheuttamia varjostuksia. Tällöin asennuskustannukset pienenevät, sillä suuriin järjestelmiin riittää yksi invertteri.
 
   Keskusinvertterin huonoja puolia ovat järjestelmän riippuvuus yksittäisestä invertteristä sekä vain muutama huipputehopiste koko järjestelmälle. Tällöin järjestelmässä tulee suuret tehohäviöt, jos esimerkiksi pilvi kulkee osittain paneelikentän yli ja huipputehopiste määräytyy koko järjestelmälle, jolloin täysin auringossa olevien paneelien teho laskee huomattavasti. Käyttökohteiden ja suunnittelun takia tämä ei toisaalta vaikuta merkittävästi järjestelmän tuottoon.
 
@@ -61,9 +60,9 @@ Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. 
 \subsection{Ketjuinvertteri}
   Ketjuinvertteriin kytketään nimensä mukaisesti sarjaan kytketyistä paneeleista muodostettuja ketjuja. Siinä on usein monta huipputehopisteen seurannan kytkentää, jolloin saadaan seurattua useita huipputehopisteitä invertteriä kohden. Invertterien teho vaihtelee muutamasta kilowatista jopa satoihin kilowatteihin, jolloin sitä voidaan käyttää hyvin erikokoisissa järjestelmissä.
 
-  Teholuokaltaan pienet ketjuinvertterit on suunniteltu käyttäjäystävällisyyshuomioiden, ja esimerkiksi SMA:n ja Huawein invertterit sisältävät integraation valmistajien taustajärjestelmiin. SMA on toteuttanut tämän integraation valmiina laitteelle, kun taas osa Huawein inverttereistä vaatii sovittimen Ethernet-portin, WLANin tai matkapuhelinverkon käyttämiseen datasiirrossa.
+  Teholuokaltaan pienet ketjuinvertterit on suunniteltu käyttäjäystävällisyyshuomioiden, ja esimerkiksi SMA:n ja Huawein invertterit sisältävät integraation valmistajien taustajärjestelmiin. SMA on toteuttanut tämän integraation valmiina laitteelle, kun taas osa Huawein inverttereistä vaatii sovittimen Ethernet-portin, WLAN:in tai matkapuhelinverkon käyttämiseen datasiirrossa.
 
-  SMAn invertterit käyttävät lisäksi SunSpec Alliancen Modbus-standardia, joka toimii Ethernet-portin välityksellä. Muut standardia hyödyntävät valmistajat voivat kommunikoida suoraan SMAn inverttereiden kanssa standardoinnin takia. Huawei käyttää myös Modbus-protokollaa, mutta se ei ole SunSpec Alliancen standardoima. Tämä tarkoittaa, että Huawein kanssa kommunikoitaessa sille on räätälöitävä ohjelmistoa datan lukemiseksi.
+  SMA:n invertterit käyttävät lisäksi SunSpec Alliancen Modbus-standardia, joka toimii Ethernet-portin välityksellä. Muut standardia hyödyntävät valmistajat voivat kommunikoida suoraan SMAn inverttereiden kanssa standardoinnin takia. Huawei käyttää myös Modbus-protokollaa, mutta se ei ole SunSpec Alliancen standardoima. Tämä tarkoittaa, että Huawein kanssa kommunikoitaessa sille on räätälöitävä ohjelmistoa datan lukemiseksi.
 
   Modbusin hyödyntäminen mahdollistaa muiden valmistajien tuotteiden kommunikaation inverttereiden kanssa. Yhteinen standardi helpottaa suurissa järjestelmissä eri valmistajien tuotteiden yhteensopivuuden kanssa, mutta ylipäätään Modbusin käyttö antaa mahdollisuuden kolmannen osapuolen tuotteiden liittämiseen.
 

@@ -8,7 +8,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
   Modbus on automaatiossa käytetty palvelin--asiakas-mallin viestintäprotokolla. Sen on alun perin kehittänyt vuonna 1979 yritys nimeltään Modicon käytettäväksi valmistamiensa ohjelmoitavien logiikoiden eli \Gls{plc}:den väliseen viestintään. Nykyisin Modicon on osa ranskalaista Schneider Electriciä. Koska standardi on julkaistu avoimesti kaikkien käytettäväksi ja se on verrattain yksinkertainen, on se saavuttanut johtavan aseman teollisuudessa. Yleisimmille ohjelmointikielille on saatavilla Modbus-standardin toteuttavat kirjastot, joiden avulla voidaan ohjelmallisesti ohjata laitteita. Laajan levinneisyyden ansiosta Modbus soveltuu monien eri valmistajien laitteiden järjestelmien kanssa käytettäväksi. Teollisuuden lisäksi protokollaa käytetään myös talo- ja kiinteistöautomaatiossa. \mbox{\parencite{sousaPortugal, modbusAppSpec, modbusOrg}}
 
-  Vuonna 2004 Schneider Electric siirsi standardin hallinnan voittoa tavoittelemattomalle Modbus-järjestölle\footnote{Modbus Organization, Inc}. Järjestön muodostavat automaatiolaitteita valmistavat yritykset ja yksittäiset henkilöt. Sen tehtäviin kuuluu ylläpitää ja kehittää Modbus-standardia ja siihen liittyviä documentteja sekä toimia etujärjestönä edistäen modbusin käyttöä. Modbusiin liittyvien dokumenttien ja julkaisujen avulla edistetään eri valmistajien järjestelmien välistä kommunikaatiota ja helpotetaan niiden integraatioita toisiinsa. \parencite{modbusOrg}
+  Vuonna 2004 Schneider Electric siirsi standardin hallinnan voittoa tavoittelemattomalle Modbus-järjestölle\footnote{Modbus Organization, Inc}. Järjestön muodostavat automaatiolaitteita valmistavat yritykset ja yksittäiset henkilöt. Sen tehtäviin kuuluu ylläpitää ja kehittää Modbus-standardia ja siihen liittyviä dokumentteja sekä toimia etujärjestönä edistäen Modbusin käyttöä. Modbusiin liittyvien dokumenttien ja julkaisujen avulla edistetään eri valmistajien järjestelmien välistä kommunikaatiota ja helpotetaan niiden integraatioita toisiinsa. \parencite{modbusOrg}
 
   \subsection{viestintä ja tietomalli}
 
@@ -25,7 +25,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
   Modbus-protokolla määrittelee lähetettäville kyselyille kaksi eri muotoa: täsmälähetys (unicast) ja monilähetys (multicast). Täsmälähetys osoitetaan tietylle palvelimelle ja vastaanotettuaan sen palvelin toimii sen mukaisesti. Monilähetys taas lähetetään osoitteella~0, jolloin kaikki palvelimet reagoivat kyselyyn. \parencite{modbusSerialSpec} Kerrallaan vain yksi laite verkossa voi toimia asiakkaana muiden toimiessa palvelimina. Tästä huolimatta yksittäinen laite voi kuitenkin toimia sekä palvelimena, että asiakkaana, kunhan tämä tapahtuu erillisissä verkoissa. \parencite{DincerRosen}
 
-  Modbus-protokollan tietomalli koostuu palvelinlaitteella sijaitsevista muistialueista, jotka on jaettu taulukoihin. Pääasialliset neljä muistialuetaulukkoa on kuvattu taulukossa \ref{taulukot}. Taulukoiden nimeäminen suomen kiellellä on haastavaa, joten se jätetään tekemättä.
+  Modbus-protokollan tietomalli koostuu palvelinlaitteella sijaitsevista muistialueista, jotka on jaettu taulukoihin. Pääasialliset neljä muistialuetaulukkoa on kuvattu taulukossa \ref{taulukot}. Taulukoiden nimeäminen suomen kielellä on haastavaa, joten se jätetään tekemättä.
   \begin{table}[h]
     \centering
     \caption[Modbus muistialuetaulukot.]{Modbus muistialuetaulukot. Perustuu lähteeseen \parencite{modbusAppSpec}.}
@@ -95,7 +95,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       \label{rakenne}
     \end{table}
 
-    \gls{MBAP} on kaikille Modbus-versioille yhteinen ja se mahdollistaa viestinnän laitteiden kesken erilaisten verkkojen ylitse. Välittettävät funktiokoodit ja data pakataa \gls{MBAP}:n toimesta PDU:ksi. Alemmassa keroksessa muodostetaan \gls{ADU}(application data unit), joka sisältää PDU:n lisäksi kohdelaitteen osoitteen ja tarkistussumman tai jos kyseessä on Modbus-TCP, \gls{MBAP}-otsikon. Erilaiset ADU:t on esitelty kuvassa \ref{fig:adu}.
+    \gls{MBAP} on kaikille Modbus-versioille yhteinen ja se mahdollistaa viestinnän laitteiden kesken erilaisten verkkojen ylitse. Välitettävät funktiokoodit ja data pakataan \gls{MBAP}:n toimesta PDU:ksi. Alemmassa kerroksessa muodostetaan \gls{ADU}(application data unit), joka sisältää PDU:n lisäksi kohdelaitteen osoitteen ja tarkistussumman tai jos kyseessä on Modbus-TCP, \gls{MBAP}-otsikon. Erilaiset ADU:t on esitelty kuvassa \ref{fig:adu}.
     \begin{figure}[h]
       \centering
       \includegraphics[width=1\textwidth]{figures/adu}
@@ -114,7 +114,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       \item loistehonsäädön (Volt/VAR-säätö) tilan muuttaminen,
       \item teho taajuuden funktiona -tilan muuttaminen (frequency-watt),
       \item toiminnan jatkaminen epätavallisista jännitevaihteluista huolimatta,
-      \item normaalin toiminta-alueen määrittäminen ja irtikytkeytyminen sen ulkopuolella määritellyllä funktiolla,
+      \item normaalin toiminta-alueen määrittäminen ja irti kytkeytyminen sen ulkopuolella määritellyllä funktiolla,
       \item käyttäytymistilojen muuttaminen tehon funktiona,
       \item tehon muuttaminen jännitteen perusteella ja
       \item ajastetut komennot \parencite{61850funcs}.
@@ -149,7 +149,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
 \section{Smart Grid -ready}
 
-  Bundesverband Wärmepumpe e.V. (jäljenpänä BWP) on saksalainen lämpöpuppuyhdistys, joka ylläpitää lämpöpumppujen ohjaukseen käytettävää rajapintaa määrittävää \gls{SG}-Ready-merkintää (\gls{SG} Ready label). \gls{SG}-Ready määrittelee pumpulle neljä eri toimintatilaa, joiden perusteella ulkoinen toimija kykenee ohjaamaan lämpöpumpun toimintaa. Toimintatilat yksi ja kaksi ovat yhteensopivia Saksassa käytetyn muunmuassa lämpöpumppuihin kohdistetutun energiantoimittajien suorittaman ohjauksen (EVU-Sperre\footnote{Energieversorgungsunternehmen Sperre}) kanssa.\parencite{SGReadyReg} Ohjattava lämpöpumppu voidaan kytkeä energiatoimittajan toimesta pois päältä enimmillään kahdeksi tunniksi kerrallaan. Yhteen vuorokauteen taas voi sijoittua enintään kolme keskeytystä, jotka on pyritään sijoittamaan suurimman kulutuksen hetkiin. Kun kuluttajan tekee sähkösopimuksen, johon ohjaus kuuluu, saa hän vastavuoroisesti alennusta energian hinnasta. \parencite{enwg, VDEARN4100}
+  Bundesverband Wärmepumpe e.V. (jäljempänä BWP) on saksalainen lämpöpuppuyhdistys, joka ylläpitää lämpöpumppujen ohjaukseen käytettävää rajapintaa määrittävää \gls{SG}-Ready-merkintää (\gls{SG} Ready label). \gls{SG}-Ready määrittelee pumpulle neljä eri toimintatilaa, joiden perusteella ulkoinen toimija kykenee ohjaamaan lämpöpumpun toimintaa. Toimintatilat yksi ja kaksi ovat yhteensopivia Saksassa käytetyn muun muassa lämpöpumppuihin kohdistetun energiantoimittajien suorittaman ohjauksen (EVU-Sperre\footnote{Energieversorgungsunternehmen Sperre}) kanssa.\parencite{SGReadyReg} Ohjattava lämpöpumppu voidaan kytkeä energiatoimittajan toimesta pois päältä enimmillään kahdeksi tunniksi kerrallaan. Yhteen vuorokauteen taas voi sijoittua enintään kolme keskeytystä, jotka on pyritään sijoittamaan suurimman kulutuksen hetkiin. Kun kuluttajan tekee sähkösopimuksen, johon ohjaus kuuluu, saa hän vastavuoroisesti alennusta energian hinnasta. \parencite{enwg, VDEARN4100}
 
   SG-Readyn  kolmas ja neljäs toimintatila ovat sopivia ylituotannon kompensointiin niiden lisätessä lämpöpumppujen sähkönkulutusta. Eri toimintatilat on eritelty taulukossa \ref{sgready}.
   \begin{table}[h]
