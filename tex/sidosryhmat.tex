@@ -1,4 +1,4 @@
-Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituksiin soveltuvista rajapinnoista. Osa sidosryhmistä on kiinnostunut vain datan lukemiseen tarkoitetusta rajapinnasta käyttäen sitä esimerkiksi käyttövarmuuden ja tuoton tilastointiin, kun taas osa on kiinnostunut järjestelmien etähallinnasta esimerkiksi verkon joustavuuden parantamiseksi.
+Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituksiin soveltuvista rajapinnoista. Osa sidosryhmistä on kiinnostunut vain datan lukemiseen tarkoitetusta rajapinnasta käyttäen sitä esimerkiksi käyttövarmuuden ja tuoton tilastointiin, kun taas osa on kiinnostunut järjestelmien etähallinnasta esimerkiksi verkon joustavuuden parantamiseksi. Erityyppisiä sidosryhmiä on hahmoteltu kuvassa \ref{fig:sidosryhmat}, jossa keskellä sijaitsee rajapintoja tarjoavat järjestelmät, vasemmalla sähköverkkoon liittyvät ja oikealla muut sidosryhmät.
 
 \begin{figure}[h]
   \centering
@@ -12,7 +12,7 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
   Mikäli Fingridin voimajohtoon liitettävä voimalaitos on yli 1MW:n tehoinen, se on varustettava eroonkytkentäreleistyksellä. Yli 5MW:n tehoinen voimalaitos vaatii lisäksi eroonkytkennän viestiyhteyden pikajälleenkytkentöjen toiminnan varmistamiseksi. Jos taas voimalaitos liittyy suoraan tai Fingridin asiakkaan verkon kautta kantaverkon kytkinkenttään, ei eroonkytkentäreleistystä vaadita. Tahattoman saarekekäytön estäminen on joissain inverttereissä integroituna, jolloin ne tarkkailevat verkon tilaa ja huomattuaan saarekkeen muodostumisen, kytkeytyvät irti. Tällöin alle 5MW:n järjestelmät eivät tarvitse erillisiä laitteistoja eroonkytkentään, vaan invertteri toteuttaa itsessään jo tämän vaatimuksen.
 
-  Yli 10MW:n järjestelmien kohdalla Fingridin Kantaverkkokeskus voi tarvittaessa pyytää järjestelmän käytöstä vastaavaa toimijaa muuttamaan pätö- tai loistehosäädön asettelu-arvoja voimalaitosteknologian asettamissa rajoissa \parencite{VJV2018}. Fingrid ei täten ota kantaa siihen, miten tämä säätäminen tapahtuu. Fingridin tarpeet järjestelmien rajapinnoista rajoittuvat siten erityistilanteissa järjestelmän alasajoon tai sen tehonsäätöön käytöstä vastaavan toimijan kautta.
+  Yli 10MW:n järjestelmien kohdalla Fingridin kantaverkkokeskus voi tarvittaessa pyytää järjestelmän käytöstä vastaavaa toimijaa muuttamaan pätö- tai loistehosäädön asetteluarvoja voimalaitosteknologian asettamissa rajoissa \parencite{VJV2018}. Fingrid ei täten ota kantaa siihen, miten tämä säätäminen tapahtuu. Fingridin tarpeet järjestelmien rajapinnoista rajoittuvat siten erityistilanteissa järjestelmän alasajoon tai sen tehonsäätöön käytöstä vastaavan toimijan kautta.
 
 \section{Verkonhaltija}
 
@@ -26,7 +26,7 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
   Järjestelmän omistajan eli usein käyttäjän suorittama järjestelmän monitorointi voidaan toteuttaa muutamilla eri tavoilla. Monitorointi ja ohjaus toteutetaan usein fyysisen käyttöliittymän avulla ja mikäli nämä toiminnallisuudet halutaan myös etänä, on käyttöliittymä helposti tuotavissa laitevalmistajan tarjoamaan pilvipalveluun tai mobiilisovellukseen. Mikäli valmistaja ei kuitenkaan tarjoa etämonitorointiin sovelluksia, on sellainen usein mahdollista tehdä itse, mikäli osaaminen riittää aiheeseen.
 
-  Omistaja voi olla kiinnostunut myös erilaisista energiaa säästävistä ohjaustoiminnoista, hyvä esimerkki tästä on "poissa kotoa" -toiminto, jolla saadaan lämpötilaa laskettua mikäli kiinteistö on tyhjillään pidemmän aikaa. Tämä luonnollisesti laskee myös lämmityskustannuksia.
+  Omistaja voi olla kiinnostunut myös erilaisista energiaa säästävistä ohjaustoiminnoista, hyvä esimerkki tästä on "poissa kotoa"{} \texttt{-}toiminto, jolla saadaan lämpötilaa laskettua mikäli kiinteistö on tyhjillään pidemmän aikaa. Tämä luonnollisesti laskee myös lämmityskustannuksia.
 
 \section{Kiinteistö}
   Kiinteistö voidaan ajatella yhtenä sidosryhmänä, joka on hyvin sidoksissa järjestelmän omistajaan.  Tämä johtuu sitä, että omistaja voi ohjata kiinteistöautomaation kautta muitakin laitteita, kuin vain lämpöpumppua tai aurinkosähköjärjestelmää. Tällöin järjestelmä voi säädellä automaattisesti kiinteistön energiatasapainoa, tai siirtää varaavan lämmityksen kulutus halvemmille tunneille.
@@ -42,7 +42,7 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
   Ennestään sähkömarkkinoilla on ollut käytännössä kolme toimijaa: Energian myyjä, siirtäjä ja ostaja. Aggregaattori näistä kaikista (mahdollisesti) erillinen toimija, jonka tehtävänä on myydä sähkömarkkinoille joustoa. Aggregaattori voi ohjata esimerkiksi lämpöpumppupoolia ja käydä kauppaa sen mahdollistamalla kysyntäjoustolla.
 
-  Lämpöpumput ovat todennäköisesti käyttöpaikkansa suurimpia sähkönkäyttäjiä. Käyttäjän kannalta olisi edullista, mikäli lämpöpumpun käyttämä sähkö hinnoiteltaisiin muusta käytetystä sähköstä erillään. Saksalaisessa EVU-Sparre-järjestelmässä lämpöpumppu on sähköntoimittajan tai muun yrityksen ohjattavissa. Korvauksena kuormanohjauksesta kuluttaja saa hinnanalennusta lämpöpumpun käytetystä energiasta. Tämä tarkoittaa, että energiamittari mittaa erikseen lämpöpumpun käyttämän energian. Myöskin aggregaattorina toimivan yrityksen suorittama ohjaus tapahtuu AMI-mittareiden kuormanohjausreleen kautta.\parencite{enwg, VDEARN4100}
+  Lämpöpumput ovat todennäköisesti käyttöpaikkansa suurimpia sähkönkäyttäjiä. Käyttäjän kannalta olisi edullista, mikäli lämpöpumpun käyttämä sähkö hinnoiteltaisiin muusta käytetystä sähköstä erillään. Saksalaisessa EVU-Sparre-järjestelmässä lämpöpumppu on sähköntoimittajan tai muun yrityksen ohjattavissa. Korvauksena kuormanohjauksesta kuluttaja saa hinnanalennusta lämpöpumpun käytetystä energiasta. Tämä tarkoittaa, että energiamittari mittaa erikseen lämpöpumpun käyttämän energian. Myöskin aggregaattorina toimivan yrityksen suorittama ohjaus tapahtuu AMI-mittareiden kuormanohjausreleen kautta. \parencite{enwg, VDEARN4100}
 
   Vastaavasti aurinkosähköinvertterin ohjaukseen releohjaus ei suoraan sovellu, sillä inverttereiden ohjaus tapahtuu usein monimutkaisemmalla kommunikaatiolla, kuin yksinkertaisella releellä. Sinällään tämä ei haittaa, sillä aurinkosähköjärjestelmän hyödyt etäohjauksen osalta ovat vähäiset; tavoitteena on kuitenkin saada tuotettua mahdollisimman paljon energiaa, ja tämän invertteri hoitaa automaattisesti.
 
