@@ -1,5 +1,0 @@
-Tässä kandidaatintyössä käsiteltyjen lämpöpumppu- ja aurinkosähköjärjestelmien merkitys sähköverkossa kasvaa niiden suosion noustessa.
-
-Kun sähkön tuotantoa kasvavissa määrin siirtyy aurinkosähköjärjestelmille, lisää se sähkön tuotannon vaihteluita ja vaikeuttaa tuotantomäärien ennustamista. Tämä osaltaan luo tarvetta säätövoimalle sähköenergiajärjestelmässä.
-
-Myös lämmitykseen ja jäähdytykseen käytettävien lämpöpumppujärjestelmien lisääntymisellä on vaikutusta sähköverkkoon. Lämpöpumppun korvatessa muita perinteisiä lämmitysmuotoja kuin suoraa sähkölämmmitystä, se yleensä kasvattaa käyttöpaikkansa energiankulutusta. Korvatessaa suoran sähkölämmityksen, lämpöpumppujärjestelmä todennäköisesti vähentää käyttöpaikan kokonaisenergiankulutusta, mutta vastavuoroisesti kasvattaa kulutettua huipputehoa.
