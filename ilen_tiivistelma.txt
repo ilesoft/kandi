@@ -1,8 +1,8 @@
-Tässä kandidaatintyössä käsitellään aurinkosähkö- ja lämpöpumppujärjestelmiä, sitä, kuinka niiden merkitys sähköverkossa kasvaa niiden suosion noustessa ja sitä, mitä niiden tarjoamat kommunikaatiorajapinnat mahdollistavat. Läpi käydään myös muutamia erilaisia standardien määrittelemiä kommunikaatiorajapintoja.
+Tässä kandidaatintyössä käsitellään aurinkosähkö- ja lämpöpumppujärjestelmiä, sitä, kuinka niiden merkitys sähköverkossa kasvaa niiden suosion noustessa ja sitä, mitä niiden tarjoamat kommunikaatiorajapinnat mahdollistavat. Läpi käydään myös muutamia erilaisia standardien määrittelemiä kommunikaatiorajapintoja. 
 
 Kun sähkön tuotantoa kasvavissa määrin siirtyy aurinkosähköjärjestelmille, lisää se sähkön tuotannon vaihteluita ja vaikeuttaa tuotantomäärien ennustamista. Tämä osaltaan luo tarvetta säätövoimalle ja kulutusjoustolle sähköenergiajärjestelmässä.
 
-Myös lämmitykseen ja jäähdytykseen käytettävien lämpöpumppujärjestelmien lisääntymisellä on vaikutusta sähköverkkoon. Lämpöpumppun korvatessa muita perinteisiä lämmitysmuotoja kuin suoraa sähkölämmmitystä, se yleensä kasvattaa käyttöpaikkansa energiankulutusta. Korvatessaa suoran sähkölämmityksen, lämpöpumppujärjestelmä todennäköisesti vähentää käyttöpaikan kokonaisenergiankulutusta, mutta vastavuoroisesti kasvattaa kulutettua huipputehoa.
+Myös lämmitykseen ja jäähdytykseen käytettävien lämpöpumppujärjestelmien lisääntymisellä on vaikutusta sähköverkkoon. Lämpöpumpun korvatessa muita perinteisiä lämmitysmuotoja kuin suoraa sähkölämmitystä, se yleensä kasvattaa käyttöpaikkansa energiankulutusta. Korvatessa suoran sähkölämmityksen, lämpöpumppujärjestelmä todennäköisesti vähentää käyttöpaikan kokonaisenergiankulutusta, mutta vastavuoroisesti kasvattaa kulutettua huipputehoa.
 
 Yksi keino vastata edellä mainittuihin haasteisiin on järjestelmien älykäs ohjaus. Järjestelmien ohjaus vaatii kommunikointia ja kommunikointi tapahtuu standardoitujen kommunikaatiorajapintojen lävitse erilaisilla protokollilla. Järjestelmien ohjaamisella voidaan mahdollistaa myös muita sovelluksia, liittyen esimerkiksi kotiautomaatioon.
 
