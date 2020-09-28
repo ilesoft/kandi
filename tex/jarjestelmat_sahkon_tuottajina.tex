@@ -1,7 +1,7 @@
 Aurinkosähköjärjestelmät koostuvat aurinkopaneeleista, aurinkoinverttereistä sekä mahdollisista energiavarastoista. Riippuen järjestelmästä, aurinkopaneeliketjuun tai yksittäisiin paneeleihin voidaan kytkeä myös DC/DC-muunnin. Tästä saadaan lisähyötyjä varjostustilanteissa tai epätasaisessa auringonpaisteessa.  Kuvassa 2.1 näkyy aurinkosähköjärjestelmän lohkokaavio, joka esittää verkkokytketyn järjestelmän komponentteja.
 \begin{figure}
   \centering
-  \includegraphics[width=0.75\textwidth]{figures/PV_system_components}
+  \includegraphics[width=0.75\textwidth]{figures/PV_system_components_1}
   \caption{Aurinkosähköjärjestelmän komponentit}
 \end{figure}
 
@@ -21,7 +21,7 @@ Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. 
   Aurinkokennojen ja -paneelien toimintakäyrinä käytetään usein virta--jännite-käyrää ja siitä johdettua teho--jännite (engl. P--V) -käyrää. \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{figures/pvcurve}
-    \caption{Esimerkki P--V-käyrästä}
+    \caption[Esimerkki P--V-käyrästä]{Esimerkki P--V-käyrästä. Perustuen lähteeseen \parencite{JASolar}}
   \end{figure} Kuten kuvasta 2.2 nähdään, P--V-käyrän huippukohdan sijainti vaihtelee valaisutehon mukaan. Tätä käyrän huippukohtaa kutsutaan huipputehopisteeksi (engl. maximum power point, MPP). Se näyttää jännitteen, jolla saavutetaan kennon tai paneelin huipputeho kullakin valaisuteholla.
 
   Piirillä, jossa on sarjaan kytkettyjä aurinkopaneeleita, on jokaisella paneelilla oma paikallinen huipputehopisteensä (engl. MPP - Maximum Power Point), mutta myös koko piirillä on yhteinen globaali huipputehopiste. Globaali huipputehopiste muuttuu varjostusten ja pilvisyyden mukaan koko järjestelmän tasolla ja sitä tarkkailemalla saadaan selville, millä jännitteellä koko järjestelmästä saadaan suurin teho.
@@ -55,18 +55,22 @@ Lähes kaikki verkon käyttöpaikat ovat verkonhaltijan sähkömittarin takana. 
 
   Mikroinverttereiltä saadaan hyvin paljon tietoa, koska inverttereiden määrä järjestelmässä on suuri. Tällöin saadaan reaaliaikaisesti kuva järjestelmän toimivuudesta, ja pienetkin virhetilat voidaan korjata niiden ilmentyessä. Toisaalta inverttereiden määrä aiheuttaa haasteita tiedon koostamisessa ja tiedonsiirrossa, koska tieto ei ole välttämättä keskitetysti yhdessä paikassa sellaisenaan, vaan voi vaatia ylimääräisiä komponentteja tiedon keräämiseen.
 
-  Kuluttajapuolen ratkaisuissa tiedonhallinta on usein toteutettu verkkokäyttöliittymällä, jolloin jokainen invertteri on liitetty erilliseen laitteeseen, joka lähettää tiedot valmistajan omaan järjestelmään tiedon koontia varten. Tästä esimerkkinä Enphasen Envoy ja Envertechin EnverBridge, jotka kommunikoivat valmistajan mikroinverttereiden kanssa PLC-väylän kautta. Sen jälkeen laite lähettää tiedot verkkoportaaliin, josta käyttäjä voi seurata paneelien tuotantoa ja järjestelmän toimivuutta.
+  Kuluttajapuolen ratkaisuissa tiedonhallinta on usein toteutettu verkkokäyttöliittymällä, jolloin jokainen invertteri on liitetty erilliseen laitteeseen, joka lähettää tiedot valmistajan omaan järjestelmään tiedon koontia varten. Tästä esimerkkinä Enphasen Envoy ja Envertechin EnverBridge, jotka kommunikoivat valmistajan mikroinverttereiden kanssa PLC-väylän kautta. Sen jälkeen laite lähettää tiedot verkkoportaaliin, josta käyttäjä voi seurata paneelien tuotantoa ja järjestelmän toimivuutta. \parencite{Enphase, Envertech}
 
 \subsection{Ketjuinvertteri}
   Ketjuinvertteriin kytketään nimensä mukaisesti sarjaan kytketyistä paneeleista muodostettuja ketjuja. Siinä on usein monta huipputehopisteen seurannan kytkentää, jolloin saadaan seurattua useita huipputehopisteitä invertteriä kohden. Invertterien teho vaihtelee muutamasta kilowatista jopa satoihin kilowatteihin, jolloin sitä voidaan käyttää hyvin erikokoisissa järjestelmissä.
 
   Teholuokaltaan pienet ketjuinvertterit on suunniteltu käyttäjäystävällisyyshuomioiden, ja esimerkiksi SMA:n ja Huawein invertterit sisältävät integraation valmistajien taustajärjestelmiin. SMA on toteuttanut tämän integraation valmiina laitteelle, kun taas osa Huawein inverttereistä vaatii sovittimen Ethernet-portin, WLAN:in tai matkapuhelinverkon käyttämiseen datasiirrossa.
 
-  SMA:n invertterit käyttävät lisäksi SunSpec Alliancen Modbus-standardia, joka toimii Ethernet-portin välityksellä. Muut standardia hyödyntävät valmistajat voivat kommunikoida suoraan SMAn inverttereiden kanssa standardoinnin takia. Huawei käyttää myös Modbus-protokollaa, mutta se ei ole SunSpec Alliancen standardoima. Tämä tarkoittaa, että Huawein kanssa kommunikoitaessa sille on räätälöitävä ohjelmistoa datan lukemiseksi.
+  SMA:n invertterit käyttävät lisäksi SunSpec Alliancen Modbus-standardia, joka toimii Ethernet-portin välityksellä. Muut standardia hyödyntävät valmistajat voivat kommunikoida suoraan SMAn inverttereiden kanssa standardoinnin takia. Huawei käyttää myös Modbus-protokollaa, mutta se ei ole SunSpec Alliancen standardoima. Tämä tarkoittaa, että Huawein kanssa kommunikoitaessa sille on räätälöitävä ohjelmistoa datan lukemiseksi. \parencite{SMAManual, Huawei}
 
   Modbusin hyödyntäminen mahdollistaa muiden valmistajien tuotteiden kommunikaation inverttereiden kanssa. Yhteinen standardi helpottaa suurissa järjestelmissä eri valmistajien tuotteiden yhteensopivuuden kanssa, mutta ylipäätään Modbusin käyttö antaa mahdollisuuden kolmannen osapuolen tuotteiden liittämiseen.
 
 \section{Järjestelmien tuotto-ominaisuudet}
-  Aurinkosähköjärjestelmät ovat sähköntuottajina teholtaan nopeasti muuttuvia. Niiden tuoton ennustaminen on jokseenkin mahdollista päivätasolla, mutta tuntitason ennustaminen on jo haastavaa. Nykyisellä keskitettyyn sähköntuotantoon rakennetulla verkolla tämä aiheuttaa kuormitusta ja lisää säätövoiman tarvetta huomattavasti, mikäli aurinkosähkön tuotannon osuus kokonaistuotannosta kasvaa suureksi.
+  Aurinkosähköjärjestelmät ovat sähköntuottajina teholtaan nopeasti muuttuvia. Niiden tuoton ennustaminen on jokseenkin mahdollista päivätasolla, mutta tuntitehon ennustaminen on jo haastavaa sääennusteesta riippuen. Toisaalta kun tuotannon määrä verkossa kasvaa, eri sijainnissa olevat järjestelmät tasaavat näitä tuotannon vaihteluita ja suuressa kuvassa niiden kokonaistuotantokäyrä "pehmenee". Tätä on tutkittu tuulivoiman osalta, joka sähköntuottajana on aurinkosähkön kanssa samankaltainen. \parencite{FluctuationIssues}
+  
+  Nykyisellä keskitettyyn sähköntuotantoon rakennetulla verkolla aurinkosähköjärjestelmät tuovat haasteita, sillä pientuotantoa lisätessä johtolähtöjen jännitetasot nousevat ja verkon suojaustoimintoja voidaan joutua päivittämään. Esimerkiksi mikrotuotanto voi aiheuttaa vikavirtasuojauksen virhelaukaisun, mikäli tuotanto on lähellä muuntajan kiskoa ja se alkaa syöttämään läheisen lähdön vikatilanteessa vikavirtaa kiskoa kohta. Tällöin terveessä lähdössä tapahtuu virhelaukaisu. \parencite{Mikrotuotanto}
+  
+  Aurinkosähkön osuuden kasvaminen sähköntuotannossa lisää säätövoiman tarvetta. Päivän aikana nettotehonmuutos on suuri, kun aurinkosähköjärjestelmät alkavat tuottaa sähköä samalla, kun kysyntä laskee ihmisten lähtiessä töihin. Vastaavasti sama tapahtuu illasta kun ihmiset palaavat töistä ja järjestelmän tuottoteho laskee. Tätä ilmiötä kuvaa niin sanottu "duck"-käyrä, joka nähdään kuvassa 2.3. Se kuvaa säädettävän energiatuotannon keskimääräistä hetkellistä tuotantotehoa vuorokauden aikana. \parencite{duckCurve}
 
   Säätövoiman tarvetta voidaan helpottaa energiavarastojen avulla, jolloin energiantuotantoa voidaan "jatkaa" muutama tunti myöhemmäksi, jolloin myös hitaammin reagoivia voimalaitoksia voidaan hyödyntää paremmin säätövoimana. Energiavarastot tasaavat myös aurinkosähkön tuotannon ailahtelevuutta ja tuovat mahdollisuuden ohjata tuotantoa suuremman kysynnän ajalle.

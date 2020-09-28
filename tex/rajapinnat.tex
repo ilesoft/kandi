@@ -10,14 +10,14 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
   Vuonna 2004 Schneider Electric siirsi standardin hallinnan voittoa tavoittelemattomalle Modbus-järjestölle\footnote{Modbus Organization, Inc}. Järjestön muodostavat automaatiolaitteita valmistavat yritykset ja yksittäiset henkilöt. Sen tehtäviin kuuluu ylläpitää ja kehittää Modbus-standardia ja siihen liittyviä dokumentteja sekä toimia etujärjestönä edistäen Modbusin käyttöä. Modbusiin liittyvien dokumenttien ja julkaisujen avulla edistetään eri valmistajien järjestelmien välistä kommunikaatiota ja helpotetaan niiden integraatioita toisiinsa. \parencite{modbusOrg}
 
-  \subsection{viestintä ja tietomalli}
+  \subsection{Viestintä ja tietomalli}
 
   Modbus-protokollan toiminta perustuu palvelinlaitteella sijaitsevien muistialueiden lukemiseen ja kirjoittamiseen kuvassa \ref{fig:c_s} kuvatun asiakas--palvelin-mallin (client--server model, ennen tunnettu termillä master--slave model) mukaan.  Lukemalla tietoja asiakaslaite kykenee seuraamaan palvelinlaitteen tilaa ja kirjoittamalla ohjaamaan sen toimintaa. Tietojen lukeminen ja kirjoittaminen tapahtuu protokollan määrittämien kysely, vastaus- ja virheviestien perusteella. \parencite{modbusAppSpec}
 
   \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{figures/client_server}
-    \caption[asiakas--palvelin-malli]{Asiakas--palvelin-malli.  Perustuen lähteeseen \parencite{modbusAppSpec}}
+    \caption[Asiakas--palvelin-malli]{Asiakas--palvelin-malli.  Perustuen lähteeseen \parencite{modbusAppSpec}}
     \label{fig:c_s}
   \end{figure}
 
@@ -61,7 +61,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
     \gls{PDU}:n alun muodostaa funktiokoodi, joka on joko Modbus-protokollan tai käyttäjän määrittämä funktio. PDU:n loppuosa koostuu mahdollisesta datasta, jota palvelin tarvitsee suorittaakseen halutun toiminnon. Vastaus-PDU:hun tulee sama funktiokoodi kuin kysely-PDU:hun. Mikäli palvelin päätyy virhetilanteeseen, joko virheellisen kysely-PDU:n tai sisäisen virheen takia, vastaa se asiakkaalle poikkeus-PDU:lla, joka muodostuu funktiokoodista, johon on liitetty heksakoodi 0x80, ja poikkeuskoodista. parencite{modbusAppSpec} Funktiokoodeista käytetyimmät liittyvät yksittäisten muistipaikkojen lukemiseen ja kirjoittamiseen \parencite{DincerRosen}. Lista yleisistä funktio- ja poikkeuskoodeista löytyy liitteestä \ref{app:modbus_funktio_koodit}.
 
 
-  \subsection{protokollan rakenne}
+  \subsection{Protokollan rakenne}
 
     Modbus-protokollasta on toteutettu muutamia eri versioita:
     \begin{itemize}
