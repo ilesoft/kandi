@@ -12,7 +12,7 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
   Mikäli Fingridin voimajohtoon liitettävä voimalaitos on yli \SI{1}{\mega\watt}:n tehoinen, se on varustettava eroonkytkentäreleistyksellä. Yli \SI{5}{\mega\watt}:n tehoinen voimalaitos vaatii lisäksi eroonkytkennän viestiyhteyden pikajälleenkytkentöjen toiminnan varmistamiseksi. Jos taas voimalaitos liittyy suoraan tai Fingridin asiakkaan verkon kautta kantaverkon kytkinkenttään, ei eroonkytkentäreleistystä vaadita. Tahattoman saarekekäytön estäminen on joissain inverttereissä integroituna, jolloin ne tarkkailevat verkon tilaa ja huomattuaan saarekkeen muodostumisen, kytkeytyvät irti. Tällöin alle \SI{5}{\mega\watt}:n järjestelmät eivät tarvitse erillisiä laitteistoja eroonkytkentään, vaan invertteri toteuttaa itsessään jo tämän vaatimuksen.
 
-  Yli \SI{10}{\mega\watt}:n järjestelmien kohdalla Fingridin kantaverkkokeskus voi tarvittaessa pyytää järjestelmän käytöstä vastaavaa toimijaa muuttamaan pätö- tai loistehosäädön asetteluarvoja voimalaitosteknologian asettamissa rajoissa \parencite{VJV2018}. Fingrid ei täten ota kantaa siihen, miten tämä säätäminen tapahtuu. Fingridin tarpeet järjestelmien rajapinnoista rajoittuvat siten erityistilanteissa järjestelmän alasajoon tai sen tehonsäätöön käytöstä vastaavan toimijan kautta.
+  Yli \SI{10}{\mega\watt}:n järjestelmien kohdalla Fingridin Kantaverkkokeskus tai liittymispisteen verkonhaltija voi tarvittaessa pyytää järjestelmän käytöstä vastaavaa toimijaa muuttamaan pätö- tai loistehosäädön asetteluarvoja voimalaitosteknologian asettamissa rajoissa \parencite{VJV2018}. Fingrid ei täten ota kantaa siihen, miten tämä säätäminen tapahtuu. Fingridin tarpeet järjestelmien rajapinnoista rajoittuvat siten erityistilanteissa järjestelmän alasajoon tai sen tehonsäätöön käytöstä vastaavan toimijan kautta.
 
 \section{Verkonhaltija}
 
@@ -26,17 +26,21 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
   Järjestelmän omistajan eli usein käyttäjän suorittama järjestelmän monitorointi voidaan toteuttaa muutamilla eri tavoilla. Monitorointi ja ohjaus toteutetaan usein fyysisen käyttöliittymän avulla ja mikäli nämä toiminnallisuudet halutaan myös etänä, on käyttöliittymä helposti tuotavissa laitevalmistajan tarjoamaan pilvipalveluun tai mobiilisovellukseen. Mikäli valmistaja ei kuitenkaan tarjoa etämonitorointiin sovelluksia, on sellainen usein mahdollista tehdä itse, mikäli osaaminen riittää aiheeseen.
 
+  Ongelma järjestelmän monitoroinnissa voi olla pilvipalveluiden tai mobiilisovellusten määrä, mikäli monitorointi ei tapahdu keskitetysti. Tällöin järjestelmän hallinnasta tulee loppukäyttäjälle hankalaa, jos hän joutuu tarkkailemaan montaa eri palvelua saadakseen selville järjestelmän kokonaistilan.
+
   Omistaja voi olla kiinnostunut myös erilaisista energiaa säästävistä ohjaustoiminnoista, hyvä esimerkki tästä on "poissa kotoa"{} \texttt{-}toiminto, jolla saadaan lämpötilaa laskettua, mikäli kiinteistö on tyhjillään pidemmän aikaa. Tämä luonnollisesti laskee myös lämmityskustannuksia.
 
 \section{Kiinteistö}
-  Kiinteistö voidaan ajatella yhtenä sidosryhmänä, joka on hyvin sidoksissa järjestelmän omistajaan.  Tämä johtuu sitä, että omistaja voi ohjata kiinteistöautomaation kautta muitakin laitteita, kuin vain lämpöpumppua tai aurinkosähköjärjestelmää. Tällöin järjestelmä voi säädellä automaattisesti kiinteistön energiatasapainoa, tai siirtää varaavan lämmityksen kulutus halvemmille tunneille.
+  Kiinteistö voidaan ajatella yhtenä sidosryhmänä, joka on hyvin sidoksissa järjestelmän omistajaan.  Tämä johtuu sitä, että omistaja voi ohjata kiinteistöautomaation kautta muitakin laitteita, kuin vain lämpöpumppua tai aurinkosähköjärjestelmää. Tällöin järjestelmä voi säädellä automaattisesti kiinteistön energiatasapainoa tai siirtää varaavan lämmityksen varaaminen halvemmille tunneille.
 
   Kiinteistöautomaation avulla lämpöpumpun käyntijaksojen aiheuttamaa kiinteistön kuormitusta voidaan kompensoida aurinkosähköinvertterin avulla ja näin vähentää sähkönsiirron kustannuksia sekä parantaa jännitteen laatua heikoissa sähköverkoissa. Automaatiolla voidaan ajoittaa lämpöpumppujen kuormittavin jakso aurinkosähkön tuotantoaikaan, jolloin kiinteistön ottama kuorma verkosta pienenee. Tällä on kiinteistön energiakustannusten kannalta merkitystä erityisesti, jos käytössä on tehotariffi. Tällainen automaatio voi parhaassa tapauksessa mahdollistaa tehotariffissa määritellyn huipputehon pienentämisen kausittain.
 
 
 \section{Järjestelmätoimittaja}
 
-  Lämpöpumppujärjestelmän tai aurinkosähköjärjestelmän toimittaja voi hyödyntää lämpöpumpun rajapintoja huoltopalveluiden tarjontaan ja diaknostiikkaan. Seuraamalla järjestelmän toimintaa toimittaja voi ennustaa ja tilata tarvittavia huoltoja tai korjauksia, jolloin järjestelmän käyttövarmuus paranee. Tämä tuo käyttäjälle lisäarvoa ja säästöjä sekä huolettomuutta, toimittaja taas voi myydä tämän lisäpalveluna asiakkaalle. Esimerkiksi kuluttajan ei tarvitse käyttää aikaa vikojen selvittämiseen tai huoltojen tilaamiseen. Vastaavasti toimittajan/huoltoyrityksen turhat vierailut vähenevät, kun järjestelmän virhetilanteita voidaan selvittää ja nollata etähallintaa hyödyntäen. Toimittajan suorittamaa diagnostiikkaa voidaan käyttää myös tuotekehityksen apuna tai luotaessa parempia ennustemalleja sähkön kulutuksesta.
+  Lämpöpumppujärjestelmän tai aurinkosähköjärjestelmän toimittaja voi hyödyntää järjestelmän rajapintoja huoltopalveluiden tarjoamiseen ja diagnostiikkaan. Seuraamalla järjestelmän toimintaa toimittaja voi ennustaa ja tilata tarvittavia huoltoja tai korjauksia, jolloin järjestelmän käyttövarmuus paranee. Tämä tuo käyttäjälle lisäarvoa ja säästöjä sekä huolettomuutta, toimittaja taas voi myydä tämän lisäpalveluna asiakkaalle. 
+  
+  Kuluttajan ei esimerkiksi tarvitse käyttää aikaa vikojen selvittämiseen tai huoltojen tilaamiseen. Vastaavasti toimittajan/huoltoyrityksen turhat vierailut vähenevät, kun järjestelmän virhetilanteita voidaan selvittää ja nollata etähallintaa hyödyntäen. Toimittajan suorittamaa diagnostiikkaa voidaan käyttää myös tuotekehityksen apuna tai luodessa parempia ennustemalleja sähkön kulutuksesta.
 
 \section{Aggregaattori}
 
@@ -46,6 +50,8 @@ Luonnollisesti eri sidosryhmät ovat kiinnostuneet erilaisiin käyttötarkoituks
 
   Vastaavasti aurinkosähköinvertterin ohjaukseen releohjaus ei suoraan sovellu, sillä inverttereiden ohjaus tapahtuu usein monimutkaisemmalla kommunikaatiolla, kuin yksinkertaisella releellä. Sinällään tämä ei haittaa, sillä aurinkosähköjärjestelmän hyödyt etäohjauksen osalta ovat vähäiset; tavoitteena on kuitenkin saada tuotettua mahdollisimman paljon energiaa, ja tämän invertteri hoitaa automaattisesti.
 
-  Mikäli invertterit pystyvät tuottamaan loistehoa pätötehon tuotannosta riippumatta, voi aggregaattori olla kiinnostunut ohjaamaan niitä virtuaalivoimalan tavoin isommissa ryhmissä. Nykyisillä ratkaisuilla tämä ei kuitenkaan ole vielä mahdollista. Esimerkiksi standardoitu rajapinta pilvipalveluintegraatioihin eri valmistajien välillä voisi mahdollistaa tämän.
+  Mikäli invertterit pystyvät tuottamaan loistehoa pätötehon tuotannosta riippumatta, voi aggregaattori olla kiinnostunut ohjaamaan niitä virtuaalivoimalan tavoin isommissa ryhmissä. Nykyisillä ratkaisuilla tämä ei kuitenkaan ole vielä mahdollista. Esimerkiksi standardoitu rajapinta pilvipalveluintegraatioihin eri valmistajien välillä voisi mahdollistaa tämän, mutta ensin pitäisi varmistaa, soveltuvatko valmistajien pilvipalvelut tähän tarkoitukseen esimerkiksi tietoturvan ja käyttövarmuuden näkökulmasta.
 
-  Aggregaattori voi myös tulevaisuudessa mahdollisesti ohjata akullisia järjestelmiä virtuaalivoimalan tavoin. Tällöin on sovittava raja-arvot, millaisilla varaustasoilla aggregaattori voi säätää energiavarastoa. Tämäkään ei tosin onnistu releohjauksella, ellei valmistajat sovi yhdessä standardoitua tapaa ohjaukselle.
+  Aggregaattori voi myös tulevaisuudessa mahdollisesti ohjata akullisia järjestelmiä virtuaalivoimalan tavoin. Tällöin on sovittava raja-arvot, millaisilla varaustasoilla aggregaattori voi säätää energiavarastoa. 
+  
+  Älymittareiden hyödyntäminen näihin edellä mainittuihin tarkoituksiin on tällä hetkellä haastavaa, sillä asennetuissa mittareissa ei ole muita ohjausrajapintoja kuin releohjaukset. Tulevaisuudessa mittareihin mahdollisesti tulee muitakin rajapintoja, mutta todennäköisempää on se, että aggregaattori ohjaa erillisen kiinteistöautomaation kautta kuormia. Tällöin älymittareiden käyttövarmuus ei heikenny monimutkaisten toimintojen lisääntyessä, sillä kiinteistöautomaatio sisältää monimutkaisemman kommunikaation laitteiden kanssa ja älymittari voi keskittyä mittaustiedon toimittamiseen.
