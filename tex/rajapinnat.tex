@@ -6,62 +6,11 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
 \section{Modbus}
 
-  Modbus on automaatiossa käytetty palvelin--asiakas-mallin viestintäprotokolla. Sen on alun perin kehittänyt vuonna 1979 yritys nimeltään Modicon käytettäväksi valmistamiensa ohjelmoitavien logiikoiden eli \Gls{plc}:den väliseen viestintään. Nykyisin Modicon on osa ranskalaista Schneider Electriciä. Koska standardi on julkaistu avoimesti kaikkien käytettäväksi ja se on verrattain yksinkertainen, on se saavuttanut johtavan aseman teollisuudessa. Yleisimmille ohjelmointikielille on saatavilla Modbus-standardin toteuttavat kirjastot, joiden avulla voidaan ohjelmallisesti ohjata laitteita. Laajan levinneisyyden ansiosta Modbus soveltuu monien eri valmistajien laitteiden järjestelmien kanssa käytettäväksi. Teollisuuden lisäksi protokollaa käytetään myös talo- ja kiinteistöautomaatiossa. \mbox{\parencite{sousaPortugal, modbusAppSpec, modbusOrg}}
+  Modbus on automaatiossa käytetty palvelin--asiakas-mallin viestintäprotokolla. Sen on alun perin kehittänyt vuonna 1979 yritys nimeltään Modicon käytettäväksi valmistamiensa ohjelmoitavien logiikoiden eli \Gls{plc}:den väliseen viestintään. Nykyisin Modicon on osa ranskalaista Schneider Electriciä. Koska standardi on julkaistu avoimesti kaikkien käytettäväksi ja on verrattain yksinkertainen, on se saavuttanut johtavan aseman teollisuudessa. Yleisimmille ohjelmointikielille on saatavilla Modbus-standardin toteuttavat kirjastot, joiden avulla voidaan ohjelmallisesti ohjata laitteita. Laajan levinneisyyden ansiosta Modbus soveltuu monien eri valmistajien laitteiden järjestelmien kanssa käytettäväksi. Teollisuuden lisäksi protokollaa käytetään myös talo- ja kiinteistöautomaatiossa. \mbox{\parencite{sousaPortugal, modbusAppSpec, modbusOrg}}
 
   Vuonna 2004 Schneider Electric siirsi standardin hallinnan voittoa tavoittelemattomalle Modbus-järjestölle\footnote{Modbus Organization, Inc}. Järjestön muodostavat automaatiolaitteita valmistavat yritykset ja yksittäiset henkilöt. Sen tehtäviin kuuluu ylläpitää ja kehittää Modbus-standardia ja siihen liittyviä dokumentteja sekä toimia etujärjestönä edistäen Modbusin käyttöä. Modbusiin liittyvien dokumenttien ja julkaisujen avulla edistetään eri valmistajien järjestelmien välistä kommunikaatiota ja helpotetaan niiden integraatioita toisiinsa. \parencite{modbusOrg}
 
-  \subsection{Viestintä ja tietomalli}
-
-  Modbus-protokollan toiminta perustuu palvelinlaitteella sijaitsevien muistialueiden lukemiseen ja kirjoittamiseen kuvassa \ref{fig:c_s} kuvatun asiakas--palvelin-mallin (client--server model, ennen tunnettu termillä master--slave model) mukaan.  Lukemalla tietoja asiakaslaite kykenee seuraamaan palvelinlaitteen tilaa ja kirjoittamalla ohjaamaan sen toimintaa. Tietojen lukeminen ja kirjoittaminen tapahtuu protokollan määrittämien kysely, vastaus- ja virheviestien perusteella. \parencite{modbusAppSpec}
-
-  \begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{figures/client_server}
-    \caption[Asiakas--palvelin-malli]{Asiakas--palvelin-malli.  Perustuen lähteeseen \parencite{modbusAppSpec}}
-    \label{fig:c_s}
-  \end{figure}
-
-  Modbus-verkko muodostuu yhdestä asiakkaasta, ja yhdestä tai useammasta palvelimesta. Palvelimet yksilöidään kokonaislukuosoitteella väliltä 1--247, mikä rajoittaa samaan verkkoon kytkettyjen latteiden määrää.  Protokolla rajoittaa kommunikointia niin, että kyselyitä lähettää vain asiakaslaite palvelinlaitteiden ainoastaan vastatessa niille osoitettuihin kyselyihin. \parencite{modbusSerialSpec} Tästä johtuen palvelinlaitteen eivät kykene itsenäisesti raportoimaan mahdollisesta virhetilanteesta tai tapahtumasta, vaan asiakaslaitteiden on jatkuvasti tehtävä kyselyitä pysyäkseen ajan tasalla. Tämä Modbusin ominaisuus vähentää sen käyttökelpoisuutta, varsinkin, mikäli kommunikointiresurssit ovat rajalliset.
-
-  Modbus-protokolla määrittelee lähetettäville kyselyille kaksi eri muotoa: täsmälähetys (unicast) ja monilähetys (multicast). Täsmälähetys osoitetaan tietylle palvelimelle ja vastaanotettuaan sen palvelin toimii sen mukaisesti. Monilähetys taas lähetetään osoitteella~0, jolloin kaikki palvelimet reagoivat kyselyyn. \parencite{modbusSerialSpec} Kerrallaan vain yksi laite verkossa voi toimia asiakkaana muiden toimiessa palvelimina. Tästä huolimatta yksittäinen laite voi kuitenkin toimia sekä palvelimena, että asiakkaana, kunhan tämä tapahtuu erillisissä verkoissa. \parencite{DincerRosen}
-
-  Modbus-protokollan tietomalli koostuu palvelinlaitteella sijaitsevista muistialueista, jotka on jaettu taulukoihin. Pääasialliset neljä muistialuetaulukkoa on kuvattu taulukossa \ref{taulukot}. Taulukoiden nimeäminen suomen kielellä on haastavaa, joten se jätetään tekemättä.
-  \begin{table}[h]
-    \centering
-    \caption[Modbus muistialuetaulukot.]{Modbus muistialuetaulukot. Perustuu lähteeseen \parencite{modbusAppSpec}.}
-    \begin{tabular}{|l|l|l|}
-      \hline
-      \rowcolor{gray} taulukon tyyppi         & datatyyppi      & asiakkaan oikeudet  \\ \hline
-      \cellcolor{lightgray}Discretes Input    & 1 bitti          & vain luku           \\ \hline
-      \cellcolor{lightgray}Coils              & 1 bitti          & luku/kirjoitus      \\ \hline
-      \cellcolor{lightgray}Input Registers    & 16-bittinen sana & vain luku           \\ \hline
-      \cellcolor{lightgray}Holding Registers  & 16-bittinen sana & luku/kirjoitus      \\ \hline
-    \end{tabular}
-    \label{taulukot}
-  \end{table}
-  1-bittisiä muistipaikkoja voidaan käyttää esimerkiksi päälläolotietojen välittämiseen, kun taas kahden tavun mittaisia muistipaikkoja voidaan käyttää esimerkiksi mitattujen arvojen ilmoittamiseen. Protokolla ei kuitenkaan määritä miten muistipaikkoja kuuluu käyttää, vaan tämä jätetään sovelluksen tekijän päätettäväksi. Kussakin taulukossa on 65536 erillistä osoitetta, joihin dataa voi tallentaa. Datan käsittely tapahtuu joko yksittäisen osoitteen perusteella tai sitten useampi perättäinen osoite kerrallaan. \parencite{modbusAppSpec}
-
-  \subsection{Protocol data unit}
-
-    Laitteissa toimivien sovellusten väliseen tiedonsiirtoon käytetään \gls{PDU}:ta (Protocol Data Unit), joka koostuu funktiokoodista ja operaatioon tarvittavasta datasta. \gls{PDU}:ita on kolmenlaisia, ja ne on esitetty taulukossa \ref{pdu}.
-    \begin{table}[h]
-      \centering
-      \caption[\gls{PDU}-tyypit.]{\gls{PDU}-tyypit. Perustuu lähteeseen \parencite{modbusAppSpec}.}
-      \begin{tabular}{ccl}
-      \cline{1-2}
-      \multicolumn{1}{|c|}{\cellcolor[HTML]{5CB735}Funktiokoodi (F)}                & \multicolumn{1}{c|}{\cellcolor[HTML]{5CB735}Kyselyn data}    & Kysely-PDU   \\ \cline{1-2}
-                                                                                    &                                                              &              \\ \cline{1-2}
-      \multicolumn{1}{|c|}{\cellcolor[HTML]{5CB735}Funktiokoodi (F)}                & \multicolumn{1}{c|}{\cellcolor[HTML]{5CB735}Vastauksen data} & Vastaus-PDU  \\ \cline{1-2}
-                                                                                    &                                                              &              \\ \cline{1-2}
-      \multicolumn{1}{|c|}{\cellcolor[HTML]{D78989}Poikkeusfunktiokoodi (F + 0x80)} & \multicolumn{1}{c|}{\cellcolor[HTML]{D78989}Poikkeuskoodi}   & Poikkeus-PDU \\ \cline{1-2}
-    \end{tabular}
-      \label{pdu}
-    \end{table}
-
-    \gls{PDU}:n alun muodostaa funktiokoodi, joka on joko Modbus-protokollan tai käyttäjän määrittämä funktio. PDU:n loppuosa koostuu mahdollisesta datasta, jota palvelin tarvitsee suorittaakseen halutun toiminnon. Vastaus-PDU:hun tulee sama funktiokoodi kuin kysely-PDU:hun. Mikäli palvelin päätyy virhetilanteeseen, joko virheellisen kysely-PDU:n tai sisäisen virheen takia, vastaa se asiakkaalle poikkeus-PDU:lla, joka muodostuu funktiokoodista, johon on liitetty heksakoodi 0x80, ja poikkeuskoodista. \parencite{modbusAppSpec} Funktiokoodeista käytetyimmät liittyvät yksittäisten muistipaikkojen lukemiseen ja kirjoittamiseen \parencite{DincerRosen}. Lista yleisistä funktio- ja poikkeuskoodeista löytyy liitteestä \ref{app:modbus_funktio_koodit}.
-
-
-  \subsection{Protokollan rakenne}
+  \subsection{Protokollan rakenne}\label{sec:rakenne}
 
     Modbus-protokollasta on toteutettu muutamia eri versioita:
     \begin{itemize}
@@ -76,7 +25,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
     \end{itemize}
     Edellisistä Modbus Plus on Schneider Electricin hallinnoima, eikä se ole avoimesti saatavilla. Modbus Plus on oma Modbusista eroava standardinsa, jota ei tässä käsitellä enempää. \parencite{seCom}
 
-    Taulukossa \ref{rakenne} on Modbus-protokollaperhettä verrattu \gls{OSI}-malliin. Modbus-protokollan ylempi kerros, eli \gls{MBAP} sijoittuu \gls{OSI}-mallissa kerroseen 7, eli sovelluskerrokseen. \gls{MBAP}:n toimintaa on esitelty edellisessä kappaleissa. Sarjaväyläversiossa alempi kerros sijoittuu \gls{OSI}-mallissa kerrokseen 2 ja Modbus TCP/IP:n tapauksessa kerrokseen 5\footnote{\gls{OSI}-mallin teoreettisesta luonteesta johtuen tästä voinee esittää eroavia mielipiteitä.}.
+    Taulukossa \ref{rakenne} on Modbus-protokollaperhettä verrattu \gls{OSI}-malliin. Modbus-protokollan ylempi kerros, eli \gls{MBAP} sijoittuu \gls{OSI}-mallissa kerroseen 7, eli sovelluskerrokseen. Sarjaväyläversiossa alempi kerros sijoittuu \gls{OSI}-mallissa kerrokseen 2 ja Modbus TCP/IP:n tapauksessa kerrokseen 5\footnote{\gls{OSI}-mallin teoreettisesta luonteesta johtuen tästä voinee esittää eroavia mielipiteitä.}.
     \begin{table}
       \centering
       \caption[Modbus-protokollan rakenne, \gls{OSI}-malli ja SunSpec]{Modbus-protokolla ja  SunSpec Modbus suhteutettuna \gls{OSI}-malliin. Modbus-protokollaperhe sinisellä ja Sunspec Modbus keltaisella. Perustuu lähteisiin \parencite{osi, modbusSerialSpec, modbusTCPIPSpec, SSTech}.}
@@ -95,7 +44,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       \label{rakenne}
     \end{table}
 
-    \gls{MBAP} on kaikille Modbus-versioille yhteinen ja se mahdollistaa viestinnän laitteiden kesken erilaisten verkkojen ylitse. Välitettävät funktiokoodit ja data pakataan \gls{MBAP}:n toimesta PDU:ksi. Alemmassa kerroksessa muodostetaan \gls{ADU}(application data unit), joka sisältää PDU:n lisäksi kohdelaitteen osoitteen ja tarkistussumman tai jos kyseessä on Modbus-TCP, \gls{MBAP}-otsikon. Erilaiset ADU:t on esitelty kuvassa \ref{fig:adu}.
+    Modbus-viestintäprotokolla \gls{MBAP} (Modbus Application Protocol) on kaikille Modbus-versioille yhteinen ja se mahdollistaa viestinnän laitteiden kesken erilaisten verkkojen ylitse. Välitettävät funktiokoodit ja data pakataan \gls{MBAP}:n toimesta \gls{PDU}:ksi (Protocol Data Unit), josta kerrotaan tarkemmin aliluvussa \ref{sec:pdu}. Alemmassa kerroksessa muodostetaan \gls{ADU} (Application Data Unit), joka sisältää PDU:n lisäksi kohdelaitteen osoitteen ja tarkistussumman tai jos kyseessä on Modbus-TCP, \gls{MBAP}-otsikon. Erilaiset ADU:t on esitelty kuvassa \ref{fig:adu}.
     \begin{figure}[h]
       \centering
       \includegraphics[width=1\textwidth]{figures/adu}
@@ -106,6 +55,58 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
     Sarjaväylän yli toimivassa Modbusissa ADU siirretään käyttäen RS-485-standardia noudattavaa väylää tai RS-232-väylää pitkin. Oletuksena Modbus-standardi kehottaa laitevalmistajia toteuttamaan ainakin RS-485-rajapinnan, RS-232-rajapinnan ollessa vapaaehtoinen. Modbus \gls{RTU} siirtää datan suoraan bitteinä. Modbus \gls{ASCII}:ssa taas jokainen tavu koodataan kahdeksi heksadesimaalimerkiksi ennen lähetystä, mikä heikentää sen tiedonsiirtokykyä. Modbus-standardi edellyttää, että kaikki laitteet tukevat ainakin Modbus RTU:ta Modbus ASCII:n ollessa suositeltu. \parencite{modbusSerialSpec}
 
     Modbus TCP/IP:tä käytettäessä Modbus-liikenne voi kulkea normaalin Internet-liikenteen mukana, mikä tekee siitä hyvin joustavan ratkaisun. TCP-portti 502 on varattu Modbus-sovelluksille. \parencite{modbusTCPIPSpec} Koska ADU:t lähetetään TCP-kehyksessä, niihin ei tarvitse laskea eikä lisätä tarkistussummaa. TCP-protokolla huolehtii paketin (kehys + ADU) perille pääsystä ja mahdollisista uudelleenlähetyksistä. Tietosuojasta voidaan huolehtia käyttämällä kommunikointiin \gls{VPN}-yhteyttä. Toinen turvallisuutta parantava keino on käyttää kommunikointiin MODBUS/TCP Security -standardin mukaista TLS-salausta, jolloin liikenne kohdistetaan TCP-porttiin 802 \parencite{modbusTCPIPTLSSpec}.
+
+  \subsection{Viestintä ja tietomalli}
+
+  Modbus-protokollan toiminta perustuu palvelinlaitteella sijaitsevien muistialueiden lukemiseen ja kirjoittamiseen kuvassa \ref{fig:c_s} kuvatun asiakas--palvelin-mallin (client--server model, ennen tunnettu termillä master--slave model) mukaan.  Lukemalla tietoja asiakaslaite kykenee seuraamaan palvelinlaitteen tilaa ja kirjoittamalla ohjaamaan sen toimintaa. Tietojen lukeminen ja kirjoittaminen tapahtuu protokollan määrittämien kysely, vastaus- ja virheviestien perusteella. \parencite{modbusAppSpec}
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/client_server}
+    \caption[Asiakas--palvelin-malli]{Asiakas--palvelin-malli.  Perustuen lähteeseen \parencite{modbusAppSpec}}
+    \label{fig:c_s}
+  \end{figure}
+
+  Modbus-verkko muodostuu asiakkaista (Modbus TCP/IP: tapauksessa mahdollisesti useammasta ja sarjaväyläversion tapauksessa yhdestä), ja yhdestä tai useammasta palvelimesta. Verkon palvelimet yksilöidään sarjaväyläversiossa kokonaislukuosoitteilla väliltä 1--247 ja TCP/IP-versiossa IP-osoitteilla.  Protokolla rajoittaa kommunikointia niin, että kyselyitä lähettää vain asiakaslaite palvelinlaitteiden ainoastaan vastatessa niille osoitettuihin kyselyihin. TCP/IP-versiossa laite voi kuitenkin toimia samanaikaisesti sekä palvelimena että asiakkaana. \parencite{modbusSerialSpec, modbusTCPIPSpec} Myös sarjaväyläversiossa laite voi toimia sekä palvelimena että asiakkaana, kunhan tämä tapahtuu eri verkkojen suuntiin. \parencite{DincerRosen} Tästä johtuen sarjaväylällä yhdistyneet palvelinlaitteen eivät kykene itsenäisesti raportoimaan mahdollisesta virhetilanteesta tai tapahtumasta, vaan asiakaslaitteiden on jatkuvasti tehtävä kyselyitä pysyäkseen ajan tasalla. Tämä ominaisuus vähentää Modbusin sarjaväyläversion käyttökelpoisuutta, varsinkin, mikäli kommunikointiresurssit ovat rajalliset.
+
+  Modbus-protokolla määrittelee lähetettäville kyselyille kaksi eri muotoa: täsmälähetys (unicast) ja monilähetys (multicast). Täsmälähetys osoitetaan tietylle palvelimelle ja vastaanotettuaan sen palvelin toimii sen mukaisesti. Sarjaväyläversiossa on käytössä myös monilähetys, joka lähetetään osoitteella~0, jolloin kaikki palvelimet reagoivat kyselyyn. \parencite{modbusSerialSpec}
+
+  Modbus-protokollan tietomalli koostuu palvelinlaitteella sijaitsevista muistialueista, jotka on jaettu taulukoihin. Pääasialliset neljä muistialuetaulukkoa on kuvattu taulukossa \ref{taulukot}. Taulukoiden nimeäminen suomen kielellä on haastavaa, joten se jätetään tekemättä.
+  \begin{table}[h]
+    \centering
+    \caption[Modbus muistialuetaulukot.]{Modbus muistialuetaulukot. Perustuu lähteeseen \parencite{modbusAppSpec}.}
+    \begin{tabular}{|l|l|l|}
+      \hline
+      \rowcolor{gray} taulukon tyyppi         & datatyyppi      & asiakkaan oikeudet  \\ \hline
+      \cellcolor{lightgray}Discretes Input    & 1 bitti          & vain luku           \\ \hline
+      \cellcolor{lightgray}Coils              & 1 bitti          & luku/kirjoitus      \\ \hline
+      \cellcolor{lightgray}Input Registers    & 16-bittinen sana & vain luku           \\ \hline
+      \cellcolor{lightgray}Holding Registers  & 16-bittinen sana & luku/kirjoitus      \\ \hline
+    \end{tabular}
+    \label{taulukot}
+  \end{table}
+  1-bittisiä muistipaikkoja voidaan käyttää esimerkiksi päälläolotietojen välittämiseen, kun taas kahden tavun mittaisia muistipaikkoja voidaan käyttää esimerkiksi mitattujen arvojen ilmoittamiseen. Protokolla ei kuitenkaan määritä miten muistipaikkoja kuuluu käyttää, vaan tämä jätetään sovelluksen tekijän päätettäväksi. Kussakin taulukossa on 65536 erillistä osoitetta, joihin dataa voi tallentaa. Datan käsittely tapahtuu joko yksittäisen osoitteen perusteella tai sitten useampi perättäinen osoite kerrallaan. \parencite{modbusAppSpec}
+
+  \subsection{Protocol Data Unit}\label{sec:pdu}
+
+    Laitteissa toimivien sovellusten väliseen tiedonsiirtoon käytetään \gls{PDU}:ta , joka koostuu funktiokoodista ja operaatioon tarvittavasta datasta. \gls{PDU}:ita on kolmenlaisia, ja ne on esitetty taulukossa \ref{pdu}.
+    \begin{table}[h]
+      \centering
+      \caption[\gls{PDU}-tyypit.]{\gls{PDU}-tyypit. Perustuu lähteeseen \parencite{modbusAppSpec}.}
+      \begin{tabular}{ccl}
+      \cline{1-2}
+      \multicolumn{1}{|c|}{\cellcolor[HTML]{5CB735}Funktiokoodi (F)}                & \multicolumn{1}{c|}{\cellcolor[HTML]{5CB735}Kyselyn data}    & Kysely-PDU   \\ \cline{1-2}
+                                                                                    &                                                              &              \\ \cline{1-2}
+      \multicolumn{1}{|c|}{\cellcolor[HTML]{5CB735}Funktiokoodi (F)}                & \multicolumn{1}{c|}{\cellcolor[HTML]{5CB735}Vastauksen data} & Vastaus-PDU  \\ \cline{1-2}
+                                                                                    &                                                              &              \\ \cline{1-2}
+      \multicolumn{1}{|c|}{\cellcolor[HTML]{D78989}Poikkeusfunktiokoodi (F + 0x80)} & \multicolumn{1}{c|}{\cellcolor[HTML]{D78989}Poikkeuskoodi}   & Poikkeus-PDU \\ \cline{1-2}
+    \end{tabular}
+      \label{pdu}
+    \end{table}
+
+    \gls{PDU}:n alun muodostaa funktiokoodi, joka on joko Modbus-protokollan tai käyttäjän määrittämä funktio. PDU:n loppuosa koostuu mahdollisesta datasta, jota palvelin tarvitsee suorittaakseen halutun toiminnon. Vastaus-PDU:hun tulee sama funktiokoodi kuin kysely-PDU:hun. Mikäli palvelin päätyy virhetilanteeseen, joko virheellisen kysely-PDU:n tai sisäisen virheen takia, vastaa se asiakkaalle poikkeus-PDU:lla, joka muodostuu funktiokoodista, johon on liitetty heksakoodi 0x80, ja poikkeuskoodista. \parencite{modbusAppSpec} Funktiokoodeista käytetyimmät liittyvät yksittäisten muistipaikkojen lukemiseen ja kirjoittamiseen \parencite{DincerRosen}. Lista yleisistä funktio- ja poikkeuskoodeista löytyy liitteestä \ref{app:modbus_funktio_koodit}.
+
+
 
 \section{IEC 61850}
   \gls{IEC} 61850 on sähköaseman älykkäiden sähkölaitteiden kommunikaatioprotokollia määrittävä standardi. Se on laajasti käytössä sähköasemien tiedonvaihdossa ja sähkönjakelun automaatiossa. Sen laajennukset tähtäävät kuitenkin myös laajempaan käyttöön, sillä standardissa on määritelty myös esimerkiksi hajautetun energiantuotannon tietomalleja. Standardi määrittelee myös inverttereiden erilaisia toiminnallisuuksia, esimerkiksi:
@@ -150,7 +151,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
 \section{Smart Grid -ready}
 
-  Bundesverband Wärmepumpe e.V. (jäljempänä BWP) on saksalainen lämpöpuppuyhdistys, joka ylläpitää lämpöpumppujen ohjaukseen käytettävää rajapintaa määrittävää \gls{SG}-Ready-merkintää (\gls{SG} Ready label). \gls{SG}-Ready määrittelee pumpulle neljä eri toimintatilaa, joiden perusteella ulkoinen toimija kykenee ohjaamaan lämpöpumpun toimintaa. Toimintatilat yksi ja kaksi ovat yhteensopivia Saksassa käytetyn muun muassa lämpöpumppuihin kohdistetun energiantoimittajien suorittaman ohjauksen (EVU-Sperre\footnote{Energieversorgungsunternehmen Sperre}) kanssa.\parencite{SGReadyReg} Ohjattava lämpöpumppu voidaan kytkeä energiatoimittajan toimesta pois päältä enimmillään kahdeksi tunniksi kerrallaan. Yhteen vuorokauteen taas voi sijoittua enintään kolme keskeytystä, jotka on pyritään sijoittamaan suurimman kulutuksen hetkiin. Kun kuluttajan tekee sähkösopimuksen, johon ohjaus kuuluu, saa hän vastavuoroisesti alennusta energian hinnasta. \parencite{enwg, VDEARN4100}
+  Bundesverband Wärmepumpe e.V. (jäljempänä BWP) on saksalainen lämpöpuppuyhdistys, joka ylläpitää lämpöpumppujen ohjaukseen käytettävää rajapintaa määrittävää \gls{SG}-Ready-merkintää (\gls{SG} Ready label). \gls{SG}-Ready määrittelee pumpulle neljä eri toimintatilaa, joiden perusteella ulkoinen toimija kykenee ohjaamaan lämpöpumpun toimintaa. Toimintatilat yksi ja kaksi ovat yhteensopivia Saksassa käytetyn muun muassa lämpöpumppuihin kohdistetun sähköverkonhaltijan (usein puhutaan energiantoimittajasta) suorittaman ohjauksen (EVU-Sperre\footnote{Energieversorgungsunternehmen Sperre}) kanssa.\parencite{SGReadyReg} EVU-Sperre järjestelmässä ohjattava lämpöpumppu voidaan kytkeä verkonhaltijan toimesta pois päältä enimmillään kahdeksi tunniksi kerrallaan. Yhteen vuorokauteen taas voi sijoittua enintään kolme keskeytystä, jotka pyritään sijoittamaan suurimman kulutuksen hetkiin. Kun kuluttajalla on käytössään erillinen energiamittari ohjattavan lämpöpumpun käyttämälle sähkölle, voi hän vastavuoroisesti tehdä lämpöpumpputariffien mukaisia siirto- ja energiasopimuksia. \parencite{enwg, VDEARN4100}
 
   SG-Readyn  kolmas ja neljäs toimintatila ovat sopivia ylituotannon kompensointiin niiden lisätessä lämpöpumppujen sähkönkulutusta. Eri toimintatilat on eritelty taulukossa \ref{sgready}.
   \begin{table}[h]
@@ -162,7 +163,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       1 & 1 0 & Lämpöpumppu on kytkettynä pois päältä. Enintään kaksi tuntia kerrallaan enintään kolme kertaa vuorokaudessa \\\hline
       2 & 0 0 & Normaali toimintatila. Varaudutaan mahdolliseen kahden tunnin pysäytykseen. \\\hline
       3 & 0 1 & Suositeltu päälläolo. \\ \hline
-      4 & 1 1 & Pakotettu päälläolo. Mahdollisesti myös lisävastuksen pakotettu päälläolo. \\\hline
+      4 & 1 1 & Kompressorin ja mahdollisesti myös lisävastuksen pakotettu päälläolo varaajan maksimilämpötilaan saakka. \\\hline
     \end{tabular}
     \label{sgready}
   \end{table}
