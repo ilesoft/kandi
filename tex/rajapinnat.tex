@@ -1,4 +1,4 @@
-Rajapinnat mahdollistavat tiedonvaihdon eri järjestelmien ja toimijoiden välillä. Ne voivat olla standardissa määriteltyjä, eri abstraktiotasoille ja osittain toistensa päälle rakentuvia, tai hyvin suljettuja laitteen valmistajan kehittämiä. Lisäksi yhtenä rajapintana lämpöpumpuille ja aurinkoinverttereille voidaan ajatella AMI-mittareita.
+Rajapinnat mahdollistavat tiedonvaihdon eri järjestelmien ja toimijoiden välillä. Ne voivat olla standardissa määriteltyjä, eri abstraktiotasoille ja osittain toistensa päälle rakentuvia, tai hyvin suljettuja laitteen valmistajan kehittämiä. Lisäksi yhtenä rajapintana lämpöpumpuille ja aurinkosähköinverttereille voidaan ajatella AMI-mittareita.
 
 Valmistajan tarjoamat pilvipalvelut toimivat rajapintana järjestelmän etähallintaan ja\linebreak -monitorointiin omistajalle. Myös valmistaja itse voi hyödyntää tätä rajapintaa esimerkiksi selvittämällä etänä laitteistovikaa tai keräämällä tilastoja järjestelmän toimivuudesta. Teknisesti ajatellen pilvipalvelu on kuitenkin standardoimaton, valmistajan itse kehittämä, joten tekninen toteutus on piilotettu. Tämän vuoksi tässä kappaleessa ei perehdytä tarkemmin pilvipalveluun, vaan se esitellään vain yleisesti.
 
@@ -6,7 +6,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
 \section{Modbus}
 
-  Modbus on automaatiossa käytetty palvelin--asiakas-mallin viestintäprotokolla. Sen on alun perin kehittänyt vuonna 1979 yritys nimeltään Modicon käytettäväksi valmistamiensa ohjelmoitavien logiikoiden eli \Gls{plc}:den väliseen viestintään. Nykyisin Modicon on osa ranskalaista Schneider Electriciä. Koska standardi on julkaistu avoimesti kaikkien käytettäväksi ja on verrattain yksinkertainen, on se saavuttanut johtavan aseman teollisuudessa. Yleisimmille ohjelmointikielille on saatavilla Modbus-standardin toteuttavat kirjastot, joiden avulla voidaan ohjelmallisesti ohjata laitteita. Laajan levinneisyyden ansiosta Modbus soveltuu monien eri valmistajien laitteiden järjestelmien kanssa käytettäväksi. Teollisuuden lisäksi protokollaa käytetään myös talo- ja kiinteistöautomaatiossa. \mbox{\parencite{sousaPortugal, modbusAppSpec, modbusOrg}}
+  Modbus on automaatiossa käytetty palvelin--asiakasmallin viestintäprotokolla. Sen on alun perin kehittänyt vuonna 1979 yritys nimeltään Modicon käytettäväksi valmistamiensa ohjelmoitavien logiikoiden eli \Gls{plc}:den väliseen viestintään. Nykyisin Modicon on osa ranskalaista Schneider Electriciä. Koska standardi on julkaistu avoimesti kaikkien käytettäväksi ja on verrattain yksinkertainen, on se saavuttanut johtavan aseman teollisuudessa. Yleisimmille ohjelmointikielille on saatavilla Modbus-standardin toteuttavat kirjastot, joiden avulla voidaan ohjelmallisesti ohjata laitteita. Laajan levinneisyyden ansiosta Modbus soveltuu monien eri valmistajien laitteiden järjestelmien kanssa käytettäväksi. Teollisuuden lisäksi protokollaa käytetään myös talo- ja kiinteistöautomaatiossa. \mbox{\parencite{sousaPortugal, modbusAppSpec, modbusOrg}}
 
   Vuonna 2004 Schneider Electric siirsi standardin hallinnan voittoa tavoittelemattomalle Modbus-järjestölle\footnote{Modbus Organization, Inc}. Järjestön muodostavat automaatiolaitteita valmistavat yritykset ja yksittäiset henkilöt. Sen tehtäviin kuuluu ylläpitää ja kehittää Modbus-standardia ja siihen liittyviä dokumentteja sekä toimia etujärjestönä edistäen Modbusin käyttöä. Modbusiin liittyvien dokumenttien ja julkaisujen avulla edistetään eri valmistajien järjestelmien välistä kommunikaatiota ja helpotetaan niiden integraatioita toisiinsa. \parencite{modbusOrg}
 
@@ -25,7 +25,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
     \end{itemize}
     Edellisistä Modbus Plus on Schneider Electricin hallinnoima, eikä se ole avoimesti saatavilla. Modbus Plus on oma Modbusista eroava standardinsa, jota ei tässä käsitellä enempää. \parencite{seCom}
 
-    Taulukossa \ref{rakenne} on Modbus-protokollaperhettä verrattu \gls{OSI}-malliin. Modbus-protokollan ylempi kerros, eli \gls{MBAP} sijoittuu \gls{OSI}-mallissa kerroseen 7, eli sovelluskerrokseen. Sarjaväyläversiossa alempi kerros sijoittuu \gls{OSI}-mallissa kerrokseen 2 ja Modbus TCP/IP:n tapauksessa kerrokseen 5\footnote{\gls{OSI}-mallin teoreettisesta luonteesta johtuen tästä voinee esittää eroavia mielipiteitä.}.
+    Taulukossa \ref{rakenne} on Modbus-protokollaperhettä verrattu \gls{OSI}-malliin. Modbus-protokollan ylempi kerros, eli \gls{MBAP} sijoittuu \gls{OSI}-mallissa kerrokseen 7, eli sovelluskerrokseen. Sarjaväyläversiossa alempi kerros sijoittuu \gls{OSI}-mallissa kerrokseen 2 ja Modbus TCP/IP:n tapauksessa kerrokseen 5\footnote{\gls{OSI}-mallin teoreettisesta luonteesta johtuen tästä voinee esittää eroavia mielipiteitä.}.
     \begin{table}
       \centering
       \caption[Modbus-protokollan rakenne, \gls{OSI}-malli ja SunSpec]{Modbus-protokolla ja  SunSpec Modbus suhteutettuna \gls{OSI}-malliin. Modbus-protokollaperhe sinisellä ja Sunspec Modbus keltaisella. Perustuu lähteisiin \parencite{osi, modbusSerialSpec, modbusTCPIPSpec, SSTech}.}
@@ -58,7 +58,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
   \subsection{Viestintä ja tietomalli}
 
-  Modbus-protokollan toiminta perustuu palvelinlaitteella sijaitsevien muistialueiden lukemiseen ja kirjoittamiseen kuvassa \ref{fig:c_s} kuvatun asiakas--palvelin-mallin (client--server model, ennen tunnettu termillä master--slave model) mukaan.  Lukemalla tietoja asiakaslaite kykenee seuraamaan palvelinlaitteen tilaa ja kirjoittamalla ohjaamaan sen toimintaa. Tietojen lukeminen ja kirjoittaminen tapahtuu protokollan määrittämien kysely, vastaus- ja virheviestien perusteella. \parencite{modbusAppSpec}
+  Modbus-protokollan toiminta perustuu palvelinlaitteella sijaitsevien muistialueiden lukemiseen ja kirjoittamiseen kuvassa \ref{fig:c_s} kuvatun asiakas--palvelinmallin (client--server model, ennen tunnettu termillä master--slave model) mukaan.  Lukemalla tietoja asiakaslaite kykenee seuraamaan palvelinlaitteen tilaa ja kirjoittamalla ohjaamaan sen toimintaa. Tietojen lukeminen ja kirjoittaminen tapahtuu protokollan määrittämien kysely, vastaus- ja virheviestien perusteella. \parencite{modbusAppSpec}
 
   \begin{figure}[h]
     \centering
@@ -89,7 +89,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
   \subsection{Protocol Data Unit}\label{sec:pdu}
 
-    Laitteissa toimivien sovellusten väliseen tiedonsiirtoon käytetään \gls{PDU}:ta , joka koostuu funktiokoodista ja operaatioon tarvittavasta datasta. \gls{PDU}:ita on kolmenlaisia, ja ne on esitetty taulukossa \ref{pdu}.
+    Laitteissa toimivien sovellusten väliseen tiedonsiirtoon käytetään \gls{PDU}:ta, joka koostuu funktiokoodista ja operaatioon tarvittavasta datasta. \gls{PDU}:ita on kolmenlaisia, ja ne on esitetty taulukossa \ref{pdu}.
     \begin{table}[h]
       \centering
       \caption[\gls{PDU}-tyypit.]{\gls{PDU}-tyypit. Perustuu lähteeseen \parencite{modbusAppSpec}.}
@@ -134,7 +134,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
   SunSpec Modbusin määrittelemät tietomallit ovat käytössä myös muilla protokollilla, kuten \gls{HTTP}/\gls{XML}:lla ja \gls{OPC}:lla \parencite{SSTech}. Koska lähes kaikki tieto SunSpecin standardista perustuu Modbus-protokollaan, muiden tiedonsiirtoprotokollien tarkastelu jätettiin pois. Tiedon puute johtuu mitä luultavimmin Modbusin hallitsevasta asemasta inverttereissä.
 
-  SunSpec-protokollan yleisyys selvisi sähköpostikeskustelussa aurinkosähköjärjestelmiä Suomessa asentavan yrityksen kanssa. Solarigo Oy on asentanut järjestelmiä teholtaan noin sadasta kilowatista jopa 5,9 megawattiin. Se on käyttänyt viiden eri valmistajan aurinkoinverttereitä eri projekteissa, mutta useimmissa niistä ei ole tarvittu etä- tai paikallista ohjausta. Mikäli paikallista ohjausta on käytetty, kommunikaatio on toteutettu lähes poikkeuksetta RS-485 väylän kautta ja kaikissa tapauksissa SunSpecin protokollaan perustuen. Vaikka valmistajat ovat dokumentoineet, miten protokollalla ohjataan niiden laitteita, käytännön kokemus on osoittanut että kuitenkaan kaikki ominaisuudet eivät ole toimineet kuten ne on määritelty. \parencite{Solarigo}
+  SunSpec-protokollan yleisyys selvisi sähköpostikeskustelussa aurinkosähköjärjestelmiä Suomessa asentavan yrityksen kanssa. Solarigo Oy on asentanut järjestelmiä teholtaan noin sadasta kilowatista jopa 5,9 megawattiin. Se on käyttänyt viiden eri valmistajan aurinkoinverttereitä eri projekteissa, mutta useimmissa niistä ei ole tarvittu etä- tai paikallista ohjausta. Mikäli paikallista ohjausta on käytetty, kommunikaatio on toteutettu lähes poikkeuksetta RS-485 väylän kautta ja kaikissa tapauksissa SunSpecin protokollaan perustuen. Vaikka valmistajat ovat dokumentoineet, miten protokollalla ohjataan niiden laitteita, käytännön kokemus on osoittanut, että kuitenkaan kaikki ominaisuudet eivät ole toimineet kuten ne on määritelty. \parencite{Solarigo}
 
 
 \section{IEEE 1815 / Distributed Network Protocol 3}
@@ -146,7 +146,7 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
 
   Vuonna 2013 IEEE julkaisi dokumentin, joka auttaa verkonhaltijoita kommunikoimaan hajautetun energiantuotannon kanssa. Tämä dokumentti kuvaa standardoidun rajapinnan datalle ja joukon protokollapalveluita ja profiileja. Dokumentin kuvaamien profiilien tarkoitus on helpottaa hajautetun energiantuotannon liittämistä DNP3 järjestelmiin. Vuonna 2018 dokumenttia päivitettiin siten, että se lisäksi sisältää toiminnallisten ominaisuuden määrittelyt protokollalle, sekä linkityksen IEC-61850-7-420 tietomallin kanssa. Näiden uudistusten myötä DNP3 protokollaa voidaan käyttää älyinverttereiden ohjaukseen samalla tavalla kuin SunSpeciä tai IEC 61850-standardia, mutta myös käyttää näitä kolmea protokollaa rinnakkain toistensa kanssa. \parencite{DNP3Inv, DNP3AppNote}
 
-  Vaikka DNP3 on standardoitu myös ohjaamaan aurinkoinverttereitä, valmistajat eivät ole ottaneet sitä käyttöön, ainakaan vielä. Sen toiminta on varmistettu tutkimuksissa, joissa on tehty testilaitteisto eri ohjaustoimintojen varmistamiseksi, mutta kaupallisista inverttereistä ei ole löytynyt mainintaa DNP3:n käytöstä. \parencite{DNP3Inv}
+  Vaikka DNP3 on standardoitu myös ohjaamaan aurinkosähköinverttereitä, valmistajat eivät ole ottaneet sitä käyttöön, ainakaan vielä. Sen toiminta on varmistettu tutkimuksissa, joissa on tehty testilaitteisto eri ohjaustoimintojen varmistamiseksi, mutta kaupallisista inverttereistä ei ole löytynyt mainintaa DNP3:n käytöstä. \parencite{DNP3Inv}
 
 
 \section{Smart Grid -ready}
@@ -162,8 +162,8 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
       \rowcolor{lightgray} toimintatila & looginen kytkentä & kuvaus \\\hline
       1 & 1 0 & Lämpöpumppu on kytkettynä pois päältä. Enintään kaksi tuntia kerrallaan enintään kolme kertaa vuorokaudessa \\\hline
       2 & 0 0 & Normaali toimintatila. Varaudutaan mahdolliseen kahden tunnin pysäytykseen. \\\hline
-      3 & 0 1 & Suositeltu päälläolo. \\ \hline
-      4 & 1 1 & Kompressorin ja mahdollisesti myös lisävastuksen pakotettu päälläolo varaajan maksimilämpötilaan saakka. \\\hline
+      3 & 0 1 & Suositeltu päällä olo. \\ \hline
+      4 & 1 1 & Kompressorin ja mahdollisesti myös lisävastuksen pakotettu päällä olo varaajan maksimilämpötilaan saakka. \\\hline
     \end{tabular}
     \label{sgready}
   \end{table}
@@ -172,10 +172,10 @@ Kaikkein matalimman abstraktiotason rajapintoja eli fyysisiä liitäntöjä tai 
   SG-Ready on korkean abstraktiotason rajapinta, joka tarjoaa keinoja ohjausrajapintojen yhtenäistämiseen. Alemman tason kommunikointi, johon siis SG-Ready ei ota kantaa, pitää määritellä ja toteuttaa erikseen. Yksi alemman tason kommunikoinnissa yleisesti käytettävä standardi on Modbus-viestintäprotokolla.
 
 \section{AMI-mittari}
-  Verkonhaltijan omistamat sähkönkäyttöpaikkojen AMI-mittarit voivat toimia rajapintana lämpöpumpuille, ja tulevaisuudessa ehkä myös aurinkosähköjärjestelmille. Nykyään mittareissa tulee olla kuormanohjausrele, jota voidaan käyttää esimerkiksi 2-tariffiohjausta varten, jolloin lämmitys voidaan aktivoida yötariffin alkaessa ja lämmitys tapahtuu halvemmalla hinnalla \parencite{mittariAsetus}. Osassa mittareita on myös toinen ohjausrele jota voidaan hyödyntää tehonpudotukseen \parencite{kysJousto}. Lisäksi Suomessa noin 60\%:ssa sähkönkäyttöpaikoista on etäkatkaisu- ja kytkentäominaisuus, jolla voidaan katkaista sähköt koko sähkönkäyttöpaikasta. \parencite{AMRNykytila}
+  Verkonhaltijan omistamat sähkönkäyttöpaikkojen AMI-mittarit voivat toimia rajapintana lämpöpumpuille, ja tulevaisuudessa ehkä myös aurinkosähköjärjestelmille. Nykyään mittareissa tulee olla kuormanohjausrele, jota voidaan käyttää esimerkiksi 2-tariffiohjausta varten, jolloin lämmitys voidaan aktivoida yötariffin alkaessa ja lämmitys tapahtuu halvemmalla hinnalla \parencite{mittariAsetus}. Osassa mittareita on myös toinen ohjausrele, jota voidaan hyödyntää tehonpudotukseen \parencite{kysJousto}. Lisäksi Suomessa noin 60\%:ssa sähkönkäyttöpaikoista on etäkatkaisu- ja kytkentäominaisuus, jolla voidaan katkaista sähköt koko sähkönkäyttöpaikasta. \parencite{AMRNykytila}
 
   Jo asennetuissa mittareissa voi olla luentarajapinta hetkelliselle kulutukselle, mutta se rajoittuu usein vain pulssilähdöksi \parencite{Aidon5510}. Esimerkiksi suomalaisen mittarivalmistaja Aidonin uudemmissa mittareissa on mahdollista lukea dataa \gls{HAN}-rajapinnasta, joka toimii M-bus-protokollan välityksellä käyttäen fyysisellä kerroksella \gls{8P8C}-liitintä. Rajapinnasta voi lukea esimerkiksi virta- ja jännitetietoja sekä tehotietoja verkosta mittarin suuntaan ja mittarista verkon suuntaan. \parencite{HAN, NVEHAN} Tätä voidaan hyödyntää kiinteistöautomaatiossa mittaritietona, jolloin asiakas voi kuluttaa kaiken tuottamansa energian sen verkkoon syöttämisen sijaan.
 
   AMI-mittaria voidaan tulevaisuudessa hyödyntää akullisissa aurinkosähköjärjestelmissä kuormanohjaukseen. Seuraavan sukupolven mittareihin voitaisiin lähettää tieto sähkön hinnasta, jolloin sähkönsyöttöä voidaan vaihtaa verkon ja energianvaraston välillä korkean hinnan aikaan. Älykäs mittarinluentajärjestelmä voi myös hyödyntää historiatietoja ja sääennustusta optimoidessa sähkövaraston käyttöä. Tällöin energiavarastoa voitaisiin varata yöllä halvemman sähkönhinnan aikaan, mutta varaaminen kuitenkin pääsääntöisesti tapahtuisi aurinkovoimalalla. \parencite{AMRNykytila}
 
-  Keskeinen syy mittarien yksinkertaisiin kuormanohjauksiin on mittarin luotettavuus, sillä monimutkaisemmassa mittarissa on useampi hajoava komponentti. Myöskin mittareiden elinkaari on suhteellisen pitkä, 10--15 vuotta. Lisäksi verkonhaltijan saamat hyödyt ylimääräisistä rajapinnoista eivät ole suuret, ja uusien toiminnallisuuksien kehitys myöhäistäisi edelleen seuraavan sukupolven mittareiden asennusta. Lähtökohtaisesti tietoturvan ja kustannusten kannalta kannattavampaa onkin tarjota vain rajapinta mittarilta saatavalle tiedolle, kuten mittaukselle ja esimerkiksi energian hinnalle. Tällöin kiinteistöautomaatio voi hyödyntää näitä tietoja, ja siten hoitaa paikallisesti energiatasapainon optimointia.
+  Keskeinen syy mittarien yksinkertaisiin kuormanohjauksiin on mittarin luotettavuus, sillä monimutkaisemmassa mittarissa on useampi hajoava komponentti. Mittareiden elinkaari on myös suhteellisen pitkä, 10--15 vuotta. Lisäksi verkonhaltijan saamat hyödyt ylimääräisistä rajapinnoista eivät ole suuret, ja uusien toiminnallisuuksien kehitys myöhäistäisi edelleen seuraavan sukupolven mittareiden asennusta. Lähtökohtaisesti tietoturvan ja kustannusten kannalta kannattavampaa onkin tarjota vain rajapinta mittarilta saatavalle tiedolle, kuten mittaukselle ja esimerkiksi energian hinnalle. Tällöin kiinteistöautomaatio voi hyödyntää näitä tietoja, ja siten hoitaa paikallisesti energiatasapainon optimointia.
