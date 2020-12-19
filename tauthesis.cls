@@ -37,9 +37,6 @@
 %%%%% PACKAGES AND RELATED DEFINITIONS %%%%%
 
 
-% ISO-19005 compliant document (pdf/A-1b)
-% Requires sRGB_IEC61966-2-1_black_scaled.icc
-%\RequirePackage[a-1b,mathxmp]{pdfx}
 
 
 % UTF-8 input
@@ -139,8 +136,13 @@
 \RequirePackage[table,xcdraw]{xcolor}
 \definecolor{taupurple}{RGB}{78,0,148}
 
+% Tama ontaalla sopivuussyistaw
+% ISO-19005 compliant document (pdf/A-1b)
+% Requires sRGB_IEC61966-2-1_black_scaled.icc
+\RequirePackage[a-1b,mathxmp]{pdfx}
+
 % Date and time handling
-\RequirePackage[en-GB,finnish]{datetime2}
+\RequirePackage[finnish]{datetime2}
 \DTMlangsetup[en-GB,finnish]{showdayofmonth=false}
 
 % Smart bibliography handling
