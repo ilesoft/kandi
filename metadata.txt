@@ -1,0 +1,9 @@
+InfoBegin
+InfoKey: Title
+InfoValue: L&#228;mp&#246;pumppujen ja aurinkos&#228;hk&#246;j&#228;rjestelmien kommunikaatiorajapinnat ja niiden hy&#246;dynt&#228;mismahdollisuudet
+InfoBegin
+InfoKey: Author
+InfoValue: Ilmari Marttila ja Niko Kangasniemi
+InfoBegin
+InfoKey: Keywords
+InfoValue: Aurinkos&#228;hk&#246;, l&#228;mp&#246;pumppu, rajapinta, Modbus, SunSpec, SG-Ready, kysynt&#228;jous- to, et&#228;ohjaus, aggregointi
