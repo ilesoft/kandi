@@ -5,9 +5,10 @@ do
     inkscape -E ${file%.svg}.eps $file
 done
 
+mkdir -p build
 
-pdflatex main.tex
-makeindex -s main.ist -t main.glg -o main.gls main.glo
-biber main
-pdflatex main.tex
-pdflatex main.tex
+pdflatex -output-directory build main.tex
+makeindex -s build/main.ist -t build/main.glg -o build/main.gls build/main.glo
+biber --output-directory build main
+pdflatex -output-directory build main.tex
+pdflatex -output-directory build main.tex
