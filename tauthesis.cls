@@ -14,7 +14,11 @@
 % This work has the LPPL maintenance status `maintained'.
 %
 % The Current Maintainer of this work is
+%   Ilmari and Niko
+%
+% This latex template was initially made by
 %   Ville Koljonen (ville.koljonen (at) tuni.fi)
+%   and it has been modified a lot.
 %
 % This work consists of the files tauthesis.cls.
 
